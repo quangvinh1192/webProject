@@ -1,0 +1,28 @@
+18:43:59.049 INFO - Selenium build info: version: '3.4.0', revision: 'unknown'
+18:43:59.050 INFO - Launching a standalone Selenium Server
+2017-05-14 18:43:59.081:INFO::main: Logging initialized @319ms to org.seleniumhq.jetty9.util.log.StdErrLog
+18:43:59.174 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+ registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
+18:43:59.174 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+ registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
+18:43:59.174 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+18:43:59.174 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+Unable to create new instances on this machine.
+18:43:59.174 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+18:43:59.174 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+2017-05-14 18:43:59.248:INFO:osjs.Server:main: jetty-9.4.3.v20170317
+2017-05-14 18:43:59.294:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@4c70fda8{/,null,AVAILABLE}
+2017-05-14 18:43:59.327:INFO:osjs.AbstractConnector:main: Started ServerConnector@204f30ec{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-14 18:43:59.328:INFO:osjs.Server:main: Started @566ms
+18:43:59.328 INFO - Selenium Server is up and running
+18:43:59.940 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
+18:43:59.982 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+18:44:00.089 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.29.461585 (0be2cd95f834e9ee7c46bcc7cf405b483f5ae83b) on port 21223
+Only local connections are allowed.
+18:44:03.045 INFO - Detected dialect: OSS
+18:44:03.068 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+18:44:03.089 INFO - Executing: [get: https://fubar-master.herokuapp.com/#overview])
+18:44:04.283 INFO - Done: [get: https://fubar-master.herokuapp.com/#overview]
+18:44:04.290 INFO - Executing: [delete session: b5b38ada-57ee-4c41-b8a0-45abef370457])
+18:44:04.368 INFO - Done: [delete session: b5b38ada-57ee-4c41-b8a0-45abef370457]
