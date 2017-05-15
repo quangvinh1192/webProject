@@ -1,1 +1,2 @@
-public/javascripts/*.js
+public/javascripts/bootstrap.js
+public/javascripts/bootstrap.min.js
