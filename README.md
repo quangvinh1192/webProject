@@ -2,7 +2,7 @@
 
 First Run
 ----------------------------
-1. Setup Account with [mLab](https://mlab.com/)
+1. Setup account with [mLab](https://mlab.com/)
 2. Copy mongoDB access point into app.js:
 
         $ var mongoURI = process.env.MONGOLAB_URI || 'YOUR MONGODB CONNECTION ON mLAB';
