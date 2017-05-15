@@ -1,0 +1,9 @@
+# Lint Script
+# Author: Charly Xie
+
+jshint public/javascripts
+result=$?
+
+if [[ $result -eq 0 ]]; then
+  echo "lint is successful"
+fi

@@ -1,0 +1,4 @@
+# Jsdoc Script
+# Author: Charly Xie
+
+jsdoc -d public/documentation public/javascripts/*.js
