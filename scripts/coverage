@@ -4,5 +4,6 @@
 
 echo ----------------PRODUCING COVERAGES--------------------------
 cd test/unit
-../../istanbul cover *.js
+npm install
+istanbul cover *.js
 mv coverage ../../public
