@@ -1,4 +1,4 @@
 # Jsdoc Script
 # Author: Charly Xie
 
-jsdoc -d public/documentation public/javascripts/*.js
+./node_modules/.bin/jsdoc -d public/documentation public/javascripts/*.js
