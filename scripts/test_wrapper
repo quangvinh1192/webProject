@@ -1,0 +1,13 @@
+#!/bin/bash
+# Testing wrapper script
+# Author: Charly Xie
+
+#unit tests
+echo ----------------TESTING UNIT TESTS START-----------------------
+node-qunit-phantomjs test/unit/runner.html
+unitresult=$?
+echo ----------------TESTING UNIT TESTS END-----------------------
+
+if [[ $unitresult -ne 0 ]]; then
+	exit 1;
+fi
