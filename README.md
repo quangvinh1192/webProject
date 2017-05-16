@@ -1,6 +1,5 @@
 # web-app [ ![Codeship Status for CSE112-GoldTeam/web-app](https://codeship.com/projects/5f33bf40-cb9d-0133-dbda-4a84e368cd36/status?branch=master)](https://codeship.com/projects/59497)
 
-
 First Run
 ----------------------------
 1. Setup Account with [mLab](https://mlab.com/)
