@@ -4,5 +4,5 @@
 
 echo ----------------PRODUCING COVERAGES--------------------------
 cd test/unit
-istanbul cover *.js
+../../istanbul cover *.js
 mv coverage ../../public
