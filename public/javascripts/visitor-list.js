@@ -1,5 +1,5 @@
 var socket = io(window.location.origin);
-  
+
 socket.on('checkin', function (data) {
 console.log(data);
 
@@ -44,7 +44,7 @@ function highlight() {
                 this.style.backgroundColor="white";
                 this.hilite = false;
             }
-        }
+        };
     }
 }
 
