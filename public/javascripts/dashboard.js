@@ -1,5 +1,5 @@
 /**
-  This file contains functions that will help the dashboard work.
+  @file This file contains functions that will help the dashboard work.
   @author Original Fubar Team
 */
 
