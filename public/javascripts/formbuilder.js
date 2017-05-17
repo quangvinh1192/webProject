@@ -48,7 +48,7 @@ function removeOption(dropcounter) {
 $(document).ready(function () {
 
     // Form exists in database
-    if (form != null){
+    if (form !== null){
         makeForm(form);
     }
 
