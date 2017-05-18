@@ -1,4 +1,13 @@
-//on document load method
+/**
+  * @file This file contains functions that deal with the animation
+  * of the icon, includig: creation, animation, resizing
+  @author Original Fubar Team
+*/
+
+/**
+ * On document load method, loads up icon 
+ * @author Original Fubar Team
+ */
 $( document ).ready(function() {
 	var currentIcon = $(".active").attr('id');
 	var p = $( "#" + currentIcon );
@@ -16,6 +25,10 @@ $( document ).ready(function() {
 go();
 window.addEventListener('resize', go);
 
+/**
+ * This has a funciton that resizes the window
+ * @author Original Fubar Team
+ */
 function go(){
 	var currentIcon = $(".active").attr('id');
 	var p = $( "#" + currentIcon );
@@ -28,8 +41,11 @@ function go(){
 	}
 }
 
-
-//animation function
+/**
+ * This function creates the icon animation by cycling through
+ * different if statements.
+ * @author Original Fubar Team
+ */
 $( ".nav-icon" ).click(function() {
 
 	var clickedIcon = $(this).attr('id');
