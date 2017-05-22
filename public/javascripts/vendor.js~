@@ -1498,7 +1498,7 @@ $(document).ready(function () {
         this._b = rgb.b,
         this._a = rgb.a,
         this._roundA = mathRound(100*this._a) / 100,
-        this._format = opts.format || rgb.format; // jshint ignore:line
+        this._format = opts.format || rgb.format;
         this._gradientType = opts.gradientType;
 
         // Don't let the range of [0,255] come back in [0,1].
