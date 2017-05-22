@@ -1,4 +1,32 @@
-$(function(){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: vendor.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: vendor.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>$(function(){
 
   getDate();
   $(startTime);
@@ -19,8 +47,8 @@ function dateToString(date) {
     'July', 'August', 'September', 'October', 'November', 'December' ];
     var month = date.getMonth() ;
     var day = date.getDate();
-    var dateOfString = (('' + month).length < 2 ? '' : '') +  monthNames[month] + ' ';
-    dateOfString += (('' + day).length < 2 ? '0' : '') + day + ' ';
+    var dateOfString = (('' + month).length &lt; 2 ? '' : '') +  monthNames[month] + ' ';
+    dateOfString += (('' + day).length &lt; 2 ? '0' : '') + day + ' ';
     dateOfString += date.getFullYear();
     return dateOfString;
 
@@ -38,7 +66,7 @@ function getDate(){
 	datetime += dateToString(currentdate );
 
 
-	var $header = $('<h1/>');
+	var $header = $('&lt;h1/>');
 	 $header.append(datetime);
 	$('#currentDate').replaceWith($header);
 }
@@ -70,7 +98,7 @@ function startTime() {
  * @return {int} - correctly formatted two digit number
  */
 function checkTime(i) {
-    if (i<10) {i = '0' + i;}  // add zero in front of numbers < 10
+    if (i&lt;10) {i = '0' + i;}  // add zero in front of numbers &lt; 10
     return i;
 }
 
@@ -86,14 +114,14 @@ function table() {
         //empty's the table
         $('#tblBody').empty();
         //for loop to reload the table
-        for(var i=0; i<data.length; i++){
-            var $img = $('<img id="Image" src="http://placehold.it/50x50" />');
+        for(var i=0; i&lt;data.length; i++){
+            var $img = $('&lt;img id="Image" src="http://placehold.it/50x50" />');
             count++;
             var appDate = new Date(data[i].date);
             //parsing to get time
             var fhours = appDate.getHours();
             var appTime;
-            if(fhours/12 < 1){
+            if(fhours/12 &lt; 1){
               var hours = ('0'+appDate.getHours()).slice(-2); //returns 0-
               var minutes = ('0'+appDate.getMinutes()).slice(-2); //returns 0-59
               appTime = hours+':'+minutes + ' AM';
@@ -112,10 +140,10 @@ function table() {
             if (data[i].state === 'checkedIn' || data[i].state === 'roomed' || data[i].state === 'done') {
 
                 var url = '/viewform/' + data[i]._id;
-                var $form = $('<a href="'+url+'" onclick="window.open(\''+url+'\', \'newwindow\', \'width=600, height=400\'); return false;" >View Forms</a>');
+                var $form = $('&lt;a href="'+url+'" onclick="window.open(\''+url+'\', \'newwindow\', \'width=600, height=400\'); return false;" >View Forms&lt;/a>');
 
                 if (data[i].state === 'checkedIn'){
-                    var $check = $('<input type="checkbox">').data('appid',data[i]._id);
+                    var $check = $('&lt;input type="checkbox">').data('appid',data[i]._id);
                     $check.change(function(){
                         var $appid = $(this).data('appid');
 
@@ -129,7 +157,7 @@ function table() {
                 }
 
                 else if(data[i].state === 'roomed') {
-                    $btn = $('<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></button>');
+                    $btn = $('&lt;button class="btn btn-primary">&lt;span class="glyphicon glyphicon-ok-sign" aria-hidden="true">&lt;/span>&lt;/button>');
                     var x = data[i]._id;
                      $btn.click(function() {
                         $.ajax({
@@ -170,11 +198,11 @@ function poll() {
 
 // JQuery Insert Row
 function insRow(cols) {
-  var $row = $('<tr/>'); // Create a r
+  var $row = $('&lt;tr/>'); // Create a r
 
   // Loop through data
-  for (var i = 0; i < cols.length; i++) {
-    var $col = $('<td/>'); // Create a column
+  for (var i = 0; i &lt; cols.length; i++) {
+    var $col = $('&lt;td/>'); // Create a column
     $col.append(cols[i]); // Append column data to column
     $row.append($col); // Append column to row
   }
@@ -229,21 +257,21 @@ $(document).ready(function () {
         var dropCounter = 0;
         $('#yourform').remove();
 
-        var fieldSet = $('<fieldset id=\"yourform\"><legend>Your Form</legend></fieldset>');
+        var fieldSet = $('&lt;fieldset id=\"yourform\">&lt;legend>Your Form&lt;/legend>&lt;/fieldset>');
 
         // Iterate through each field and append its HTML to the preview form
         $('#buildyourform div').each(function () {
             var id = 'input' + $(this).attr('id').replace('field', '');
-            var label = $('<label for=\"' + id + '\">' + $(this).find('input.fieldname').first().val() + '</label>');
+            var label = $('&lt;label for=\"' + id + '\">' + $(this).find('input.fieldname').first().val() + '&lt;/label>');
             var input;
 
             switch ($(this).find('select.fieldtype').first().val()) {
                 case 'textbox':
-                    input = $('<div class=\"previewForm\"><input type=\"text\" id=\"' + id + '\" name=\"' + id + '\" /></div>');
+                    input = $('&lt;div class=\"previewForm\">&lt;input type=\"text\" id=\"' + id + '\" name=\"' + id + '\" />&lt;/div>');
                     break;
                 case 'dropdown':
                     dropCounter ++;
-                    input = $('<div class=\"previewForm\"><select id=\"drop' + dropCounter + '\">  </select> <button type=\"button\" onclick=\"insertOption(' + dropCounter +')\">Insert option</button> <button type=\"button\" onclick=\"removeOption(' + dropCounter + ')\">Remove option</button></div>');
+                    input = $('&lt;div class=\"previewForm\">&lt;select id=\"drop' + dropCounter + '\">  &lt;/select> &lt;button type=\"button\" onclick=\"insertOption(' + dropCounter +')\">Insert option&lt;/button> &lt;button type=\"button\" onclick=\"removeOption(' + dropCounter + ')\">Remove option&lt;/button>&lt;/div>');
                     break;
             }
             fieldSet.append(label);
@@ -255,11 +283,11 @@ $(document).ready(function () {
     // Add form creation buttons
     $('#add').click(function () {
         var intId = $('#buildyourform div').length + 1;
-        var fieldWrapper = $('<div class=\"fieldwrapper\" id=\"field' + intId + '\"/>');
-        var fName = $('<input type=\"text\" class=\"fieldname\" />');
-        var fType = $('<select class=\"fieldtype\"><option value=\"textbox\">Text</option><option value=\"dropdown\">Drop</option> </select>');
+        var fieldWrapper = $('&lt;div class=\"fieldwrapper\" id=\"field' + intId + '\"/>');
+        var fName = $('&lt;input type=\"text\" class=\"fieldname\" />');
+        var fType = $('&lt;select class=\"fieldtype\">&lt;option value=\"textbox\">Text&lt;/option>&lt;option value=\"dropdown\">Drop&lt;/option> &lt;/select>');
 
-        var removeButton = $('<input type=\"button\" class=\"remove\" value=Remove>');
+        var removeButton = $('&lt;input type=\"button\" class=\"remove\" value=Remove>');
         removeButton.click(function () {
             $(this).parent().remove();
         });
@@ -336,10 +364,10 @@ $(document).ready(function () {
 (function (factory) {
     "use strict";
 
-    if (typeof define === 'function' && define.amd) { // AMD
+    if (typeof define === 'function' &amp;&amp; define.amd) { // AMD
         define(['jquery'], factory);
     }
-    else if (typeof exports == "object" && typeof module == "object") { // CommonJS
+    else if (typeof exports == "object" &amp;&amp; typeof module == "object") { // CommonJS
         module.exports = factory;
     }
     else { // Browser
@@ -403,14 +431,14 @@ $(document).ready(function () {
         return contains(style.backgroundColor, 'rgba') || contains(style.backgroundColor, 'hsla');
     })(),
     inputTypeColorSupport = (function() {
-        var colorInput = $("<input type='color' value='!' />")[0];
-        return colorInput.type === "color" && colorInput.value !== "!";
+        var colorInput = $("&lt;input type='color' value='!' />")[0];
+        return colorInput.type === "color" &amp;&amp; colorInput.value !== "!";
     })(),
     replaceInput = [
-        "<div class='sp-replacer'>",
-            "<div class='sp-preview'><div class='sp-preview-inner'></div></div>",
-            "<div class='sp-dd'>&#9660;</div>",
-        "</div>"
+        "&lt;div class='sp-replacer'>",
+            "&lt;div class='sp-preview'>&lt;div class='sp-preview-inner'>&lt;/div>&lt;/div>",
+            "&lt;div class='sp-dd'>&amp;#9660;&lt;/div>",
+        "&lt;/div>"
     ].join(''),
     markup = (function () {
 
@@ -418,78 +446,78 @@ $(document).ready(function () {
         //  that for the rainbow slider with 8 divs that each have a single gradient
         var gradientFix = "";
         if (IE) {
-            for (var i = 1; i <= 6; i++) {
-                gradientFix += "<div class='sp-" + i + "'></div>";
+            for (var i = 1; i &lt;= 6; i++) {
+                gradientFix += "&lt;div class='sp-" + i + "'>&lt;/div>";
             }
         }
 
         return [
-            "<div class='sp-container sp-hidden'>",
-                "<div class='sp-palette-container'>",
-                    "<div class='sp-palette sp-thumb sp-cf'></div>",
-                    "<div class='sp-palette-button-container sp-cf'>",
-                        "<button type='button' class='sp-palette-toggle'></button>",
-                    "</div>",
-                "</div>",
-                "<div class='sp-picker-container'>",
-                    "<div class='sp-top sp-cf'>",
-                        "<div class='sp-fill'></div>",
-                        "<div class='sp-top-inner'>",
-                            "<div class='sp-color'>",
-                                "<div class='sp-sat'>",
-                                    "<div class='sp-val'>",
-                                        "<div class='sp-dragger'></div>",
-                                    "</div>",
-                                "</div>",
-                            "</div>",
-                            "<div class='sp-clear sp-clear-display'>",
-                            "</div>",
-                            "<div class='sp-hue'>",
-                                "<div class='sp-slider'></div>",
+            "&lt;div class='sp-container sp-hidden'>",
+                "&lt;div class='sp-palette-container'>",
+                    "&lt;div class='sp-palette sp-thumb sp-cf'>&lt;/div>",
+                    "&lt;div class='sp-palette-button-container sp-cf'>",
+                        "&lt;button type='button' class='sp-palette-toggle'>&lt;/button>",
+                    "&lt;/div>",
+                "&lt;/div>",
+                "&lt;div class='sp-picker-container'>",
+                    "&lt;div class='sp-top sp-cf'>",
+                        "&lt;div class='sp-fill'>&lt;/div>",
+                        "&lt;div class='sp-top-inner'>",
+                            "&lt;div class='sp-color'>",
+                                "&lt;div class='sp-sat'>",
+                                    "&lt;div class='sp-val'>",
+                                        "&lt;div class='sp-dragger'>&lt;/div>",
+                                    "&lt;/div>",
+                                "&lt;/div>",
+                            "&lt;/div>",
+                            "&lt;div class='sp-clear sp-clear-display'>",
+                            "&lt;/div>",
+                            "&lt;div class='sp-hue'>",
+                                "&lt;div class='sp-slider'>&lt;/div>",
                                 gradientFix,
-                            "</div>",
-                        "</div>",
-                        "<div class='sp-alpha'><div class='sp-alpha-inner'><div class='sp-alpha-handle'></div></div></div>",
-                    "</div>",
-                    "<div class='sp-input-container sp-cf'>",
-                        "<input class='sp-input' type='text' spellcheck='false'  />",
-                    "</div>",
-                    "<div class='sp-initial sp-thumb sp-cf'></div>",
-                    "<div class='sp-button-container sp-cf'>",
-                        "<a class='sp-cancel' href='#'></a>",
-                        "<button type='button' class='sp-choose'></button>",
-                    "</div>",
-                "</div>",
-            "</div>"
+                            "&lt;/div>",
+                        "&lt;/div>",
+                        "&lt;div class='sp-alpha'>&lt;div class='sp-alpha-inner'>&lt;div class='sp-alpha-handle'>&lt;/div>&lt;/div>&lt;/div>",
+                    "&lt;/div>",
+                    "&lt;div class='sp-input-container sp-cf'>",
+                        "&lt;input class='sp-input' type='text' spellcheck='false'  />",
+                    "&lt;/div>",
+                    "&lt;div class='sp-initial sp-thumb sp-cf'>&lt;/div>",
+                    "&lt;div class='sp-button-container sp-cf'>",
+                        "&lt;a class='sp-cancel' href='#'>&lt;/a>",
+                        "&lt;button type='button' class='sp-choose'>&lt;/button>",
+                    "&lt;/div>",
+                "&lt;/div>",
+            "&lt;/div>"
         ].join("");
     })();
 
     function paletteTemplate (p, color, className, opts) {
         var html = [];
-        for (var i = 0; i < p.length; i++) {
+        for (var i = 0; i &lt; p.length; i++) {
             var current = p[i];
             if(current) {
                 var tiny = tinycolor(current);
-                var c = tiny.toHsl().l < 0.5 ? "sp-thumb-el sp-thumb-dark" : "sp-thumb-el sp-thumb-light";
+                var c = tiny.toHsl().l &lt; 0.5 ? "sp-thumb-el sp-thumb-dark" : "sp-thumb-el sp-thumb-light";
                 c += (tinycolor.equals(color, current)) ? " sp-thumb-active" : "";
                 var formattedString = tiny.toString(opts.preferredFormat || "rgb");
                 var swatchStyle = rgbaSupport ? ("background-color:" + tiny.toRgbString()) : "filter:" + tiny.toFilter();
-                html.push('<span title="' + formattedString + '" data-color="' + tiny.toRgbString() + '" class="' + c + '"><span class="sp-thumb-inner" style="' + swatchStyle + ';" /></span>');
+                html.push('&lt;span title="' + formattedString + '" data-color="' + tiny.toRgbString() + '" class="' + c + '">&lt;span class="sp-thumb-inner" style="' + swatchStyle + ';" />&lt;/span>');
             } else {
                 var cls = 'sp-clear-display';
-                html.push($('<div />')
-                    .append($('<span data-color="" style="background-color:transparent;" class="' + cls + '"></span>')
+                html.push($('&lt;div />')
+                    .append($('&lt;span data-color="" style="background-color:transparent;" class="' + cls + '">&lt;/span>')
                         .attr('title', opts.noColorSelectedText)
                     )
                     .html()
                 );
             }
         }
-        return "<div class='sp-cf " + className + "'>" + html.join('') + "</div>";
+        return "&lt;div class='sp-cf " + className + "'>" + html.join('') + "&lt;/div>";
     }
 
     function hideAll() {
-        for (var i = 0; i < spectrums.length; i++) {
+        for (var i = 0; i &lt; spectrums.length; i++) {
             if (spectrums[i]) {
                 spectrums[i].hide();
             }
@@ -560,18 +588,18 @@ $(document).ready(function () {
             chooseButton = container.find(".sp-choose"),
             toggleButton = container.find(".sp-palette-toggle"),
             isInput = boundElement.is("input"),
-            isInputTypeColor = isInput && inputTypeColorSupport && boundElement.attr("type") === "color",
-            shouldReplace = isInput && !flat,
+            isInputTypeColor = isInput &amp;&amp; inputTypeColorSupport &amp;&amp; boundElement.attr("type") === "color",
+            shouldReplace = isInput &amp;&amp; !flat,
             replacer = (shouldReplace) ? $(replaceInput).addClass(theme).addClass(opts.className).addClass(opts.replacerClassName) : $([]),
             offsetElement = (shouldReplace) ? replacer : boundElement,
             previewElement = replacer.find(".sp-preview-inner"),
-            initialColor = opts.color || (isInput && boundElement.val()),
+            initialColor = opts.color || (isInput &amp;&amp; boundElement.val()),
             colorOnShow = false,
             preferredFormat = opts.preferredFormat,
             currentPreferredFormat = preferredFormat,
             clickoutFiresChange = !opts.showButtons || opts.clickoutFiresChange,
             isEmpty = !initialColor,
-            allowEmpty = opts.allowEmpty && !isInputTypeColor;
+            allowEmpty = opts.allowEmpty &amp;&amp; !isInputTypeColor;
 
         function applyOptions() {
 
@@ -585,8 +613,8 @@ $(document).ready(function () {
                 palette = opts.palette.slice(0);
                 paletteArray = $.isArray(palette[0]) ? palette : [palette];
                 paletteLookup = {};
-                for (var i = 0; i < paletteArray.length; i++) {
-                    for (var j = 0; j < paletteArray[i].length; j++) {
+                for (var i = 0; i &lt; paletteArray.length; i++) {
+                    for (var j = 0; j &lt; paletteArray[i].length; j++) {
                         var rgb = tinycolor(paletteArray[i][j]).toRgbString();
                         paletteLookup[rgb] = true;
                     }
@@ -708,7 +736,7 @@ $(document).ready(function () {
                 // to the left to make space for the picker, plus 5px extra.
                 // The 'applyOptions' function puts the whole container back into place
                 // and takes care of the button-text and the sp-palette-only CSS class.
-                if (!opts.showPaletteOnly && !flat) {
+                if (!opts.showPaletteOnly &amp;&amp; !flat) {
                     container.css('left', '-=' + (pickerContainer.outerWidth(true) + 5));
                 }
                 applyOptions();
@@ -785,7 +813,7 @@ $(document).ready(function () {
             }
 
             function paletteElementClick(e) {
-                if (e.data && e.data.ignore) {
+                if (e.data &amp;&amp; e.data.ignore) {
                     set($(e.target).closest(".sp-thumb-el").data("color"));
                     move();
                 }
@@ -808,7 +836,7 @@ $(document).ready(function () {
 
         function updateSelectionPaletteFromStorage() {
 
-            if (localStorageKey && window.localStorage) {
+            if (localStorageKey &amp;&amp; window.localStorage) {
 
                 // Migrate old palettes over to new format.  May want to remove this eventually.
                 try {
@@ -832,14 +860,14 @@ $(document).ready(function () {
         function addColorToSelectionPalette(color) {
             if (showSelectionPalette) {
                 var rgb = tinycolor(color).toRgbString();
-                if (!paletteLookup[rgb] && $.inArray(rgb, selectionPalette) === -1) {
+                if (!paletteLookup[rgb] &amp;&amp; $.inArray(rgb, selectionPalette) === -1) {
                     selectionPalette.push(rgb);
                     while(selectionPalette.length > maxSelectionSize) {
                         selectionPalette.shift();
                     }
                 }
 
-                if (localStorageKey && window.localStorage) {
+                if (localStorageKey &amp;&amp; window.localStorage) {
                     try {
                         window.localStorage[localStorageKey] = selectionPalette.join(";");
                     }
@@ -851,7 +879,7 @@ $(document).ready(function () {
         function getUniqueSelectionPalette() {
             var unique = [];
             if (opts.showPalette) {
-                for (var i = 0; i < selectionPalette.length; i++) {
+                for (var i = 0; i &lt; selectionPalette.length; i++) {
                     var rgb = tinycolor(selectionPalette[i]).toRgbString();
 
                     if (!paletteLookup[rgb]) {
@@ -889,7 +917,7 @@ $(document).ready(function () {
         }
 
         function dragStart() {
-            if (dragHeight <= 0 || dragWidth <= 0 || slideHeight <= 0) {
+            if (dragHeight &lt;= 0 || dragWidth &lt;= 0 || slideHeight &lt;= 0) {
                 reflow();
             }
             container.addClass(draggingClass);
@@ -906,7 +934,7 @@ $(document).ready(function () {
 
             var value = textInput.val();
 
-            if ((value === null || value === "") && allowEmpty) {
+            if ((value === null || value === "") &amp;&amp; allowEmpty) {
                 set(null);
                 updateOriginalInput(true);
             }
@@ -1004,7 +1032,7 @@ $(document).ready(function () {
             }
 
             var newColor, newHsv;
-            if (!color && allowEmpty) {
+            if (!color &amp;&amp; allowEmpty) {
                 isEmpty = true;
             } else {
                 isEmpty = false;
@@ -1018,7 +1046,7 @@ $(document).ready(function () {
             }
             updateUI();
 
-            if (newColor && newColor.isValid() && !ignoreFormatChange) {
+            if (newColor &amp;&amp; newColor.isValid() &amp;&amp; !ignoreFormatChange) {
                 currentPreferredFormat = preferredFormat || newColor.getFormat();
             }
         }
@@ -1026,7 +1054,7 @@ $(document).ready(function () {
         function get(opts) {
             opts = opts || { };
 
-            if (allowEmpty && isEmpty) {
+            if (allowEmpty &amp;&amp; isEmpty) {
                 return null;
             }
 
@@ -1061,7 +1089,7 @@ $(document).ready(function () {
 
             // Get a format that alpha will be included in (hex and names ignore alpha)
             var format = currentPreferredFormat;
-            if (currentAlpha < 1 && !(currentAlpha === 0 && format === "name")) {
+            if (currentAlpha &lt; 1 &amp;&amp; !(currentAlpha === 0 &amp;&amp; format === "name")) {
                 if (format === "hex" || format === "hex3" || format === "hex6" || format === "name") {
                     format = "rgb";
                 }
@@ -1074,7 +1102,7 @@ $(document).ready(function () {
             previewElement.removeClass("sp-clear-display");
             previewElement.css('background-color', 'transparent');
 
-            if (!realColor && allowEmpty) {
+            if (!realColor &amp;&amp; allowEmpty) {
                 // Update the replaced elements background with icon indicating no color selection
                 previewElement.addClass("sp-clear-display");
             }
@@ -1129,7 +1157,7 @@ $(document).ready(function () {
             var s = currentSaturation;
             var v = currentValue;
 
-            if(allowEmpty && isEmpty) {
+            if(allowEmpty &amp;&amp; isEmpty) {
                 //if selected color is empty, hide the helpers
                 alphaSlideHelper.hide();
                 slideHelper.hide();
@@ -1185,7 +1213,7 @@ $(document).ready(function () {
                 boundElement.val(displayColor);
             }
 
-            if (fireCallback && hasChanged) {
+            if (fireCallback &amp;&amp; hasChanged) {
                 callbacks.change(color);
                 boundElement.trigger('change', [ color ]);
             }
@@ -1299,11 +1327,11 @@ $(document).ready(function () {
         offset.top += inputHeight;
 
         offset.left -=
-            Math.min(offset.left, (offset.left + dpWidth > viewWidth && viewWidth > dpWidth) ?
+            Math.min(offset.left, (offset.left + dpWidth > viewWidth &amp;&amp; viewWidth > dpWidth) ?
             Math.abs(offset.left + dpWidth - viewWidth) : 0);
 
         offset.top -=
-            Math.min(offset.top, ((offset.top + dpHeight > viewHeight && viewHeight > dpHeight) ?
+            Math.min(offset.top, ((offset.top + dpHeight > viewHeight &amp;&amp; viewHeight > dpHeight) ?
             Math.abs(dpHeight + inputHeight - extraY) : extraY));
 
         return offset;
@@ -1369,11 +1397,11 @@ $(document).ready(function () {
         function move(e) {
             if (dragging) {
                 // Mouseup happened outside of window
-                if (IE && doc.documentMode < 9 && !e.button) {
+                if (IE &amp;&amp; doc.documentMode &lt; 9 &amp;&amp; !e.button) {
                     return stop();
                 }
 
-                var touches = e.originalEvent && e.originalEvent.touches;
+                var touches = e.originalEvent &amp;&amp; e.originalEvent.touches;
                 var pageX = touches ? touches[0].pageX : e.pageX;
                 var pageY = touches ? touches[0].pageY : e.pageY;
 
@@ -1392,7 +1420,7 @@ $(document).ready(function () {
         function start(e) {
             var rightclick = (e.which) ? (e.which == 3) : (e.button == 2);
 
-            if (!rightclick && !dragging) {
+            if (!rightclick &amp;&amp; !dragging) {
                 if (onstart.apply(element, arguments) !== false) {
                     dragging = true;
                     maxHeight = $(element).height();
@@ -1545,9 +1573,9 @@ $(document).ready(function () {
         // Potentially lose a little bit of precision here, but will fix issues where
         // .5 gets interpreted as half of the total, instead of half of 1
         // If it was supposed to be 128, this was already taken care of by `inputToRgb`
-        if (this._r < 1) { this._r = mathRound(this._r); }
-        if (this._g < 1) { this._g = mathRound(this._g); }
-        if (this._b < 1) { this._b = mathRound(this._b); }
+        if (this._r &lt; 1) { this._r = mathRound(this._r); }
+        if (this._g &lt; 1) { this._g = mathRound(this._g); }
+        if (this._b &lt; 1) { this._b = mathRound(this._b); }
 
         this._ok = rgb.ok;
         this._tc_id = tinyCounter++;
@@ -1555,7 +1583,7 @@ $(document).ready(function () {
 
     tinycolor.prototype = {
         isDark: function() {
-            return this.getBrightness() < 128;
+            return this.getBrightness() &lt; 128;
         },
         isLight: function() {
             return !this.isDark();
@@ -1636,7 +1664,7 @@ $(document).ready(function () {
                 return "transparent";
             }
 
-            if (this._a < 1) {
+            if (this._a &lt; 1) {
                 return false;
             }
 
@@ -1659,13 +1687,13 @@ $(document).ready(function () {
             format = format || this._format;
 
             var formattedString = false;
-            var hasAlpha = this._a < 1 && this._a >= 0;
-            var needsAlphaFormat = !formatSet && hasAlpha && (format === "hex" || format === "hex6" || format === "hex3" || format === "name");
+            var hasAlpha = this._a &lt; 1 &amp;&amp; this._a >= 0;
+            var needsAlphaFormat = !formatSet &amp;&amp; hasAlpha &amp;&amp; (format === "hex" || format === "hex6" || format === "hex3" || format === "name");
 
             if (needsAlphaFormat) {
                 // Special case for "transparent", all other non-alpha formats
                 // will return rgba when there is transparency.
-                if (format === "name" && this._a === 0) {
+                if (format === "name" &amp;&amp; this._a === 0) {
                     return this.toName();
                 }
                 return this.toRgbString();
@@ -1799,19 +1827,19 @@ $(document).ready(function () {
         }
 
         if (typeof color == "object") {
-            if (color.hasOwnProperty("r") && color.hasOwnProperty("g") && color.hasOwnProperty("b")) {
+            if (color.hasOwnProperty("r") &amp;&amp; color.hasOwnProperty("g") &amp;&amp; color.hasOwnProperty("b")) {
                 rgb = rgbToRgb(color.r, color.g, color.b);
                 ok = true;
                 format = String(color.r).substr(-1) === "%" ? "prgb" : "rgb";
             }
-            else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("v")) {
+            else if (color.hasOwnProperty("h") &amp;&amp; color.hasOwnProperty("s") &amp;&amp; color.hasOwnProperty("v")) {
                 color.s = convertToPercentage(color.s);
                 color.v = convertToPercentage(color.v);
                 rgb = hsvToRgb(color.h, color.s, color.v);
                 ok = true;
                 format = "hsv";
             }
-            else if (color.hasOwnProperty("h") && color.hasOwnProperty("s") && color.hasOwnProperty("l")) {
+            else if (color.hasOwnProperty("h") &amp;&amp; color.hasOwnProperty("s") &amp;&amp; color.hasOwnProperty("l")) {
                 color.s = convertToPercentage(color.s);
                 color.l = convertToPercentage(color.l);
                 rgb = hslToRgb(color.h, color.s, color.l);
@@ -1841,11 +1869,11 @@ $(document).ready(function () {
     // --------------------
 
     // `rgbToHsl`, `rgbToHsv`, `hslToRgb`, `hsvToRgb` modified from:
-    // <http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript>
+    // &lt;http://mjijackson.com/2008/02/rgb-to-hsl-and-rgb-to-hsv-color-model-conversion-algorithms-in-javascript>
 
     // `rgbToRgb`
     // Handle bounds / percentage checking to conform to CSS color spec
-    // <http://www.w3.org/TR/css3-color/>
+    // &lt;http://www.w3.org/TR/css3-color/>
     // *Assumes:* r, g, b in [0, 255] or [0, 1]
     // *Returns:* { r, g, b } in [0, 255]
     function rgbToRgb(r, g, b){
@@ -1876,7 +1904,7 @@ $(document).ready(function () {
             var d = max - min;
             s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
             switch(max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case r: h = (g - b) / d + (g &lt; b ? 6 : 0); break;
                 case g: h = (b - r) / d + 2; break;
                 case b: h = (r - g) / d + 4; break;
             }
@@ -1899,11 +1927,11 @@ $(document).ready(function () {
         l = bound01(l, 100);
 
         function hue2rgb(p, q, t) {
-            if(t < 0) t += 1;
+            if(t &lt; 0) t += 1;
             if(t > 1) t -= 1;
-            if(t < 1/6) return p + (q - p) * 6 * t;
-            if(t < 1/2) return q;
-            if(t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+            if(t &lt; 1/6) return p + (q - p) * 6 * t;
+            if(t &lt; 1/2) return q;
+            if(t &lt; 2/3) return p + (q - p) * (2/3 - t) * 6;
             return p;
         }
 
@@ -1911,7 +1939,7 @@ $(document).ready(function () {
             r = g = b = l; // achromatic
         }
         else {
-            var q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+            var q = l &lt; 0.5 ? l * (1 + s) : l + s - l * s;
             var p = 2 * l - q;
             r = hue2rgb(p, q, h + 1/3);
             g = hue2rgb(p, q, h);
@@ -1942,7 +1970,7 @@ $(document).ready(function () {
         }
         else {
             switch(max) {
-                case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+                case r: h = (g - b) / d + (g &lt; b ? 6 : 0); break;
                 case g: h = (b - r) / d + 2; break;
                 case b: h = (r - g) / d + 4; break;
             }
@@ -1987,7 +2015,7 @@ $(document).ready(function () {
         ];
 
         // Return a 3 character hex if possible
-        if (allow3Char && hex[0].charAt(0) == hex[0].charAt(1) && hex[1].charAt(0) == hex[1].charAt(1) && hex[2].charAt(0) == hex[2].charAt(1)) {
+        if (allow3Char &amp;&amp; hex[0].charAt(0) == hex[0].charAt(1) &amp;&amp; hex[1].charAt(0) == hex[1].charAt(1) &amp;&amp; hex[2].charAt(0) == hex[2].charAt(1)) {
             return hex[0].charAt(0) + hex[1].charAt(0) + hex[2].charAt(0);
         }
 
@@ -2027,7 +2055,7 @@ $(document).ready(function () {
     // Modification Functions
     // ----------------------
     // Thanks to less.js for some of the basics here
-    // <https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
+    // &lt;https://github.com/cloudhead/less.js/blob/master/lib/less/functions.js>
 
     function desaturate(color, amount) {
         amount = (amount === 0) ? 0 : (amount || 10);
@@ -2079,14 +2107,14 @@ $(document).ready(function () {
     function spin(color, amount) {
         var hsl = tinycolor(color).toHsl();
         var hue = (mathRound(hsl.h) + amount) % 360;
-        hsl.h = hue < 0 ? 360 + hue : hue;
+        hsl.h = hue &lt; 0 ? 360 + hue : hue;
         return tinycolor(hsl);
     }
 
     // Combination Functions
     // ---------------------
     // Thanks to jQuery xColor for some of the ideas behind these
-    // <https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js>
+    // &lt;https://github.com/infusion/jQuery-xcolor/blob/master/jquery.xcolor.js>
 
     function complement(color) {
         var hsl = tinycolor(color).toHsl();
@@ -2193,7 +2221,7 @@ $(document).ready(function () {
 
     // Readability Functions
     // ---------------------
-    // <http://www.w3.org/TR/AERT#color-contrast>
+    // &lt;http://www.w3.org/TR/AERT#color-contrast>
 
     // `readability`
     // Analyze the 2 colors and returns an object with the following properties:
@@ -2225,7 +2253,7 @@ $(document).ready(function () {
     //    tinycolor.isReadable("#000", "#111") => false
     tinycolor.isReadable = function(color1, color2) {
         var readability = tinycolor.readability(color1, color2);
-        return readability.brightness > 125 && readability.color > 500;
+        return readability.brightness > 125 &amp;&amp; readability.color > 500;
     };
 
     // `mostReadable`
@@ -2237,18 +2265,18 @@ $(document).ready(function () {
         var bestColor = null;
         var bestScore = 0;
         var bestIsReadable = false;
-        for (var i=0; i < colorList.length; i++) {
+        for (var i=0; i &lt; colorList.length; i++) {
 
             // We normalize both around the "acceptable" breaking point,
             // but rank brightness constrast higher than hue.
 
             var readability = tinycolor.readability(baseColor, colorList[i]);
-            var readable = readability.brightness > 125 && readability.color > 500;
+            var readable = readability.brightness > 125 &amp;&amp; readability.color > 500;
             var score = 3 * (readability.brightness / 125) + (readability.color / 500);
 
-            if ((readable && ! bestIsReadable) ||
-                (readable && bestIsReadable && score > bestScore) ||
-                ((! readable) && (! bestIsReadable) && score > bestScore)) {
+            if ((readable &amp;&amp; ! bestIsReadable) ||
+                (readable &amp;&amp; bestIsReadable &amp;&amp; score > bestScore) ||
+                ((! readable) &amp;&amp; (! bestIsReadable) &amp;&amp; score > bestScore)) {
                 bestIsReadable = readable;
                 bestScore = score;
                 bestColor = tinycolor(colorList[i]);
@@ -2260,7 +2288,7 @@ $(document).ready(function () {
 
     // Big List of Colors
     // ------------------
-    // <http://www.w3.org/TR/css3-color/#svg-color>
+    // &lt;http://www.w3.org/TR/css3-color/#svg-color>
     var names = tinycolor.names = {
         aliceblue: "f0f8ff",
         antiquewhite: "faebd7",
@@ -2435,7 +2463,7 @@ $(document).ready(function () {
     function boundAlpha(a) {
         a = parseFloat(a);
 
-        if (isNaN(a) || a < 0 || a > 1) {
+        if (isNaN(a) || a &lt; 0 || a > 1) {
             a = 1;
         }
 
@@ -2455,7 +2483,7 @@ $(document).ready(function () {
         }
 
         // Handle floating point rounding errors
-        if ((math.abs(n - max) < 0.000001)) {
+        if ((math.abs(n - max) &lt; 0.000001)) {
             return 1;
         }
 
@@ -2474,14 +2502,14 @@ $(document).ready(function () {
     }
 
     // Need to handle 1.0 as 100%, since once it is a number, there is no difference between it and 1
-    // <http://stackoverflow.com/questions/7422072/javascript-how-to-detect-number-as-a-decimal-including-1-0>
+    // &lt;http://stackoverflow.com/questions/7422072/javascript-how-to-detect-number-as-a-decimal-including-1-0>
     function isOnePointZero(n) {
-        return typeof n == "string" && n.indexOf('.') != -1 && parseFloat(n) === 1;
+        return typeof n == "string" &amp;&amp; n.indexOf('.') != -1 &amp;&amp; parseFloat(n) === 1;
     }
 
     // Check to see if string passed in is a percentage
     function isPercentage(n) {
-        return typeof n === "string" && n.indexOf('%') != -1;
+        return typeof n === "string" &amp;&amp; n.indexOf('%') != -1;
     }
 
     // Force a hex value to have 2 characters
@@ -2491,7 +2519,7 @@ $(document).ready(function () {
 
     // Replace a decimal with it's percentage value
     function convertToPercentage(n) {
-        if (n <= 1) {
+        if (n &lt;= 1) {
             n = (n * 100) + "%";
         }
 
@@ -2509,10 +2537,10 @@ $(document).ready(function () {
 
     var matchers = (function() {
 
-        // <http://www.w3.org/TR/css3-values/#integers>
+        // &lt;http://www.w3.org/TR/css3-values/#integers>
         var CSS_INTEGER = "[-\\+]?\\d+%?";
 
-        // <http://www.w3.org/TR/css3-values/#number-value>
+        // &lt;http://www.w3.org/TR/css3-values/#number-value>
         var CSS_NUMBER = "[-\\+]?\\d*\\.\\d+%?";
 
         // Allow positive/negative integer/number.  Don't capture the either/or, just the entire outcome.
@@ -2673,3 +2701,26 @@ $(document).ready(function () {
         }
     });
 });
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#buyClick">buyClick</a></li><li><a href="global.html#checkTime">checkTime</a></li><li><a href="global.html#dateToString">dateToString</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#getDate">getDate</a></li><li><a href="global.html#homeview">homeview</a></li><li><a href="global.html#initializePage">initializePage</a></li><li><a href="global.html#insertOption">insertOption</a></li><li><a href="global.html#loginview">loginview</a></li><li><a href="global.html#poll">poll</a></li><li><a href="global.html#registerview">registerview</a></li><li><a href="global.html#removeOption">removeOption</a></li><li><a href="global.html#sign1Click">sign1Click</a></li><li><a href="global.html#sign2Click">sign2Click</a></li><li><a href="global.html#startTime">startTime</a></li><li><a href="global.html#table">table</a></li><li><a href="global.html#tryClick">tryClick</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Mon May 22 2017 02:29:41 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

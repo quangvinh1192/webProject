@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: analytics.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: analytics.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Provides analytics for our web pages.
+ * @author Original Fubar Team
+ */
+'use strict';
+
+
+/**
+ * used for debugging. sets debugging to true to view debug statements
+ * @author Original Fubar Team
+ * @param {string} String - The debug statement to log
+ */
+function debug(String)
+{
+  var debugging = true;
+  if (debugging)
+    {console.log(String)}
+}
+
+//MixpanelScript
+(function(e,b){if(!b.__SV){var a,f,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&amp;&amp;(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&amp;&amp;(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable time_event track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.union people.track_charge people.clear_charges people.delete_user".split(" ");
+for(g=0;g&lt;i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&amp;&amp;"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
+mixpanel.init("8085e4b16fa22b0385a211fa528036a1");
+
+/**
+ * initializes all of the button callbacks on the page
+ * @author Original Fubar Team
+ */
+function initializePage() {
+  $("button.sign1Btn").click(sign1Click);
+  $("button.sign2Btn").click(sign2Click);
+  $("button.buyBtn").click(buyClick);
+  $("button.tryBtn").click(tryClick);
+}
+
+/**
+ * button callback for sign1 button. logs button click and
+ * tracks clicks on sign1 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
+function sign1Click(e) {
+  mixpanel.track("Sign Up 1 Clicks");
+  debug("SignUp1.");
+  //ga("send", "event", "sign1", "click");
+    //console.log(ga.getByName('sign1'));
+}
+
+/**
+ * button callback for sign2 button. logs button click and
+ * tracks clicks on sign2 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
+function sign2Click(e) {
+  mixpanel.track("Sign Up 2 Clicks");
+  debug("Sign up 2 pushed.");
+  //ga("send", "event", "sign2", "click");
+}
+
+/**
+ * button callback for buy button. logs button click and
+ * tracks clicks on buy button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
+function buyClick(e) {
+  mixpanel.track("Buy Clicks");
+  debug("Buy Now Clicked");
+  //console.log("Buy now pushed.");
+  //ga("send", "event", "buy", "click");
+  //_trackEvent("buyc", "test");
+}
+
+/**
+ * button callback for try button. logs button click and
+ * tracks clicks on try button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
+function tryClick(e) {
+  mixpanel.track("TryItToday Clicks");
+  debug("Try It Today pushed.");
+  //ga("send", "event", "try", "click");
+}
+
+//analytics for page views
+// dashboard
+//  &lt;script src='/javascripts/analytics.js'>&lt;/script> 
+//  page counter homepage
+//        &lt;div>&lt;body onload="view('homepage')">&lt;/body>&lt;/div>
+
+/**
+ * runs analytics on homepage, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
+  function homeview()
+  {
+      debug("Home Page Viewed");
+      mixpanel.track('Home Page Views', 
+      {
+          'page name' : document.title,
+          'url' : window.location.pathname
+      });
+  }
+
+/**
+ * runs analytics on the register page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
+  function registerview()
+  {
+      debug("Register Page Viewed");
+      mixpanel.track('Register Page Views', 
+      {
+          'page name' : document.title,
+          'url' : window.location.pathname
+      });
+  }
+
+/**
+ * runs analytics on login page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
+  function loginview()
+  {
+      debug("Login Page Viewed");
+      mixpanel.track('Login Page Views', 
+      {
+          'page name' : document.title,
+          'url' : window.location.pathname
+      });
+  }
+
+//Peter's Dashboard
+
+
+
+/*
+//250148758589-j9755pn3n5rhrogvjj0tu0r52rrut58m.apps.googleusercontent.com
+//google dashboard
+
+(function(w,d,s,g,js,fs){
+  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+  js.src='https://apis.google.com/js/platform.js';
+  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+}(window,document,'script'));
+
+gapi.analytics.ready(function() {
+
+
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '250148758589-j9755pn3n5rhrogvjj0tu0r52rrut58m.apps.googleusercontent.com'
+  });
+
+
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector-container'
+  });
+
+  // Render the view selector to the page.
+  viewSelector.execute();
+
+
+
+  var dataChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      metrics: 'ga:Pageviews',
+      dimensions: 'ga:date',
+      'start-date': '10daysAgo',
+      'end-date': 'today'
+    },
+    chart: {
+      container: 'chart-container',
+      type: 'LINE',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+
+
+  viewSelector.on('change', function(ids) {
+    dataChart.set({query: {ids: ids}}).execute();
+  });
+});
+
+//chart 2
+gapi.analytics.ready(function() {
+
+
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '250148758589-j9755pn3n5rhrogvjj0tu0r52rrut58m.apps.googleusercontent.com'
+  });
+
+
+
+  var viewSelector = new gapi.analytics.ViewSelector({
+    container: 'view-selector-container'
+  });
+
+  // Render the view selector to the page.
+  viewSelector.execute();
+
+
+  var mainChart = new gapi.analytics.googleCharts.DataChart({
+    query: {
+      'dimensions': 'ga:browser',
+      'metrics': 'ga:sessions',
+      'sort': '-ga:sessions',
+      'max-results': '6'
+    },
+    chart: {
+      type: 'PIE',
+      container: 'main-chart-container',
+      options: {
+        width: '100%'
+      }
+    }
+  });
+
+
+
+
+
+  var mainChartRowClickListener;
+
+
+  viewSelector.on('change', function(ids) {
+    var options = {query: {ids: ids}};
+
+    // Clean up any event listeners registered on the main chart before
+    // rendering a new one.
+    if (mainChartRowClickListener) {
+      google.visualization.events.removeListener(mainChartRowClickListener);
+    }
+
+    mainChart.set(options).execute();
+    //breakdownChart.set(options);
+
+    // Only render the breakdown chart if a browser filter has been set.
+    //if (breakdownChart.get().query.filters) breakdownChart.execute();
+  });
+
+
+
+  mainChart.on('success', function(response) {
+
+    var chart = response.chart;
+    var dataTable = response.dataTable;
+
+    // Store a reference to this listener so it can be cleaned up later.
+    mainChartRowClickListener = google.visualization.events
+        .addListener(chart, 'select', function(event) {
+
+      // When you unselect a row, the "select" event still fires
+      // but the selection is empty. Ignore that case.
+      if (!chart.getSelection().length) return;
+
+      var row =  chart.getSelection()[0].row;
+      var browser =  dataTable.getValue(row, 0);
+      var options = {
+        query: {
+          filters: 'ga:browser==' + browser
+        },
+        chart: {
+          options: {
+            title: browser
+          }
+        }
+      };
+
+      breakdownChart.set(options).execute();
+    });
+  });
+});
+
+*/</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#buyClick">buyClick</a></li><li><a href="global.html#checkTime">checkTime</a></li><li><a href="global.html#dateToString">dateToString</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#getDate">getDate</a></li><li><a href="global.html#homeview">homeview</a></li><li><a href="global.html#initializePage">initializePage</a></li><li><a href="global.html#insertOption">insertOption</a></li><li><a href="global.html#loginview">loginview</a></li><li><a href="global.html#poll">poll</a></li><li><a href="global.html#registerview">registerview</a></li><li><a href="global.html#removeOption">removeOption</a></li><li><a href="global.html#sign1Click">sign1Click</a></li><li><a href="global.html#sign2Click">sign2Click</a></li><li><a href="global.html#startTime">startTime</a></li><li><a href="global.html#table">table</a></li><li><a href="global.html#tryClick">tryClick</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Mon May 22 2017 02:29:41 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
