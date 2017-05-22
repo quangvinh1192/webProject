@@ -18,5 +18,5 @@ QUnit.test('checkTime Test', function () {
    QUnit.assert.equal(getAppDate(date2),"03:59 PM","getAppDate test: 22-11-1131");
    QUnit.assert.equal(getAppDate(),"aN:aN PM","getAppDate test: no input");
    QUnit.assert.equal(getAppDate(date1),"aN:aN PM","getAppDate test: invalid input");
-   QUnit.assert.equal(getAppDate(new Date("2015-01-01")),"04:00 PM","getAppDate test: 22-11-1131");
+   QUnit.assert.equal(getAppDate(new Date("2015-01-01")),"11:59 PM","getAppDate test: 2015-01-01");
 });
