@@ -1,10 +1,17 @@
-// Script to add, remove, preview and submit form elements
+/**
+ * @file Contains scripts to add, remove, preview, and submit form elements
+ * @author Original Fubar Team
+ */
 
 var dropOptions = [];
 var dropCounter = 0;
 var flag = false;
 
-// Insert options into appropriate dropdown field
+/**
+ * Insert options into appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - which dropdown option to create
+ */
 function insertOption(dropcounter) {
     var dropdown = document.getElementById('drop' + dropcounter);
     var option = document.createElement('option');
@@ -26,7 +33,11 @@ function insertOption(dropcounter) {
     }
 }
 
-// Remove option from appropriate dropdown field
+/**
+ * Remove option from appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - which dropdown option to create
+ */
 function removeOption(dropcounter) {
     var x = document.getElementById('drop' + dropcounter);
     var deleted = x.options[x.selectedIndex].text;
@@ -52,7 +63,11 @@ $(document).ready(function () {
         makeForm(form);
     }
 
-    // Update field names if deletion occurs
+    
+    /**
+     * Update field names if deletion occurs
+     * @author Original Fubar Team
+     */
     function update() {
         var id = 1;
         $('#buildyourform div').each(function () {
@@ -61,7 +76,13 @@ $(document).ready(function () {
         });
     }
 
-    // Add form control fields/buttons
+    
+    /**
+     * Add form control fields/buttons
+     * @author Original Fubar Team
+     * @param {string} label - form field html label
+     * @param {string} type - html form field type
+     */
     function addField(label, type) {
         var intId = $('#buildyourform div').length + 1;
         var fieldWrapper = $('<div class=\"fieldwrapper\" id=\"' + intId + '\"/>');
@@ -120,6 +141,11 @@ $(document).ready(function () {
         preview();
     }
 
+    /**
+     * change the type of the form field
+     * @author Original Fubar Team
+     * @param {int} id - the number associated with the id attribute of a tag
+     */
     function typeChange(id) {
         var fieldcount = 0;
         var dropcounter = 0;
@@ -144,7 +170,13 @@ $(document).ready(function () {
         });
     }
 
-    // Display elements in preview field
+    
+    /**
+     * Display elements in preview field
+     * @author Original Fubar Team
+     * @param {int} removeId - id of field that has been removed from form
+     * @param {string} type - form field type. not even used in the function...
+     */
     function preview(removeId, type) {
         $('#yourform').remove();
 
@@ -273,7 +305,12 @@ $(document).ready(function () {
 
     });
 
-    // Gets form from database and creates fields
+    
+    /**
+     *  Gets form from database and creates fields
+     * @author Original Fubar Team
+     * @param {form} form - form object with fields used to populate a generic html form
+     */
     function makeForm(form) {
         flag = true;
         var body = {};
@@ -285,7 +322,15 @@ $(document).ready(function () {
         formHtml += '</form>';
     }
 
-    // Called by makeForm, creates appropriate text/drop fields
+    
+    /**
+     * Called by makeForm, creates appropriate text/drop fields
+     * @author Original Fubar Team
+     * @param {form field} field - the form field to create
+     * @param {int} index - field index in the form
+     * @param {form body} body - the body of the form we attach the field to
+     * @return {string} s - the html string to create the form field
+     */
     function makeFormGroup(field, index, body) {
         var name = '_' + index;
 
@@ -307,7 +352,15 @@ $(document).ready(function () {
         return s;
     }
 
-    // Creates dropdown field from database form
+  
+    /**
+     * Creates dropdown field from database form
+     * @author Original Fubar Team
+     * @param {string} option - value of the selectable dropdown option
+     * @param {string} name - value of name attribute in dropdown tag
+     * @param {form body} body - the body of the form we attach the dropdown to
+     * @return {string} s - the html string to create the dropdown
+     */
     function makeDropdown(options, name, body) {
         var s = '<select class="form-control" name="'+ name +'" id="'+ name +'">';
         _.each(options, function (option) {
@@ -327,7 +380,14 @@ $(document).ready(function () {
         return s;
     }
 
-    // Creates text field from database form
+    
+    /**
+     * Creates text field from database form
+     * @author Original Fubar Team
+     * @param {string} name - value of the name attribute that goes with the text field
+     * @param {form body} body - the body of the form we attach the text field to
+     * @return {string} s - the html string to create the text field
+     */
     function makeTextfield(name, body) {
 
         return'<input type="text" class="form-control" name="'+name+'" id="' + name + '"value="' + (body[name] || '') + '">';
