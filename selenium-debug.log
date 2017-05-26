@@ -1,28 +1,156 @@
-18:43:59.049 INFO - Selenium build info: version: '3.4.0', revision: 'unknown'
-18:43:59.050 INFO - Launching a standalone Selenium Server
-2017-05-14 18:43:59.081:INFO::main: Logging initialized @319ms to org.seleniumhq.jetty9.util.log.StdErrLog
-18:43:59.174 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
+18:24:40.468 INFO - Selenium build info: version: '3.4.0', revision: 'unknown'
+18:24:40.469 INFO - Launching a standalone Selenium Server
+2017-05-15 18:24:40.489:INFO::main: Logging initialized @285ms to org.seleniumhq.jetty9.util.log.StdErrLog
+18:24:40.551 INFO - Driver provider org.openqa.selenium.ie.InternetExplorerDriver registration is skipped:
  registration capabilities Capabilities [{ensureCleanSession=true, browserName=internet explorer, version=, platform=WINDOWS}] does not match the current platform MAC
-18:43:59.174 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
+18:24:40.551 INFO - Driver provider org.openqa.selenium.edge.EdgeDriver registration is skipped:
  registration capabilities Capabilities [{browserName=MicrosoftEdge, version=, platform=WINDOWS}] does not match the current platform MAC
-18:43:59.174 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-18:43:59.174 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
+18:24:40.551 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+18:24:40.551 INFO - Driver provider com.opera.core.systems.OperaDriver registration is skipped:
 Unable to create new instances on this machine.
-18:43:59.174 INFO - Driver class not found: com.opera.core.systems.OperaDriver
-18:43:59.174 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
-2017-05-14 18:43:59.248:INFO:osjs.Server:main: jetty-9.4.3.v20170317
-2017-05-14 18:43:59.294:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@4c70fda8{/,null,AVAILABLE}
-2017-05-14 18:43:59.327:INFO:osjs.AbstractConnector:main: Started ServerConnector@204f30ec{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
-2017-05-14 18:43:59.328:INFO:osjs.Server:main: Started @566ms
-18:43:59.328 INFO - Selenium Server is up and running
-18:43:59.940 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
-18:43:59.982 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
-18:44:00.089 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
-Starting ChromeDriver 2.29.461585 (0be2cd95f834e9ee7c46bcc7cf405b483f5ae83b) on port 21223
+18:24:40.551 INFO - Driver class not found: com.opera.core.systems.OperaDriver
+18:24:40.551 INFO - Driver provider com.opera.core.systems.OperaDriver is not registered
+2017-05-15 18:24:40.593:INFO:osjs.Server:main: jetty-9.4.3.v20170317
+2017-05-15 18:24:40.629:INFO:osjsh.ContextHandler:main: Started o.s.j.s.ServletContextHandler@4c70fda8{/,null,AVAILABLE}
+2017-05-15 18:24:40.663:INFO:osjs.AbstractConnector:main: Started ServerConnector@204f30ec{HTTP/1.1,[http/1.1]}{0.0.0.0:4444}
+2017-05-15 18:24:40.663:INFO:osjs.Server:main: Started @460ms
+18:24:40.663 INFO - Selenium Server is up and running
+18:24:40.958 INFO - SessionCleaner initialized with insideBrowserTimeout 0 and clientGoneTimeout 1800000 polling every 180000
+18:24:40.987 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+18:24:41.012 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.29.461585 (0be2cd95f834e9ee7c46bcc7cf405b483f5ae83b) on port 3252
 Only local connections are allowed.
-18:44:03.045 INFO - Detected dialect: OSS
-18:44:03.068 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Bazjs Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
-18:44:03.089 INFO - Executing: [get: https://fubar-master.herokuapp.com/#overview])
-18:44:04.283 INFO - Done: [get: https://fubar-master.herokuapp.com/#overview]
-18:44:04.290 INFO - Executing: [delete session: b5b38ada-57ee-4c41-b8a0-45abef370457])
-18:44:04.368 INFO - Done: [delete session: b5b38ada-57ee-4c41-b8a0-45abef370457]
+18:24:42.137 INFO - Detected dialect: OSS
+18:24:42.160 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+18:24:42.179 INFO - Executing: [get: https://fubar-master.herokuapp.com/login])
+18:24:44.413 INFO - Done: [get: https://fubar-master.herokuapp.com/login]
+18:24:44.424 INFO - Executing: [find elements: By.cssSelector: body])
+18:24:44.464 INFO - Done: [find elements: By.cssSelector: body]
+18:24:44.471 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: body]])
+18:24:44.493 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: body]]
+18:24:44.499 INFO - Executing: [find element: By.cssSelector: #email])
+18:24:44.523 INFO - Done: [find element: By.cssSelector: #email]
+18:24:44.529 INFO - Executing: [send keys: 1 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: #email], [c, 4, x, i, e, @, u, c, s, d, ., e, d, u]])
+18:24:44.649 INFO - Done: [send keys: 1 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: #email], [c, 4, x, i, e, @, u, c, s, d, ., e, d, u]]
+18:24:44.656 INFO - Executing: [find element: By.cssSelector: #password])
+18:24:44.679 INFO - Done: [find element: By.cssSelector: #password]
+18:24:44.683 INFO - Executing: [send keys: 2 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: #password], [1, 2, 3, 1, 2, 3]])
+18:24:44.849 INFO - Done: [send keys: 2 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> css selector: #password], [1, 2, 3, 1, 2, 3]]
+18:24:44.855 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:44.889 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:44.894 INFO - Executing: [click: 3 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:46.055 INFO - Done: [click: 3 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:46.061 INFO - Executing: [find elements: By.xpath: /html/body])
+18:24:46.095 INFO - Done: [find elements: By.xpath: /html/body]
+18:24:46.099 INFO - Executing: [is displayed: 4 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body]])
+18:24:46.119 INFO - Done: [is displayed: 4 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body]]
+18:24:46.125 INFO - Executing: [find element: By.xpath: /html/body/div/div/section[1]/h1])
+18:24:46.149 INFO - Done: [find element: By.xpath: /html/body/div/div/section[1]/h1]
+18:24:46.153 INFO - Executing: [get text: 5 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/div/div/section[1]/h1]])
+18:24:46.188 INFO - Done: [get text: 5 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/div/div/section[1]/h1]]
+18:24:46.193 INFO - Executing: [find element: By.xpath: /html/body/div/header/nav/a[2]])
+18:24:46.217 INFO - Done: [find element: By.xpath: /html/body/div/header/nav/a[2]]
+18:24:46.221 INFO - Executing: [click: 6 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/div/header/nav/a[2]]])
+18:24:46.665 INFO - Done: [click: 6 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/div/header/nav/a[2]]]
+18:24:46.670 INFO - Executing: [find elements: By.xpath: /html/body])
+18:24:46.683 INFO - Done: [find elements: By.xpath: /html/body]
+18:24:46.688 INFO - Executing: [is displayed: 7 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body]])
+18:24:46.709 INFO - Done: [is displayed: 7 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body]]
+18:24:46.713 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:46.722 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:46.726 INFO - Executing: [get text: 8 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:46.758 INFO - Done: [get text: 8 [[ChromeDriver: chrome on MAC (c2a70875cd1ffa8bab44d6e5571c8593)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:46.763 INFO - Executing: [delete session: 14bd613e-32d2-4b77-ae8c-3396883f03b9])
+18:24:46.836 INFO - Done: [delete session: 14bd613e-32d2-4b77-ae8c-3396883f03b9]
+18:24:46.849 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+18:24:46.851 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.29.461585 (0be2cd95f834e9ee7c46bcc7cf405b483f5ae83b) on port 6725
+Only local connections are allowed.
+18:24:47.997 INFO - Detected dialect: OSS
+18:24:48.001 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+18:24:48.014 INFO - Executing: [get: https://fubar-master.herokuapp.com/login])
+18:24:49.094 INFO - Done: [get: https://fubar-master.herokuapp.com/login]
+18:24:49.110 INFO - Executing: [find elements: By.cssSelector: body])
+18:24:49.147 INFO - Done: [find elements: By.cssSelector: body]
+18:24:49.153 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: body]])
+18:24:49.180 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: body]]
+18:24:49.186 INFO - Executing: [find element: By.cssSelector: #email])
+18:24:49.214 INFO - Done: [find element: By.cssSelector: #email]
+18:24:49.227 INFO - Executing: [send keys: 1 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: #email], [c, 4, x, i, e, @, a, p, p, l, e, ., e, d, u]])
+18:24:49.406 INFO - Done: [send keys: 1 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: #email], [c, 4, x, i, e, @, a, p, p, l, e, ., e, d, u]]
+18:24:49.413 INFO - Executing: [find element: By.cssSelector: #password])
+18:24:49.448 INFO - Done: [find element: By.cssSelector: #password]
+18:24:49.454 INFO - Executing: [send keys: 2 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: #password], [1, j, h, k, 1, 2, 3]])
+18:24:49.569 INFO - Done: [send keys: 2 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> css selector: #password], [1, j, h, k, 1, 2, 3]]
+18:24:49.577 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:49.612 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:49.617 INFO - Executing: [click: 3 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:50.165 INFO - Done: [click: 3 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:50.175 INFO - Executing: [find element: By.xpath: /html/body/header/div/div])
+18:24:50.212 INFO - Done: [find element: By.xpath: /html/body/header/div/div]
+18:24:50.218 INFO - Executing: [get text: 4 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> xpath: /html/body/header/div/div]])
+18:24:50.248 INFO - Done: [get text: 4 [[ChromeDriver: chrome on MAC (994255ab8add43034054fb91bb60e177)] -> xpath: /html/body/header/div/div]]
+18:24:50.254 INFO - Executing: [delete session: fa329721-b3b7-4725-be86-bdf2f364ab77])
+18:24:50.341 INFO - Done: [delete session: fa329721-b3b7-4725-be86-bdf2f364ab77]
+18:24:50.354 INFO - Executing: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]])
+18:24:50.356 INFO - Creating a new session for Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]
+Starting ChromeDriver 2.29.461585 (0be2cd95f834e9ee7c46bcc7cf405b483f5ae83b) on port 37265
+Only local connections are allowed.
+18:24:52.092 INFO - Detected dialect: OSS
+18:24:52.098 INFO - Done: [new session: Capabilities [{acceptSslCerts=true, name=Login Test, browserName=chrome, javascriptEnabled=true, platform=ANY}]]
+18:24:52.109 INFO - Executing: [get: https://fubar-master.herokuapp.com/login])
+18:24:54.660 INFO - Done: [get: https://fubar-master.herokuapp.com/login]
+18:24:54.693 INFO - Executing: [find elements: By.cssSelector: body])
+18:24:54.740 INFO - Done: [find elements: By.cssSelector: body]
+18:24:54.751 INFO - Executing: [is displayed: 0 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: body]])
+18:24:54.786 INFO - Done: [is displayed: 0 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: body]]
+18:24:54.795 INFO - Executing: [find element: By.cssSelector: #email])
+18:24:54.854 INFO - Done: [find element: By.cssSelector: #email]
+18:24:54.867 INFO - Executing: [send keys: 1 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #email], [c, 4, x, i, e, @, a, p, p, l, e, ., e, d, u]])
+18:24:55.110 INFO - Done: [send keys: 1 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #email], [c, 4, x, i, e, @, a, p, p, l, e, ., e, d, u]]
+18:24:55.121 INFO - Executing: [find element: By.cssSelector: #password])
+18:24:55.169 INFO - Done: [find element: By.cssSelector: #password]
+18:24:55.177 INFO - Executing: [send keys: 2 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #password], [1, j, h, k, 1, 2, 3]])
+18:24:55.312 INFO - Done: [send keys: 2 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #password], [1, j, h, k, 1, 2, 3]]
+18:24:55.324 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:55.393 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:55.402 INFO - Executing: [click: 3 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:56.183 INFO - Done: [click: 3 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:56.204 INFO - Executing: [find element: By.xpath: /html/body/header/div/div])
+18:24:56.253 INFO - Done: [find element: By.xpath: /html/body/header/div/div]
+18:24:56.259 INFO - Executing: [get text: 4 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/div]])
+18:24:56.309 INFO - Done: [get text: 4 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/div]]
+18:24:56.359 INFO - Executing: [find element: By.cssSelector: #email])
+18:24:56.409 INFO - Done: [find element: By.cssSelector: #email]
+18:24:56.424 INFO - Executing: [send keys: 5 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #email], [c, 4, x, i, e, @, u, c, s, d, ., e, d, u]])
+18:24:56.612 INFO - Done: [send keys: 5 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #email], [c, 4, x, i, e, @, u, c, s, d, ., e, d, u]]
+18:24:56.622 INFO - Executing: [find element: By.cssSelector: #password])
+18:24:56.641 INFO - Done: [find element: By.cssSelector: #password]
+18:24:56.650 INFO - Executing: [send keys: 6 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #password], [1, 2, 3, 1, 2, 3]])
+18:24:56.887 INFO - Done: [send keys: 6 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> css selector: #password], [1, 2, 3, 1, 2, 3]]
+18:24:56.898 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:56.920 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:56.929 INFO - Executing: [click: 7 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:58.533 INFO - Done: [click: 7 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:58.610 INFO - Executing: [find elements: By.xpath: /html/body])
+18:24:58.687 INFO - Done: [find elements: By.xpath: /html/body]
+18:24:58.694 INFO - Executing: [is displayed: 8 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body]])
+18:24:58.733 INFO - Done: [is displayed: 8 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body]]
+18:24:58.750 INFO - Executing: [find element: By.xpath: /html/body/div/div/section[1]/h1])
+18:24:58.816 INFO - Done: [find element: By.xpath: /html/body/div/div/section[1]/h1]
+18:24:58.847 INFO - Executing: [get text: 9 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/div/div/section[1]/h1]])
+18:24:58.917 INFO - Done: [get text: 9 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/div/div/section[1]/h1]]
+18:24:58.934 INFO - Executing: [find element: By.xpath: /html/body/div/header/nav/a[2]])
+18:24:58.991 INFO - Done: [find element: By.xpath: /html/body/div/header/nav/a[2]]
+18:24:59.000 INFO - Executing: [click: 10 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/div/header/nav/a[2]]])
+18:24:59.527 INFO - Done: [click: 10 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/div/header/nav/a[2]]]
+18:24:59.543 INFO - Executing: [find elements: By.xpath: /html/body])
+18:24:59.562 INFO - Done: [find elements: By.xpath: /html/body]
+18:24:59.568 INFO - Executing: [is displayed: 11 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body]])
+18:24:59.605 INFO - Done: [is displayed: 11 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body]]
+18:24:59.613 INFO - Executing: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button])
+18:24:59.629 INFO - Done: [find element: By.xpath: /html/body/header/div/form/div[3]/div/button]
+18:24:59.635 INFO - Executing: [get text: 12 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]])
+18:24:59.695 INFO - Done: [get text: 12 [[ChromeDriver: chrome on MAC (96c51780865c611499504d79bf5dbf7d)] -> xpath: /html/body/header/div/form/div[3]/div/button]]
+18:24:59.702 INFO - Executing: [delete session: 7a5e0ddf-72f5-4ae2-bf94-742e8abef13c])
+18:24:59.806 INFO - Done: [delete session: 7a5e0ddf-72f5-4ae2-bf94-742e8abef13c]

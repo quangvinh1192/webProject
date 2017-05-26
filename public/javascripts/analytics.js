@@ -1,7 +1,19 @@
+<<<<<<< HEAD
 // Possibly a framework
+=======
+/**
+ * @file Provides analytics for our web pages.
+ * @author Original Fubar Team
+ */
+>>>>>>> 8d7df30119125ce1dd79d9d3e84c642c6ad522a4
 'use strict';
 
-//used for debugging, set debugging to true to view debug statements
+
+/**
+ * used for debugging. sets debugging to true to view debug statements
+ * @author Original Fubar Team
+ * @param {string} String - The debug statement to log
+ */
 function debug(String)
 {
   var debugging = true;
@@ -14,6 +26,10 @@ function debug(String)
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 mixpanel.init("8085e4b16fa22b0385a211fa528036a1");
 
+/**
+ * initializes all of the button callbacks on the page
+ * @author Original Fubar Team
+ */
 function initializePage() {
   $("button.sign1Btn").click(sign1Click);
   $("button.sign2Btn").click(sign2Click);
@@ -21,6 +37,12 @@ function initializePage() {
   $("button.tryBtn").click(tryClick);
 }
 
+/**
+ * button callback for sign1 button. logs button click and
+ * tracks clicks on sign1 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function sign1Click(e) {
   mixpanel.track("Sign Up 1 Clicks");
   debug("SignUp1.");
@@ -28,12 +50,24 @@ function sign1Click(e) {
     //console.log(ga.getByName('sign1'));
 }
 
+/**
+ * button callback for sign2 button. logs button click and
+ * tracks clicks on sign2 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function sign2Click(e) {
   mixpanel.track("Sign Up 2 Clicks");
   debug("Sign up 2 pushed.");
   //ga("send", "event", "sign2", "click");
 }
 
+/**
+ * button callback for buy button. logs button click and
+ * tracks clicks on buy button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function buyClick(e) {
   mixpanel.track("Buy Clicks");
   debug("Buy Now Clicked");
@@ -42,6 +76,12 @@ function buyClick(e) {
   //_trackEvent("buyc", "test");
 }
 
+/**
+ * button callback for try button. logs button click and
+ * tracks clicks on try button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function tryClick(e) {
   mixpanel.track("TryItToday Clicks");
   debug("Try It Today pushed.");
@@ -54,7 +94,10 @@ function tryClick(e) {
 //  page counter homepage
 //        <div><body onload="view('homepage')"></body></div>
 
-
+/**
+ * runs analytics on homepage, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
   function homeview()
   {
       debug("Home Page Viewed");
@@ -64,6 +107,11 @@ function tryClick(e) {
           'url' : window.location.pathname
       });
   }
+
+/**
+ * runs analytics on the register page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
   function registerview()
   {
       debug("Register Page Viewed");
@@ -74,6 +122,10 @@ function tryClick(e) {
       });
   }
 
+/**
+ * runs analytics on login page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
   function loginview()
   {
       debug("Login Page Viewed");
