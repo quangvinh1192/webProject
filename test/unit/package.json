@@ -1,0 +1,14 @@
+{
+  "name": "robobetty",
+  "version": "0.6.0",
+  "description": "apiDoc for Robobetty",
+  "title": "Robobetty API",
+  "private": true,
+  "dependencies": {
+
+    "istanbul": "^0.4.5"
+  },
+  "engines": {
+    "node": "0.10.x"
+  }
+}

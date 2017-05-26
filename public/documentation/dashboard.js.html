@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: dashboard.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: dashboard.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+  @file This file contains functions that will help the dashboard work.
+  @author Original Fubar Team
+*/
+
+
+/**
+ * Gets the date of the current day, and turn it into a string that containsText
+ * the day and month.
+ * @author Original Fubar Team
+ * @param {object} date - The current date
+ * @return {string} A string that contains the current date.
+ */
+function dateToString( date ) {
+  var monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December' ];
+    var month = date.getMonth() ;
+    var day = date.getDate();
+    var dateOfString = (('' + month).length &lt; 2 ? '' : '') +  monthNames[month] + ' ';
+    dateOfString += (('' + day).length &lt; 2 ? '0' : '') + day + ' ';
+    dateOfString += date.getFullYear();
+
+    return dateOfString;
+}
+/**
+ * Gets the current date and places it in the secondary header
+ * @author Original Fubar Team
+ */
+function getDate(){
+  var currentdate = new Date();
+  var datetime= '';
+  datetime += dateToString(currentdate );
+
+  var header = $('&lt;h5/>');
+  header.append(datetime);
+  $('#currentDate').replaceWith(header);
+}
+
+/**
+ * Gets the current time as the page opened, in the form
+ * hour:minute:second:am/pm
+ * @author Original Fubar Team
+ */
+function startTime() {
+  var today = new Date();
+  var h     = today.getHours();
+  var m     = today.getMinutes();
+  var s     = today.getSeconds();
+  var dn    = 'AM';
+
+  if( h > 12 ) {
+    dn = 'PM';
+    h  = h-12;
+  }
+
+  m = checkTime(m);
+  s = checkTime(s);
+  $('#txt').html(h+':'+m+':'+s+ ' '+ dn);
+  setTimeout(function(){startTime();},500);
+}
+
+/**
+ * Gives correct format of time. All time numbers less than 10
+ * have the format 0X, with X being the number.
+ * @author Original Fubar Team
+ * @param {int} i - time number in a single place (minute/second/hour)
+ * @return {string} the time in a single place, with a 0 added if &lt; 10
+ */
+function checkTime( i ) {
+    if( i &lt; 10 ) { i = '0' + i; }  // add zero in front of numbers &lt; 10
+    return i;
+}
+
+/**
+ * Function to get the appointment's time in a formatted string.
+ * @author Original Fubar Team
+ * @param {object} date - The appointment time
+ * @return {string} The appointment time in string format
+ */
+function getAppDate( date ){
+  var appDate = new Date(date);
+  //parsing to get time
+  var fhours = appDate.getHours();
+  var appTime;
+  if(fhours/12 &lt; 1){
+    var hours = ('0'+appDate.getHours()).slice(-2); //returns 0-
+    var minutes = ('0'+appDate.getMinutes()).slice(-2); //returns 0-59
+    appTime = hours+':'+minutes + ' AM';
+  }
+  else{
+    var pmHours = appDate.getHours()%12;
+
+    if(pmHours === 0) {
+       pmHours = 12;
+    }
+
+    var hoursPM = ('0'+pmHours).slice(-2); //returns 0-
+    var minutesPM = ('0'+appDate.getMinutes()).slice(-2); //returns 0-59
+    appTime = hoursPM+':'+minutesPM + ' PM';
+  }
+
+  return appTime;
+}
+
+// starting function
+$(function() {
+  getDate();
+  $(startTime);
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#buyClick">buyClick</a></li><li><a href="global.html#checkIn">checkIn</a></li><li><a href="global.html#checkOut">checkOut</a></li><li><a href="global.html#checkTime">checkTime</a></li><li><a href="global.html#dateToString">dateToString</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#getAppDate">getAppDate</a></li><li><a href="global.html#getDate">getDate</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#homeview">homeview</a></li><li><a href="global.html#initializePage">initializePage</a></li><li><a href="global.html#insertOption">insertOption</a></li><li><a href="global.html#loginview">loginview</a></li><li><a href="global.html#poll">poll</a></li><li><a href="global.html#registerview">registerview</a></li><li><a href="global.html#removeOption">removeOption</a></li><li><a href="global.html#reschedule">reschedule</a></li><li><a href="global.html#sign1Click">sign1Click</a></li><li><a href="global.html#sign2Click">sign2Click</a></li><li><a href="global.html#startTime">startTime</a></li><li><a href="global.html#table">table</a></li><li><a href="global.html#tryClick">tryClick</a></li><li><a href="global.html#unhighlight">unhighlight</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Mon May 22 2017 21:58:04 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

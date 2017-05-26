@@ -1,0 +1,10 @@
+#!/bin/bash
+# Testing wrapper script
+# Author: Charly Xie
+
+echo ----------------PRODUCING COVERAGES--------------------------
+rm -rf public/coverage/*
+cd test/unit
+npm install
+istanbul cover *.js
+mv coverage ../../public

@@ -7,6 +7,13 @@ $(function(){
 
 });
 
+/**
+ * gets the date of the current day, and turn it into a string that containsText
+ * the day and month.
+ * @author Original Fubar Team
+ * @param {object} date - The current date
+ * @return {string} A string that contains the current date.
+ */
 function dateToString(date) {
 	var monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December' ];
@@ -19,6 +26,12 @@ function dateToString(date) {
 
 
 }
+
+
+/**
+ * gets current date and puts it in the header 1 tag
+ * @author Original Fubar Team
+ */
 function getDate(){
 	var currentdate = new Date();
 	var datetime= '';
@@ -29,6 +42,11 @@ function getDate(){
 	 $header.append(datetime);
 	$('#currentDate').replaceWith($header);
 }
+
+/**
+ * sets the text in the tag with the txt id to the time this function was called
+ * @author Original Fubar Team
+ */
 function startTime() {
     var today=new Date();
     var h=today.getHours();
@@ -45,11 +63,21 @@ function startTime() {
     setTimeout(function(){startTime();},500);
 }
 
+/**
+ * makes sure time components are two digits long
+ * @author Original Fubar Team
+ * @param {int} i - the number to check
+ * @return {int} - correctly formatted two digit number
+ */
 function checkTime(i) {
     if (i<10) {i = '0' + i;}  // add zero in front of numbers < 10
     return i;
 }
 
+/**
+ * popuates table with appointment data
+ * @author Original Fubar Team
+ */
 function table() {
     var cols,$btn;
 
@@ -128,7 +156,10 @@ function table() {
     });//end of $get()
 }//end of table()
 
-
+/**
+ * update the table every 1000ms
+ * @author Original Fubar Team
+ */
 function poll() {
     setTimeout(function(){
         table();
@@ -153,7 +184,12 @@ function insRow(cols) {
 
 // Script to add, remove, preview and submit form elements
 
-// Insert options into appropriate dropdown field
+
+/**
+ * Insert options into appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - the number of the dropdown
+ */
 function insertOption(dropcounter) {
     var x = document.getElementById('drop' + dropcounter);
     var option = document.createElement('option');
@@ -172,7 +208,12 @@ function insertOption(dropcounter) {
 
 }
 
-// Remove option from appropriate dropdown field
+
+/**
+ * Remove option from appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - the number of the dropdown
+ */
 function removeOption(dropcounter) {
     var x = document.getElementById('drop' + dropcounter);
     x.remove(x.selectedIndex);
@@ -180,6 +221,10 @@ function removeOption(dropcounter) {
 
 $(document).ready(function () {
 
+    /**
+     * shows preview of your form
+     * @author Original Fubar Team
+     */
     function preview() {
         var dropCounter = 0;
         $('#yourform').remove();

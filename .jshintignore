@@ -5,3 +5,4 @@ public/javascripts/*-min.*
 public/javascripts/analytics.js
 public/javascripts/adminLTEapp.js
 public/javascripts/spectrum.js
+public/javascripts/*.js
