@@ -1,34 +1,37 @@
 /* These are global changes applied to every page that is linked to this stylesheet */
 /* End: Changes made by William Huang 2/7/15 */
-.grey{
-    background-color: #000;
-    height: 400px;
+
+hr{
+    border: 2px solid #555;
 }
-.red{
-    background-color: #333;
-   
-  
-}
-.chart-container{
-    height: 400px;
-    position: relative;
-    
-}
-.chart-container > svg {
-	width: 100%;
-	height: 100%;
+.dashboard-data-block{
+    background-color:cadetblue;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    margin-bottom: 20px;
 }
 
-path.slice{
-	stroke-width:2px;
+.dashboard-data-block h1{
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 0px;
+}
+.dashboard-data-block span{
+    color: #555;
+}
+.dashboard-data-block .main-data{
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+.dashboard-data-block .avg-data{
+    margin-left: 5px;
+}
+.dashboard-section{
+    margin-bottom: 25px;
 }
 
-polyline{
-	opacity: .3;
-	stroke: black;
-	stroke-width: 2px;
-	fill: none;
-}
 /******************/
 .html, .body {
   height: 100%;

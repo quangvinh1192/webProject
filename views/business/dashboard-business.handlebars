@@ -9,162 +9,135 @@
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
     
-    <div class = "container">
+    <div class = "dashboard-section">
         <div class="row">
-            <div class="col col-md-9 chart-container red" id="red">
-            </div>
-             <div class="col col-md-auto col-md-3 grey"></div>
+            <div class="col-md-12">
+                <h1>User Statistics</h1>
+            </div> 
+        </div>
+        <hr/> 
+        
+        <!-- first row user stats-->
+        <div class="row">
+            <!-- bounce rate-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block">
+                    <h1>Bounce Rate</h1>
+                    <span class="main-data">89%</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span> 
+                        <span> 3% </span>
+                    </span>
+                   
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 90% </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            
+            <!-- avg site time-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block">
+                    <h1>Average Time Spent on Site (minutes)</h1>
+                    <span class="main-data">89</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span> 
+                        <span> 3 </span>
+                    </span>
+                   
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 45 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            
+            <!-- avg pages visited-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block">
+                    <h1>Average # Pages per Visit</h1>
+                    <span class="main-data">89</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span> 
+                        <span> 3 </span>
+                    </span>
+                   
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 90 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            
         </div> <!-- end row -->
+        
+        <div class="row">
+            <div class ="col-md-12">
+                <div class="" id="new-visitors-chart">
+                    <canvas id="myChart" width="400" height="400"></canvas>
+                </div>
+            </div>
+        </div>
+
     </div> <!-- end container-->
+    
+
 
     
 
 </section>
-<!-- d3 js -->
-<script src="http://d3js.org/d3.v3.min.js"></script>
+
+<script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
 <script>
-
-var svg = d3.select("#red")
-	.append("svg")
-	.append("g")
-
-svg.append("g")
-	.attr("class", "slices");
-svg.append("g")
-	.attr("class", "labels");
-svg.append("g")
-	.attr("class", "lines");
-
-var width = document.getElementById("red").offsetWidth,
-    height = document.getElementById("red").offsetHeight,
-	radius = Math.min(width, height) / 2;
-
-var pie = d3.layout.pie()
-	.sort(null)
-	.value(function(d) {
-		return d.value;
-	});
-
-var arc = d3.svg.arc()
-	.outerRadius(radius * 0.8)
-	.innerRadius(radius * 0.4);
-
-var outerArc = d3.svg.arc()
-	.innerRadius(radius * 0.9)
-	.outerRadius(radius * 0.9);
-
-svg.attr("transform", "translate(" + width / 2 + "," + height/2 + ")");
-
-var key = function(d){ return d.data.label; };
-
-var color = d3.scale.ordinal()
-	.domain(["Lorem ipsum", "dolor sit", "amet", "consectetur", "adipisicing", "elit", "sed", "do", "eiusmod", "tempor", "incididunt"])
-	.range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-
-function randomData (){
-	var labels = color.domain();
-	return labels.map(function(label){
-		return { label: label, value: Math.random() }
-	});
-}
-
-change(randomData());
-
-d3.select(".randomize")
-	.on("click", function(){
-		change(randomData());
-	});
-
-
-function change(data) {
-
-	/* ------- PIE SLICES -------*/
-	var slice = svg.select(".slices").selectAll("path.slice")
-		.data(pie(data), key);
-
-	slice.enter()
-		.insert("path")
-		.style("fill", function(d) { return color(d.data.label); })
-		.attr("class", "slice");
-
-	slice		
-		.transition().duration(1000)
-		.attrTween("d", function(d) {
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				return arc(interpolate(t));
-			};
-		})
-
-	slice.exit()
-		.remove();
-
-	/* ------- TEXT LABELS -------*/
-
-	var text = svg.select(".labels").selectAll("text")
-		.data(pie(data), key);
-
-	text.enter()
-		.append("text")
-		.attr("dy", ".35em")
-		.text(function(d) {
-			return d.data.label;
-		});
-	
-	function midAngle(d){
-		return d.startAngle + (d.endAngle - d.startAngle)/2;
-	}
-
-	text.transition().duration(1000)
-		.attrTween("transform", function(d) {
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * (midAngle(d2) < Math.PI ? 1 : -1);
-				return "translate("+ pos +")";
-			};
-		})
-		.styleTween("text-anchor", function(d){
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				return midAngle(d2) < Math.PI ? "start":"end";
-			};
-		});
-
-	text.exit()
-		.remove();
-
-	/* ------- SLICE TO TEXT POLYLINES -------*/
-
-	var polyline = svg.select(".lines").selectAll("polyline")
-		.data(pie(data), key);
-	
-	polyline.enter()
-		.append("polyline");
-
-	polyline.transition().duration(1000)
-		.attrTween("points", function(d){
-			this._current = this._current || d;
-			var interpolate = d3.interpolate(this._current, d);
-			this._current = interpolate(0);
-			return function(t) {
-				var d2 = interpolate(t);
-				var pos = outerArc.centroid(d2);
-				pos[0] = radius * 0.95 * (midAngle(d2) < Math.PI ? 1 : -1);
-				return [arc.centroid(d2), outerArc.centroid(d2), pos];
-			};			
-		});
-	
-	polyline.exit()
-		.remove();
-};
-
+var ctx = document.getElementById("myChart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
 </script>
