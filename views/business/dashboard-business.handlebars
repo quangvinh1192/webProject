@@ -81,13 +81,22 @@
             
         </div> <!-- end row -->
         
+        <!-- second row of user stats-->
         <div class="row">
-            <div class ="col-md-12">
-                <div class="" id="new-visitors-chart">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+            <div class ="col-md-8">
+                <!-- new visitor line chart-->
+                <div class="chart" >
+                    <canvas id="new-visitors-chart" width="400" height="200px"></canvas>
                 </div>
-            </div>
-        </div>
+            </div> <!-- end col -->
+            
+            <!-- visitor occupation pie chart-->
+            <div class="col-md-4">
+                <div class="chart" >
+                    <canvas id ="visitor-occupations-chart" width="400" height="400px"></canvas>
+                </div>
+            </div><!-- end col-->
+        </div> <!-- end row-->
 
     </div> <!-- end container-->
     
@@ -100,39 +109,80 @@
 <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
+<!-- pie charts for visitor occupations-->
 <script>
-var ctx = document.getElementById("myChart").getContext('2d');
+    var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
+    var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+        labels: ["dentist", " hair dresser", "peter", "charly", "doctor"],
+        datasets: [{
+            label: '# of New Visitors',
+            data: [12, 19, 3, 5, 2],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+        
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Visitor Occupations'
+        },
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+
+    }  
+});
+    
+</script>
+<!-- line chart for new user visits-->
+<script>
+var ctx = document.getElementById("new-visitors-chart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: ["5/26", "5/27", "5/28", "5/29", "5/30"],
         datasets: [{
-            label: '# of Votes',
+            label: '# of New Visitors',
             data: [12, 19, 3, 5, 2, 3],
+            fill: false,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(54, 162, 235, 1)'
             ],
             borderWidth: 1
         }]
     },
     options: {
+        title: {
+            display: true,
+            text: 'New Visitors per Day'
+        },
         responsive: true,
         responsiveAnimationDuration: 2000,
         scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                }
+            }],
             yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: '# New Visitors'
+                },
                 ticks: {
                     beginAtZero:true
                 }
@@ -141,3 +191,4 @@ var myChart = new Chart(ctx, {
     }
 });
 </script>
+<!-- end user line chart-->

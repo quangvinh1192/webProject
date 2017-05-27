@@ -1,17 +1,20 @@
 /* These are global changes applied to every page that is linked to this stylesheet */
 /* End: Changes made by William Huang 2/7/15 */
-
 hr{
     border: 2px solid #555;
 }
+.chart{
+    background-color: white;
+}
+
 .dashboard-data-block{
     background-color:cadetblue;
     text-align: center;
     padding-bottom: 25px;
     padding-top: 10px;
     margin-bottom: 20px;
+    height: 300px;
 }
-
 .dashboard-data-block h1{
     font-size: 30px;
     font-weight: 800;
