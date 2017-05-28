@@ -4,8 +4,8 @@ module.exports = {
     'home to login': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[5]/a')
             .assert.urlEquals('http://fubar-staging.herokuapp.com/login')
             .assert.containsText('/html/body/header/div/form/div[3]/div/button', "Sign in")
@@ -15,8 +15,8 @@ module.exports = {
     'login to home': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/login')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click("/html/body/nav/div/div[1]/a")
             .assert.urlEquals('http://fubar-staging.herokuapp.com/')
             .end();
@@ -25,8 +25,8 @@ module.exports = {
     'home to overview': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[1]/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/#overview")
             .end();
@@ -35,8 +35,8 @@ module.exports = {
     'home to testimonial': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[2]/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/#testimonial_blk")
             .end();
@@ -45,8 +45,8 @@ module.exports = {
     'home to pricing': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[3]/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/#pricing")
             .end();
@@ -55,8 +55,8 @@ module.exports = {
     'home to contact': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[4]/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/#contact_us")
             .end();
@@ -74,8 +74,8 @@ module.exports = {
     'login to register': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/login')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/register")
             .end();
@@ -84,8 +84,8 @@ module.exports = {
     'register to login': function(browser) {
         browser
             .url('http://fubar-staging.herokuapp.com/register')
-            .useXpath()
             .waitForElementVisible("nav")
+            .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li/a')
             .assert.urlEquals("http://fubar-staging.herokuapp.com/login")
             .end();
