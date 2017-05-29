@@ -8,92 +8,80 @@
     {{#if message}}
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
-    
-    <div class = "dashboard-section">
+
+        <!-- Server statistics -->
         <div class="row">
             <div class="col-md-12">
-                <h1>User Statistics</h1>
-            </div> 
+                <h1>Site Statistics</h1>
+            </div>
         </div>
-        <hr/> 
-        
+        <hr/>
+
         <!-- first row user stats-->
         <div class="row">
             <!-- bounce rate-->
             <div class="col col-md-4" >
-                <div class ="dashboard-data-block">
-                    <h1>Bounce Rate</h1>
-                    <span class="main-data">89%</span> <br/>
+                <div class ="dashboard-data-block data-block-green">
+                    <h1>Server Status</h1>
+                    <span class="main-data">&#9650; Up</span>
+                    <br/>
                     <span>
-                         <span>
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </span> 
-                        <span> 3% </span>
+                       Last down never days ago
                     </span>
-                   
-                    <br/>
-                    <span>6 Week Avg:</span>
-                    <span class="avg-data"> 90% </span>
-                    <br/>
-                    <span>Last updated at: 9:30</span>
                 </div> <!-- end percent-block-->
             </div><!-- end col-->
-            
-            <!-- avg site time-->
-            <div class="col col-md-4" >
-                <div class ="dashboard-data-block">
-                    <h1>Average Time Spent on Site (minutes)</h1>
-                    <span class="main-data">89</span> <br/>
-                    <span>
-                         <span>
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </span> 
-                        <span> 3 </span>
-                    </span>
-                   
-                    <br/>
-                    <span>6 Week Avg:</span>
-                    <span class="avg-data"> 45 </span>
-                    <br/>
-                    <span>Last updated at: 9:30</span>
-                </div> <!-- end percent-block-->
-            </div><!-- end col-->
-            
-            <!-- avg pages visited-->
-            <div class="col col-md-4" >
-                <div class ="dashboard-data-block">
-                    <h1>Average # Pages per Visit</h1>
-                    <span class="main-data">89</span> <br/>
-                    <span>
-                         <span>
-                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                        </span> 
-                        <span> 3 </span>
-                    </span>
-                   
-                    <br/>
-                    <span>6 Week Avg:</span>
-                    <span class="avg-data"> 90 </span>
-                    <br/>
-                    <span>Last updated at: 9:30</span>
-                </div> <!-- end percent-block-->
-            </div><!-- end col-->
-            
-        </div> <!-- end row -->
-        
-        <div class="row">
-            <div class ="col-md-12">
+
+            <div class ="col-md-8">
                 <div class="" id="new-visitors-chart">
-                    <canvas id="myChart" width="400" height="400"></canvas>
+                    <canvas id="serverUptimeChart" width="400" height="200"></canvas>
                 </div>
             </div>
         </div>
 
+        <div class = "row">
+        <div class="col col-md-4">
+            <canvas id="trafficSourceChart" height="200"></canvas>
+        </div>
+            <div class="col col-md-8">
+                <div class ="dashboard-data-block">
+                    <h1>Customer Feedback</h1>
+                    <div class = "dashboard-data-block dashboard-data-block-left">
+                        <span>
+                            <h2>Good</h2>
+                            <br/>
+                            <ul>
+                                <li>That one part is nice!</li>
+                                <li>Sick dashboard.</li>
+                                <li>Wow.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class = "dashboard-data-block">
+                        <span>
+                            <h2>Bad</h2>
+                            <br/>
+                            <ul>
+                                <li>Fix formbuilder pls.</li>
+                                <li>I can't log in as Peter.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <br/>
+                    <span>
+                        <h2>General</h2>
+                        <br/>
+                        <ul>
+                            <li>Make it work pls.</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
     </div> <!-- end container-->
-    
 
 
-    
+
+
 
 </section>
 
@@ -101,43 +89,99 @@
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
 <script>
-var ctx = document.getElementById("myChart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
+
+var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var uptimeCtx = document.getElementById("serverUptimeChart").getContext("2d");
+var serverUptimeChart = new Chart(uptimeCtx, {
+			type: 'line',
+			data: {
+				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				datasets: [{
+					label: "Downtime (Avg: _s)",
+					borderColor: 'rgba(229, 166, 35, 0.2)', // Orange
+					backgroundColor: 'rgba(229, 166, 35, 1)',
+					data: [0, 0, 1, 0, 0, 0, 2],
+          fill: 'start'
+				}, {
+					label: "Uptime (_%)",
+					borderColor: 'rgba(64, 226, 144, 0.2)', // Green
+					backgroundColor: 'rgba(64, 226, 144, 1)',
+					data: [5, 6, 5, 5, 5, 6, 5],
+          fill: 'start'
+				}, {
+					label: "Response time",
+					borderColor: 'rgba(89, 189, 229, 0.2)', // Blue
+					backgroundColor: 'rgba(89, 189, 229, 1)',
+					data: [10, 12, 11, 9, 10, 12, 13],
+          fill: 'start'
+				}]
+			},
+			options: {
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Server Uptime'
+        },
+			spanGaps: false,
+			elements: {
+				line: {
+					tension: 0.000001
+				}
+			},
+			scales: {
+				yAxes: [{
+					stacked: false
+				}]
+			},
+			plugins: {
+				filler: {
+					propagate: false
+				},
+				samples_filler_analyser: {
+					target: 'chart-analyser'
+				}
+			}
+  	}
+});
+
+var trafficCtx = document.getElementById("trafficSourceChart").getContext("2d");
+var trafficSourceChart = new Chart(trafficCtx, {
+    type: 'doughnut',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            data: [5, 4, 3, 2, 1],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(89, 189, 229, 1)',
+                'rgba(64, 226, 144, 1)',
+                'rgba(229, 166, 35, 1)',
+                'rgba(264, 122, 159, 1)',
+                'rgba(239, 54, 64, 1)'
             ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
+            label: 'Dataset 1'
+        }],
+        labels: [
+            "Facebook",
+            "Twitter",
+            "Instagram",
+            "Myspace",
+            "Other"
+        ]
     },
     options: {
         responsive: true,
-        responsiveAnimationDuration: 2000,
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Traffic Sources'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
         }
     }
 });
+
+
 </script>

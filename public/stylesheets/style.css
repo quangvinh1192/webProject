@@ -17,6 +17,14 @@ hr{
     font-weight: 800;
     margin-bottom: 0px;
 }
+
+.dashboard-data-block h2{
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 0px;
+    color: white;
+}
+
 .dashboard-data-block span{
     color: #555;
 }
@@ -30,6 +38,19 @@ hr{
 }
 .dashboard-section{
     margin-bottom: 25px;
+}
+
+.dashboard-data-block-left {
+    float:left;
+    width: 50%;
+}
+
+.data-block-green {
+   background-color: #40E290;
+}
+
+.redborder {
+  border: 2px solid red;
 }
 
 /******************/
