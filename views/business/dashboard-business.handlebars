@@ -9,8 +9,179 @@
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
 
-    <div class="pull-left" style = "width: 50%; margin: 0 auto;">
-        <img src="http://i25.photobucket.com/albums/c97/evilsmith/resizeAnalytics_zpsrfxnhb9b.png" alt="Analytics">
-    </div>
+        <!-- Server statistics -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Site Statistics</h1>
+            </div>
+        </div>
+        <hr/>
+
+        <!-- first row user stats-->
+        <div class="row">
+            <!-- bounce rate-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block data-block-green">
+                    <h1>Server Status</h1>
+                    <span class="main-data">&#9650; Up</span>
+                    <br/>
+                    <span>
+                       Last down never days ago
+                    </span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+
+            <div class ="col-md-8">
+                <div class="" id="new-visitors-chart">
+                    <canvas id="serverUptimeChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class = "row">
+        <div class="col col-md-4">
+            <canvas id="trafficSourceChart" height="200"></canvas>
+        </div>
+            <div class="col col-md-8">
+                <div class ="dashboard-data-block">
+                    <h1>Customer Feedback</h1>
+                    <div class = "dashboard-data-block dashboard-data-block-left">
+                        <span>
+                            <h2>Good</h2>
+                            <br/>
+                            <ul>
+                                <li>That one part is nice!</li>
+                                <li>Sick dashboard.</li>
+                                <li>Wow.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class = "dashboard-data-block">
+                        <span>
+                            <h2>Bad</h2>
+                            <br/>
+                            <ul>
+                                <li>Fix formbuilder pls.</li>
+                                <li>I can't log in as Peter.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <br/>
+                    <span>
+                        <h2>General</h2>
+                        <br/>
+                        <ul>
+                            <li>Make it work pls.</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div> <!-- end container-->
+
+
+
+
 
 </section>
+
+<script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+<script>
+
+var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var uptimeCtx = document.getElementById("serverUptimeChart").getContext("2d");
+var serverUptimeChart = new Chart(uptimeCtx, {
+			type: 'line',
+			data: {
+				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				datasets: [{
+					label: "Downtime (Avg: _s)",
+					borderColor: 'rgba(229, 166, 35, 0.2)', // Orange
+					backgroundColor: 'rgba(229, 166, 35, 1)',
+					data: [0, 0, 1, 0, 0, 0, 2],
+          fill: 'start'
+				}, {
+					label: "Uptime (_%)",
+					borderColor: 'rgba(64, 226, 144, 0.2)', // Green
+					backgroundColor: 'rgba(64, 226, 144, 1)',
+					data: [5, 6, 5, 5, 5, 6, 5],
+          fill: 'start'
+				}, {
+					label: "Response time",
+					borderColor: 'rgba(89, 189, 229, 0.2)', // Blue
+					backgroundColor: 'rgba(89, 189, 229, 1)',
+					data: [10, 12, 11, 9, 10, 12, 13],
+          fill: 'start'
+				}]
+			},
+			options: {
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Server Uptime'
+        },
+			spanGaps: false,
+			elements: {
+				line: {
+					tension: 0.000001
+				}
+			},
+			scales: {
+				yAxes: [{
+					stacked: false
+				}]
+			},
+			plugins: {
+				filler: {
+					propagate: false
+				},
+				samples_filler_analyser: {
+					target: 'chart-analyser'
+				}
+			}
+  	}
+});
+
+var trafficCtx = document.getElementById("trafficSourceChart").getContext("2d");
+var trafficSourceChart = new Chart(trafficCtx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [5, 4, 3, 2, 1],
+            backgroundColor: [
+                'rgba(89, 189, 229, 1)',
+                'rgba(64, 226, 144, 1)',
+                'rgba(229, 166, 35, 1)',
+                'rgba(264, 122, 159, 1)',
+                'rgba(239, 54, 64, 1)'
+            ],
+            label: 'Dataset 1'
+        }],
+        labels: [
+            "Facebook",
+            "Twitter",
+            "Instagram",
+            "Myspace",
+            "Other"
+        ]
+    },
+    options: {
+        responsive: true,
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Traffic Sources'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    }
+});
+
+
+</script>
