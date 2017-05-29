@@ -37,6 +37,7 @@
     "jasmine": "^2.6.0",
     "jsdoc": "^3.4.3",
     "jshint": "^2.9.4",
+    "lodash": "^4.17.4",
     "minify": "^2.0.13",
     "mongodb": "*",
     "monk": "*",
