@@ -24,6 +24,7 @@ module.exports = {
 
     'dashboard to sign in' : function(browser) {
         browser
+            .url('http://fubar-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[3]/a')
@@ -34,6 +35,7 @@ module.exports = {
 
     'dashboard to employees' : function(browser) {
         browser
+            .url('http://fubar-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[4]/a')
@@ -43,6 +45,7 @@ module.exports = {
 
     'dashboard to form editor' : function(browser) {
         browser
+            .url('http://fubar-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[5]/a')
@@ -52,6 +55,7 @@ module.exports = {
 
     'dashboard to settings' : function(browser) {
         browser
+            .url('http://fubar-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[6]/a')
