@@ -4,6 +4,5 @@
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-100011447-1', 'none');
-  ga('set', '&uid', 'A12438370');
+  ga('create', 'UA-100011447-1', 'auto');
   ga('send', 'pageview');
