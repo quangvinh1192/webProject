@@ -100,7 +100,7 @@
 
     </div> <!-- end container-->
 
-<!-- TODO KAT -->
+<!-- KAT -->
     <div class = "dashboard-section">
         <div class="row">
             <div class="col-md-12">
@@ -109,26 +109,28 @@
         </div>
         <hr/>
 
-        <!-- revenue stats -->
+        <!-- revenue stats top row-->
         <div class="row">
-            <!-- revenue line chart-->
-            <div class="col col-md-6" >
-                <div class="box" id="revenue-chart">
-                    <canvas id="revchart" width="300" height="200"></canvas>
-                </div>
-            </div><!-- end col-->
-
             <!-- budget pie chart-->
-            <div class="col col-md-3">
-                <div>
-                    <canvas id="pieBudget" width="500" height="500"></canvas>
+            <div class="col col-md-4">
+                <div class="chart" >
+                    <canvas id ="budget-breakdown-chart" width="400" height="400px"></canvas>
                 </div>
             </div>
-            <!-- avg pages visited-->
+            <!-- revenue line chart-->
+            <div class="col col-md-8" >
+                <div class="chart" >
+                    <canvas id="revenue-line-chart" width="400" height="200px"></canvas>
+                </div>
+            </div><!-- end col-->
+        </div>
+        <!-- bottom revenue row -->
+        <div class="row spacing">
+            <!-- Valuation fluctuation -->
             <div class="col col-md-3" >
                 <div class ="dashboard-data-block">
-                    <h1>Valuation</h1>
-                    <span class="main-data">$3.2M</span> <br/>
+                    <h1>Current Valuation</h1>
+                    <span class="main-data">$1.2M</span> <br/>
                     <span>
                          <span>
                             <i class="fa fa-arrow-up" aria-hidden="true"></i>
@@ -138,12 +140,68 @@
 
                     <br/>
                     <span>6 Week Avg:</span>
-                    <span class="avg-data"> $2K/week </span>
+                    <span class="avg-data"> $2.1K/week </span>
                     <br/>
                     <span>Last updated at: 9:30</span>
                 </div> <!-- end percent-block-->
             </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>Average Revenue Per User</h1>
+                    <span class="main-data">$208</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  $3 </span>
+                    </span>
 
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> $211 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>New Subscriptions</h1>
+                    <span class="main-data">13</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  1 </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 14 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>Cancellations</h1>
+                    <span class="main-data">0</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  1 </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 1 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
         </div> <!-- end row -->
 
     </div> <!-- end container-->
@@ -237,73 +295,87 @@ var myChart = new Chart(ctx, {
 </script>
 <!-- end user line chart-->
 
-<!--KAT-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script>
-  <script language="JavaScript">
-  function displayLineChart() {
-    var data = {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-        datasets: [
-            {
-                label: "Prime and Fibonacci",
-                fillColor: "rgba(220,220,220,0.2)",
-                strokeColor: "rgba(220,220,220,1)",
-                pointColor: "rgba(220,220,220,1)",
-                pointStrokeColor: "#fff",
-                pointHighlightFill: "#fff",
-                pointHighlightStroke: "rgba(220,220,220,1)",
-                data: [2, 3, 5, 7, 11, 13, 17, 19, 23, 29]
-            },
-        ]
-    };
-    var ctx = document.getElementById("revchart").getContext("2d");
-    var options = {
+<!--line chart for revenue-->
+<script>
+var ctx = document.getElementById("revenue-line-chart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["February", "March", "April", "May", "June"],
+        datasets: [{
+            label: '$',
+            data: [2160, 3012, 3673, 4002, 4873],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Revenue Generated'
+        },
         responsive: true,
         responsiveAnimationDuration: 2000,
         scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            }],
             yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Revenue ($)'
+                },
                 ticks: {
-                    beginAtZero:true
+                    beginAtZero:false
                 }
             }]
-        },
-        title: {
-          display: true,
-          text: 'Revenue vs Time'
         }
-    };
-    var lineChart = new Chart(ctx).Line(data, options);
-  }
- displayLineChart();
+    }
+});
 </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.4/Chart.min.js"></script>
-<script language="JavaScript">
-    var ctx = document.getElementById("pieBudget").getContext('2d');
-    var myChart = new Chart(ctx, {
-      type: 'pie',
-      data: {
-        labels: ["Mobile Development", "Web Development", "Social Media", "Office Lease", "Miscellaneous"],
+<!-- budget breakdown pie chart -->
+<script>
+    var ctx = document.getElementById("budget-breakdown-chart").getContext('2d');
+    var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+        labels: ["Mobile Dev", "Web Dev", "Office Lease", "Social Media", "Miscellaneous"],
         datasets: [{
-          backgroundColor: [
-            "#2ecc71",
-            "#3498db",
-            "#95a5a6",
-            "#9b59b6",
-            "#f1c40f"
-          ],
-          data: [27, 21, 12, 32, 8]
-      }],
-      options: {
+            //label: 'Sections',
+            data: [35, 30, 23, 14, 9],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(72, 235, 54, 0.2)',
+                'rgba(235, 126, 54, 0.2)',
+                'rgba(217, 54, 235, 0.2)'
+            ]//,
+            //borderColor: [
+            //    'rgba(54, 162, 235, 1)'
+            //],
+            //borderWidth: 1
+        }]
+    },
+    options: {
         title: {
-          display: true,
-          text: 'Budget Breakdown'
+            display: true,
+            text: 'Budget Breakdown'
         },
-        legend: {
-          //fontSize: 8,
-          display: false
-        }
-      }
-     }
-    });
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+    }
+});
+
 </script>
