@@ -955,3 +955,9 @@ a:hover {
 .list-group{
   color: #888a8c;
 }
+
+/* Added by Kat */
+.container {
+  width: 80%;
+  margin: 15px auto;
+}
