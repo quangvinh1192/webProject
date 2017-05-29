@@ -74,9 +74,6 @@ function checkTime(i) {
     return i;
 }
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 var putCheckedIn = function() {
     var $appid = $(this).data('appid');
 

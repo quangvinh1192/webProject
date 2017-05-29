@@ -8,7 +8,6 @@
 // Returns protocol, hostname and portnumber of URL
 var socket = io(window.location.origin);
 
-=======
 /**
  * When user wants to check in, function gathers data from form
  * @author Original Fubar Team
@@ -44,7 +43,6 @@ socket.on('checkin', function (data) {
 
 });
 
-<<<<<<< HEAD
 var toggleHighlight = function () {
     if(!this.hilite){
         unhighlight();
@@ -56,7 +54,7 @@ var toggleHighlight = function () {
         this.hilite = false;
     }
 };
-=======
+
 /**
  * Goes through appointment table, and highlights/unhighlights
  * according to user clicks
