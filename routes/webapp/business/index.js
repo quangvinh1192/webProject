@@ -65,6 +65,7 @@ module.exports = function (passport) {
     function isLoggedInBusiness(req, res, next) {
         // if user is authenticated in the session, carry on
         if (req.isAuthenticated()&& (req.user[0].admin === true)){
+        	console.log(" id chaie " + req.user[0].business);
             return next();
         }
         req.flash("permission", "You do not have permission to access that page");
