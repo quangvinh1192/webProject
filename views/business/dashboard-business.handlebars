@@ -86,7 +86,7 @@
             <div class ="col-md-8">
                 <!-- new visitor line chart-->
                 <div class="chart" >
-                    <canvas id="new-visitors-chart" width="400" height="200px"></canvas>
+                    <canvas id="new-visitors-chart" width="400" height="187px"></canvas>
                 </div>
             </div> <!-- end col -->
             
@@ -101,101 +101,279 @@
     </div> <!-- end container-->
     
 
-
+    <!-- stuff we need for google analytics to work 
+        but we don't want it to show up on webpage cause it's 
+         ugly
+    -->
+<div id="embed-api-auth-container" class="hidden"></div>
+<div id="view-selector-1-container" class="hidden"></div>
+<div id="view-selector-2-container" class="hidden"></div>
+<div id="view-selector-3-container" class="hidden"></div>
+<div id="view-selector-4-container" class="hidden"></div>
     
 
 </section>
-z
 <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
-<!-- pie charts for visitor occupations-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
 <script>
-    var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
-    var myPieChart = new Chart(ctx,{
-    type: 'pie',
-    data: {
-        labels: ["dentist", " hair dresser", "peter", "charly", "doctor"],
-        datasets: [{
-            label: '# of New Visitors',
-            data: [12, 19, 3, 5, 2],
-            fill: false,
-            backgroundColor: [
-                'rgba(54, 162, 235, 0.7)',
-                'rgba(239, 105, 52, 0.7)',
-                'rgba(188, 133, 60, 0.7)',
-                'rgba(34, 45, 50, 0.7)'
-            ],
-            borderColor: [
-                'rgba(54, 162, 235, 1)',
-                'rgba(239, 105, 52, 1)',
-                'rgba(188, 133, 60, 1)',
-                'rgba(34, 45, 50, 1)'
-            ],
-            borderWidth: 1
-        }]
-        
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'Visitor Occupations'
-        },
-        responsive: true,
-        responsiveAnimationDuration: 2000,
-
-    }  
-});
-    
+(function(w,d,s,g,js,fs){
+  g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+  js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+  js.src='https://apis.google.com/js/platform.js';
+  fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+}(window,document,'script'));
 </script>
-<!-- line chart for new user visits-->
+
 <script>
-var ctx = document.getElementById("new-visitors-chart").getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["5/26", "5/27", "5/28", "5/29", "5/30"],
-        datasets: [{
-            label: '# of New Visitors',
-            data: [12, 19, 3, 5, 2, 3],
+
+gapi.analytics.ready(function() {
+
+  /**
+   * Authorize the user immediately if the user has already granted access.
+   * If no access has been created, render an authorize button inside the
+   * element with the ID "embed-api-auth-container".
+   */
+  gapi.analytics.auth.authorize({
+    container: 'embed-api-auth-container',
+    clientid: '341666889438-0june0o3tepvttbi6jrffa2m9592rrvf.apps.googleusercontent.com'
+  });
+
+
+  /**
+   * Create a ViewSelector for the first view to be rendered inside of an
+   * element with the id "view-selector-1-container".
+   */
+  var viewSelector1 = new gapi.analytics.ViewSelector({
+    container: 'view-selector-1-container'
+  });
+
+  /**
+   * Create a ViewSelector for the second view to be rendered inside of an
+   * element with the id "view-selector-2-container".
+   */
+  var viewSelector2 = new gapi.analytics.ViewSelector({
+    container: 'view-selector-2-container'
+  });
+    
+  var viewSelector3 = new gapi.analytics.ViewSelector({
+    container: 'view-selector-3-container'
+  });
+    
+  var viewSelector4 = new gapi.analytics.ViewSelector({
+    container: 'view-selector-4-container'
+  });
+    
+    
+
+  // Render both view selectors to the page.
+  viewSelector1.execute();
+  viewSelector2.execute();
+  viewSelector3.execute();
+  viewSelector4.execute();
+
+    
+ /**
+   * Extend the Embed APIs `gapi.analytics.report.Data` component to
+   * return a promise the is fulfilled with the value returned by the API.
+   * @param {Object} params The request parameters.
+   * @return {Promise} A promise.
+   */
+  function query(params) {
+    return new Promise(function(resolve, reject) {
+      var data = new gapi.analytics.report.Data({query: params});
+      data.once('success', function(response) { resolve(response); })
+          .once('error', function(response) { reject(response); })
+          .execute();
+    });
+  }
+    
+  // Set some global Chart.js defaults.
+  Chart.defaults.global.animationSteps = 60;
+  Chart.defaults.global.animationEasing = 'easeInOutQuart';
+  Chart.defaults.global.responsive = true;
+  Chart.defaults.global.maintainAspectRatio = false;
+
+
+ /**
+   * Escapes a potentially unsafe HTML string.
+   * @param {string} str An string that may contain HTML entities.
+   * @return {string} The HTML-escaped string.
+   */
+  function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+
+ /**
+  * Update the first dataChart when the first view selecter is changed.
+  */
+viewSelector1.on('change', function(ids) {
+     // Adjust `now` to experiment with different days, for testing only...
+    var now = moment(); // .subtract(3, 'day');
+
+    var thisWeek = query({
+      'ids': ids,
+      'dimensions': 'ga:date,ga:nthDay',
+      'metrics': 'ga:sessions',
+      'start-date': moment(now).subtract(1, 'day').day(0).format('YYYY-MM-DD'),
+      'end-date': moment(now).format('YYYY-MM-DD')
+    });
+
+    var lastWeek = query({
+      'ids': ids,
+      'dimensions': 'ga:date,ga:nthDay',
+      'metrics': 'ga:sessions',
+      'start-date': moment(now).subtract(1, 'day').day(0).subtract(1, 'week')
+          .format('YYYY-MM-DD'),
+      'end-date': moment(now).subtract(1, 'day').day(6).subtract(1, 'week')
+          .format('YYYY-MM-DD')
+    });
+
+    Promise.all([thisWeek, lastWeek]).then(function(results) {
+
+      var data1 = results[0].rows.map(function(row) { return +row[2]; });
+      var data2 = results[1].rows.map(function(row) { return +row[2]; });
+      var labels = results[1].rows.map(function(row) { return +row[0]; });
+
+      labels = labels.map(function(label) {
+        return moment(label, 'YYYYMMDD').format('ddd');
+      });
+
+      var data = {
+        labels : labels,
+        datasets : [
+          {
+            label: 'Last Week',
             fill: false,
             backgroundColor: [
                 'rgba(54, 162, 235, 0.2)'
             ],
             borderColor: [
-                'rgba(54, 162, 235, 1)'
-                
+                'rgba(54, 162, 235, 1)'    
             ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        title: {
-            display: true,
-            text: 'New Visitors per Day'
-        },
-        responsive: true,
-        responsiveAnimationDuration: 2000,
-        scales: {
-            xAxes: [{
-                display: true,
-                scaleLabel: {
+            borderWidth: 1,
+            data : data2
+          },
+          {
+            label: 'This Week',
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)' 
+            ],
+            borderWidth: 1,
+            data : data1
+          }
+        ]
+      };
+
+
+
+        var ctx = document.getElementById("new-visitors-chart").getContext('2d');
+        var myChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                title: {
                     display: true,
-                    labelString: 'Date'
-                }
-            }],
-            yAxes: [{
-                display: true,
-                scaleLabel: {
-                    display: true,
-                    labelString: '# New Visitors'
+                    text: 'Sessions per Day'
                 },
-                ticks: {
-                    beginAtZero:true
+                responsive: true,
+                responsiveAnimationDuration: 2000,
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Date'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: '# New Visitors'
+                        },
+                        ticks: {
+                            beginAtZero:true
+                        }
+                    }]
                 }
-            }]
-        }
-    }
+            }
+        });
+    });
+
 });
+
+  /**
+   * Update the second dataChart when the second view selecter is changed.
+   */
+  viewSelector2.on('change', function(ids) {
+    query({
+      'ids': ids,
+      'dimensions': 'ga:userType',
+      'metrics': 'ga:sessions',
+      'max-results': 2
+    })
+    .then(function(response) {
+
+      var data = [];
+      var labels = [];
+      var colors = ['rgba(54, 162, 235, 0.7)'];
+
+      response.rows.forEach(function(row, i) {
+        labels.push(row[0]);
+        data.push(row[1]);
+      });
+ 
+      var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
+      var myPieChart = new Chart(ctx,{
+        type: 'pie',
+        data: {
+            labels: labels,
+            datasets:[{
+                data: data,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            title: {
+                display: true,
+                text: 'New vs. Returning Visitors'
+            },
+            responsive: true,
+            responsiveAnimationDuration: 2000,
+
+        }  
+      });
+    });
+  });
+    
+
+
+    
+    
+    
+    
+});
+    
+    
+/**
+   * Update the second dataChart when the second view selecter is changed.
+   */
+
 </script>
-<!-- end user line chart-->
+
+
+
+<!-- pie charts for visitor occupations-->
+<script>
+    
+    
+</script>
