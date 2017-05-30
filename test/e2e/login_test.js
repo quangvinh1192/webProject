@@ -61,7 +61,7 @@ module.exports = { // adapted from: https://git.io/vodU0
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/header/div/form/div[3]/div/button")
-            .assert.urlEquals('http://fubar-master.herokuapp.com/login')
+            .assert.urlEquals('https://fubar-master.herokuapp.com/login')
             .end()
     },
 
@@ -69,7 +69,7 @@ module.exports = { // adapted from: https://git.io/vodU0
         browser
             .url('https://fubar-master.herokuapp.com/dashboard')
             .waitForElementVisible('body')
-            .assert.urlEquals('http://fubar-master.herokuapp.com/')
+            .assert.urlEquals('https://fubar-master.herokuapp.com/')
             .end()
     },
 
