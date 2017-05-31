@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Raleway');
+
 /*New stylesheet for landing page*/
 html, body {
     height: 100%;
@@ -251,24 +254,29 @@ footer a{
 }
 
 .navbar-default {
-    background-color: #071C33;
-    border-color: #071C33;
-    font-family: "Open Sans","Helvetica Neue",Arial,sans-serif;
+    background-color: #fff;
+    font-family: "Karla","Helvetica Neue",Arial,sans-serif;
     font-weight: 700;
-    color: #FFF;
+    font-size: 1.75rem;
+    color: #555964;
     text-transform: uppercase;
 }
 .navbar-default .navbar-brand {
-    color: #ffae00;
+    height: 100px;
+    font-size: 3rem;
+    line-height: 65px;
+    padding-left: 50px;
+    color:  #515151;
 }
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #ffffff;
+    color: #312F38;
 }
 .navbar-default .navbar-text {
-    color: #ffae00;
+    color: #312F38;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+    height: 100px;
+    line-height: 65px;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #ffffff;
@@ -282,26 +290,41 @@ footer a{
     background-color: #071C33;
 }
 .navbar-default .navbar-toggle {
-    border-color: #071C33;
+    border: none;
+    height: 100px;
+    line-height: 65px;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background-color: #071C33;
 }
 .navbar-default .navbar-toggle .icon-bar {
     background-color: #ffae00;
+
 }
 .navbar-default .navbar-collapse,
 .navbar-default .navbar-form {
-    border-color: #ffae00;
+    border-color: gainsboro;
 }
 .navbar-default .navbar-link {
-    color: #ffae00;
+    color: #3498DB;
 }
 .navbar-default .navbar-link:hover {
     color: #ffffff;
 }
 
+/*get rid of scroll bar in collapse*/
+.navbar-collapse.in {
+    overflow: hidden;
+    max-height: none !important;
+    height: auto !important;
+}
 @media (max-width: 767px) {
+    .navbar-default .navbar-brand {
+        line-height: 90px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        line-height: 90px;
+    }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #ffae00;
     }
@@ -348,6 +371,7 @@ footer a{
 textarea.form-control {
     height: 100px;
 }
+
 /*** HEADER**/
 
 header {
@@ -359,8 +383,9 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
-    background-image: url('../images/bgFilter.jpg');
+    background-image: url('../images/lobby.jpg');
     text-align: center;
+  
     color: white;
 }
 header .header-content {
@@ -372,10 +397,10 @@ header .header-content {
 header .header-content .header-content-inner h1 {
     font-weight: 700;
     text-transform: uppercase;
+    font-family: 'Droid Sans', sans-serif;
     margin-top: 0;
-    color: #FFF;
+    color: #323232;
     margin-bottom: 0;
-    text-shadow: 2px 2px 0px #000;
 }
 header .header-content .header-content-inner hr {
     margin: 30px auto;
@@ -385,7 +410,7 @@ header .header-content .header-content-inner p {
     color: #FFFFFF;
     font-size: 16px;
     margin-bottom: 50px;
-    text-shadow: 2px 2px 0px #000;
+    font-family: 'Karla', sans-serif;
 }
 @media (min-width: 768px) {
     header {
