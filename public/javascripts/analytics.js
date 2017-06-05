@@ -1,6 +1,16 @@
+// Possibly a framework
+/**
+ * @file Provides analytics for our web pages.
+ * @author Original Fubar Team
+ */
 'use strict';
 
-//used for debugging, set debugging to true to view debug statements
+
+/**
+ * used for debugging. sets debugging to true to view debug statements
+ * @author Original Fubar Team
+ * @param {string} String - The debug statement to log
+ */
 function debug(String)
 {
   var debugging = true;
@@ -13,6 +23,10 @@ function debug(String)
 for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=e.createElement("script");a.type="text/javascript";a.async=!0;a.src="undefined"!==typeof MIXPANEL_CUSTOM_LIB_URL?MIXPANEL_CUSTOM_LIB_URL:"file:"===e.location.protocol&&"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js".match(/^\/\//)?"https://cdn.mxpnl.com/libs/mixpanel-2-latest.min.js":"//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";f=e.getElementsByTagName("script")[0];f.parentNode.insertBefore(a,f)}})(document,window.mixpanel||[]);
 mixpanel.init("8085e4b16fa22b0385a211fa528036a1");
 
+/**
+ * initializes all of the button callbacks on the page
+ * @author Original Fubar Team
+ */
 function initializePage() {
   $("button.sign1Btn").click(sign1Click);
   $("button.sign2Btn").click(sign2Click);
@@ -20,6 +34,12 @@ function initializePage() {
   $("button.tryBtn").click(tryClick);
 }
 
+/**
+ * button callback for sign1 button. logs button click and
+ * tracks clicks on sign1 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function sign1Click(e) {
   mixpanel.track("Sign Up 1 Clicks");
   debug("SignUp1.");
@@ -27,12 +47,24 @@ function sign1Click(e) {
     //console.log(ga.getByName('sign1'));
 }
 
+/**
+ * button callback for sign2 button. logs button click and
+ * tracks clicks on sign2 button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function sign2Click(e) {
   mixpanel.track("Sign Up 2 Clicks");
   debug("Sign up 2 pushed.");
   //ga("send", "event", "sign2", "click");
 }
 
+/**
+ * button callback for buy button. logs button click and
+ * tracks clicks on buy button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function buyClick(e) {
   mixpanel.track("Buy Clicks");
   debug("Buy Now Clicked");
@@ -41,6 +73,12 @@ function buyClick(e) {
   //_trackEvent("buyc", "test");
 }
 
+/**
+ * button callback for try button. logs button click and
+ * tracks clicks on try button.
+ * @author Original Fubar Team
+ * @param {callback} e - button event callback
+ */
 function tryClick(e) {
   mixpanel.track("TryItToday Clicks");
   debug("Try It Today pushed.");
@@ -49,34 +87,46 @@ function tryClick(e) {
 
 //analytics for page views
 // dashboard
-//  <script src='/javascripts/analytics.js'></script> 
+//  <script src='/javascripts/analytics.js'></script>
 //  page counter homepage
 //        <div><body onload="view('homepage')"></body></div>
 
-
+/**
+ * runs analytics on homepage, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
   function homeview()
   {
       debug("Home Page Viewed");
-      mixpanel.track('Home Page Views', 
-      {
-          'page name' : document.title,
-          'url' : window.location.pathname
-      });
-  }
-  function registerview()
-  {
-      debug("Register Page Viewed");
-      mixpanel.track('Register Page Views', 
+      mixpanel.track('Home Page Views',
       {
           'page name' : document.title,
           'url' : window.location.pathname
       });
   }
 
+/**
+ * runs analytics on the register page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
+  function registerview()
+  {
+      debug("Register Page Viewed");
+      mixpanel.track('Register Page Views',
+      {
+          'page name' : document.title,
+          'url' : window.location.pathname
+      });
+  }
+
+/**
+ * runs analytics on login page, keeping track of the page name and url
+ * @author Original Fubar Team
+ */
   function loginview()
   {
       debug("Login Page Viewed");
-      mixpanel.track('Login Page Views', 
+      mixpanel.track('Login Page Views',
       {
           'page name' : document.title,
           'url' : window.location.pathname
