@@ -33,6 +33,14 @@
             </li>
             {{/if}}
             {{#if isOwner}}
+            <li class="{{appointments}} treeview">
+                <a href="/appointments">
+                    <i class="fa fa-list"></i>
+                    <span>Appointments</span>
+                </a>
+            </li>
+            {{/if}}
+            {{#if isOwner}}
             <li class="{{forms}} treeview">
                 <a href="/forms">
                     <i class="fa fa-group"></i>
