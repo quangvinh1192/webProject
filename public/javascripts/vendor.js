@@ -74,6 +74,23 @@ function checkTime(i) {
     return i;
 }
 
+var putCheckedIn = function() {
+    var $appid = $(this).data('appid');
+
+    $.ajax({
+        url :  '/api/appointments/'+$appid+'/state',
+        type : 'PUT'
+    });
+
+};
+
+var putRoomed = function () {
+    $.ajax({
+	url: '/api/appointments/'+x+'/state',
+	type: 'PUT',
+    });
+};
+
 /**
  * popuates table with appointment data
  * @author Original Fubar Team
@@ -116,14 +133,7 @@ function table() {
 
                 if (data[i].state === 'checkedIn'){
                     var $check = $('<input type="checkbox">').data('appid',data[i]._id);
-                    $check.change(function(){
-                        var $appid = $(this).data('appid');
-
-                        $.ajax({
-                            url :  '/api/appointments/'+$appid+'/state',
-                            type : 'PUT'
-                        });
-                    });
+                    $check.change(putCheckedIn);
 
                      cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$check,$img];
                 }
@@ -131,12 +141,7 @@ function table() {
                 else if(data[i].state === 'roomed') {
                     $btn = $('<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></button>');
                     var x = data[i]._id;
-                     $btn.click(function() {
-                        $.ajax({
-                            url: '/api/appointments/'+x+'/state',
-                            type: 'PUT',
-                         });
-                    });
+                     $btn.click(putRoomed);
 
                      cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$btn,$img];
 
@@ -1351,8 +1356,8 @@ $(document).ready(function () {
         var hasTouch = ('ontouchstart' in window);
 
         var duringDragEvents = {};
-        duringDragEvents["selectstart"] = prevent;
-        duringDragEvents["dragstart"] = prevent;
+        duringDragEvents.selectstart = prevent;
+        duringDragEvents.dragstart = prevent;
         duringDragEvents["touchmove mousemove"] = move;
         duringDragEvents["touchend mouseup"] = stop;
 
@@ -1538,7 +1543,7 @@ $(document).ready(function () {
         this._b = rgb.b,
         this._a = rgb.a,
         this._roundA = mathRound(100*this._a) / 100,
-        this._format = opts.format || rgb.format;
+        this._format = opts.format || rgb.format; // jshint ignore:line
         this._gradientType = opts.gradientType;
 
         // Don't let the range of [0,255] come back in [0,1].

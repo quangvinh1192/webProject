@@ -23,6 +23,14 @@ hr{
     font-weight: 800;
     margin-bottom: 0px;
 }
+
+.dashboard-data-block h2{
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 0px;
+    color: white;
+}
+
 .dashboard-data-block span{
     color: #555;
 }
@@ -36,6 +44,44 @@ hr{
 }
 .dashboard-section{
     margin-bottom: 25px;
+}
+
+.dashboard-data-block-left {
+    float:left;
+    width: 50%;
+}
+
+.data-block-green {
+   background-color: #40E290;
+}
+
+.appointment-data-block{
+    background-color:cadetblue;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+}
+
+#add-appt-show {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #3c8dbc;
+    box-shadow: 2px 2px 5px #444;
+    border: none;
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    font-size: 36px;
+    font-weight: bold;
+    color: white;
+}
+#add-appt-show:focus {
+    outline: none;
+}
+#add-appt-show:hover {
+    background-color: #3989b6;
 }
 
 /******************/

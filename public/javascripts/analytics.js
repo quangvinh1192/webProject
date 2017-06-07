@@ -1,10 +1,17 @@
 // Possibly a framework
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> bc56c47f09a6d1b10c75e0e87b0ab007515a5a01
 /**
  * @file Provides analytics for our web pages.
  * @author Original Fubar Team
  */
+<<<<<<< HEAD
 'use strict';
+=======
+'use strict';
+>>>>>>> bc56c47f09a6d1b10c75e0e87b0ab007515a5a01
 
 
 /**

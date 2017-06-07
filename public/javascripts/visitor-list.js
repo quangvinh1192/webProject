@@ -43,27 +43,28 @@ socket.on('checkin', function (data) {
 
 });
 
+var toggleHighlight = function () {
+    if(!this.hilite){
+        unhighlight();
+        this.style.backgroundColor='#f5f5f5';
+        this.hilite = true;
+    }
+    else{
+        this.style.backgroundColor="white";
+        this.hilite = false;
+    }
+};
+
 /**
  * Goes through appointment table, and highlights/unhighlights
  * according to user clicks
  * @author Original Fubar Team
  */
 function highlight() {
-
     var table = document.getElementById('appointment-list');
     // go through all appointments
     for (var i=0;i < table.rows.length;i++){
-        table.rows[i].onclick= function () {
-            if(!this.hilite){
-                unhighlight();
-                this.style.backgroundColor='#f5f5f5';
-                this.hilite = true;
-            }
-            else{
-                this.style.backgroundColor="white";
-                this.hilite = false;
-            }
-        };
+        table.rows[i].onclick = toggleHighlight;
     }
 }
 
