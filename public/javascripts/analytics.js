@@ -1,3 +1,4 @@
+// Possibly a framework
 /**
  * @file Provides analytics for our web pages.
  * @author Original Fubar Team
@@ -86,7 +87,7 @@ function tryClick(e) {
 
 //analytics for page views
 // dashboard
-//  <script src='/javascripts/analytics.js'></script> 
+//  <script src='/javascripts/analytics.js'></script>
 //  page counter homepage
 //        <div><body onload="view('homepage')"></body></div>
 
@@ -97,7 +98,7 @@ function tryClick(e) {
   function homeview()
   {
       debug("Home Page Viewed");
-      mixpanel.track('Home Page Views', 
+      mixpanel.track('Home Page Views',
       {
           'page name' : document.title,
           'url' : window.location.pathname
@@ -111,7 +112,7 @@ function tryClick(e) {
   function registerview()
   {
       debug("Register Page Viewed");
-      mixpanel.track('Register Page Views', 
+      mixpanel.track('Register Page Views',
       {
           'page name' : document.title,
           'url' : window.location.pathname
@@ -125,7 +126,7 @@ function tryClick(e) {
   function loginview()
   {
       debug("Login Page Viewed");
-      mixpanel.track('Login Page Views', 
+      mixpanel.track('Login Page Views',
       {
           'page name' : document.title,
           'url' : window.location.pathname
