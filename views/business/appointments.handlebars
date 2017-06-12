@@ -1,0 +1,89 @@
+<section class="content-header">
+    <h1>Dashboard </h1>
+    <div id="txt" class="pull-right"></div>
+    <h1 class="pull-right" id="currentDate"></h1>
+</section>
+
+<section class="content">
+    {{#if message}}
+        <div class="alert alert-danger">{{message}}</div>
+    {{/if}}
+
+        <div id="add-appt-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+           <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;  </button>
+                  <h4 class="modal-title" id="myModalLabel">Add Appointment</h4>
+                </div>
+                <div class="modal-body">
+                  <form method="post" action="appointments" enctype="application/x-www-form-urlencoded">
+                      <div class="form-group">
+                          <label for="name">Name</label>
+                          <input type="text" id="inputName" name="inputName" value="{{ name }}" class="form-control" required>
+                          <label for="Email">Email</label>
+                          <input type="email" id="inputEmail" name="inputEmail" value="{{ email }}" class="form-control" required>
+                          <label for="Phone">Phone</label>
+                          <input type="phone" id="inputPhone" name="inputPhone" value="{{ phone }}" class="form-control" required>
+                          <label for="Date">Date</label>
+                          <div class='input-group date' data-provide="datepicker" id='datetimepicker1'>
+                              <input type='text' id="inputDate" name="inputDate" value="{{ date }}" class="form-control" required/>
+                              <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                              </span>
+                          </div>
+                          <label for="Time">Time</label>
+                          <input type="text" id="inputTime" name="inputTime" value="{{ time }}" class="form-control" required>
+                      </div>
+                      <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/appointments" value="Add Appointment">
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-md-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Appointments</h3>
+                </div>
+                <div class="box-body">
+                    <table class="table table-striped">
+                        <tbody>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                            </tr>
+                            {{#each appointmentsList}}
+                            <tr>
+                                <td>{{name}}</td>
+                                <td>{{email}}</td>
+                                <td>{{phone}}</td>
+                                <td>{{date}}</td>
+                                <td>{{time}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <button id="add-appt-show"  data-toggle="modal" data-target="#add-appt-modal">+</button>
+
+        <script>
+            $(function () {
+                $('#datetimepicker1').datetimepicker();
+            });
+            $('.datepicker').datepicker({
+                format: 'mm/dd/yyyy',
+                startDate: '-3d'
+            });
+        </script>
+</section>

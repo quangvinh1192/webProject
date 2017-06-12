@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: formbuilder.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: formbuilder.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @file Contains scripts to add, remove, preview, and submit form elements
+ * @author Original Fubar Team
+ */
+
+var dropOptions = [];
+var dropCounter = 0;
+var flag = false;
+
+/**
+ * Insert options into appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - which dropdown option to create
+ */
+function insertOption(dropcounter) {
+    var dropdown = document.getElementById('drop' + dropcounter);
+    var option = document.createElement('option');
+    option.text = prompt ('Name your option');
+
+    // Create array within options array for new dropdown menu
+    if(! dropOptions[dropcounter]) {
+       dropOptions[dropcounter] = [];
+    }
+
+    if (option.text === 'null'){
+      return;
+    }
+
+    if (option.text)
+    {
+       dropdown.add(option);
+       dropOptions[dropcounter].push(option);
+    }
+}
+
+/**
+ * Remove option from appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - which dropdown option to create
+ */
+function removeOption(dropcounter) {
+    var x = document.getElementById('drop' + dropcounter);
+    var deleted = x.options[x.selectedIndex].text;
+
+    var confirmRemove = confirm("Are you sure?");
+
+    if (confirmRemove)
+    {
+        x.remove(x.selectedIndex);
+
+        for (i = 0; i &lt; dropOptions[dropcounter].length; i++) {
+            if(dropOptions[dropcounter][i].text === deleted) {
+                dropOptions[dropcounter].splice(i, 1);
+            }
+        }
+    }
+}
+
+$(document).ready(function () {
+
+    // Form exists in database
+    if (form != null){
+        makeForm(form);
+    }
+
+    
+    /**
+     * Update field names if deletion occurs
+     * @author Original Fubar Team
+     */
+    function update() {
+        var id = 1;
+        $('#buildyourform div').each(function () {
+            $(this).attr('id', id.toString());
+            id++;
+        });
+    }
+
+    
+    /**
+     * Add form control fields/buttons
+     * @author Original Fubar Team
+     * @param {string} label - form field html label
+     * @param {string} type - html form field type
+     */
+    function addField(label, type) {
+        var intId = $('#buildyourform div').length + 1;
+        var fieldWrapper = $('&lt;div class=\"fieldwrapper\" id=\"' + intId + '\"/>');
+        var fName;
+        var fType;
+        var temp;
+        var flag = false;
+
+        if(label) {
+            fName = $('&lt;input type=\"text\" class=\"fieldname form-control col-xs-4\" value=\"' + label + '\" class=\"fieldname\" />');
+        }
+        else {
+            fName = $('&lt;input type=\"text\" class=\"fieldname form-control col-xs-4\" />');
+        }
+
+        // Display appropriate ordering depending on type
+        if(type === 'dropdown') {
+            fType = $('&lt;select class=\"fieldtype form-control col-xs-3\"> &lt;option selected=\"selected\" value=\"dropdown\">Drop&lt;/option> &lt;option value=\"textbox\">Text&lt;/option>&lt;/select>');
+        }
+        else {
+            fType = $('&lt;select class=\"fieldtype form-control col-xs-3\">&lt;option selected=\"dropdown\" value=\"textbox\">Text&lt;/option>&lt;option value=\"dropdown\">Drop&lt;/option> &lt;/select>');
+        }
+
+        var removeButton = $('&lt;button type="button" class="remove btn btn-default btn-danger col-xs-1s" aria-label="Left Align">&lt;span class="glyphicon glyphicon-remove white" aria-hidden="true">&lt;/span>&lt;/button>');
+        removeButton.click(function () {
+            var confirmRemove = confirm("Are you sure?");
+
+            // Remove and fill preview once for deletion, and again to display results
+            if (confirmRemove)
+            {
+                var id = $(this).parent().attr('id');
+                preview(id, type);
+
+                $(this).parent().remove();
+                update();
+
+                preview();
+            }
+        });
+
+        fieldWrapper.append(fName);
+        fieldWrapper.append(fType);
+        fieldWrapper.append(removeButton);
+        $('#buildyourform').append(fieldWrapper);
+
+        fType.change(function() {
+            typeChange($(this).parent().attr('id'));
+            preview();
+        });
+
+
+        fName.on('input', function() {
+            preview();
+        });
+
+        preview();
+    }
+
+    /**
+     * change the type of the form field
+     * @author Original Fubar Team
+     * @param {int} id - the number associated with the id attribute of a tag
+     */
+    function typeChange(id) {
+        var fieldcount = 0;
+        var dropcounter = 0;
+
+        $('#buildyourform div').each(function () {
+
+            switch ($(this).find('select.fieldtype').first().val()) {
+                case 'textbox':
+                    fieldcount++;
+
+                    if(fieldcount.toString() === id) {
+                        dropcounter++;
+                        dropOptions.splice(dropcounter, 1);
+                    }
+
+                    break;
+                case 'dropdown':
+                    fieldcount++;
+                    dropcounter++;
+                    break;
+            }
+        });
+    }
+
+    
+    /**
+     * Display elements in preview field
+     * @author Original Fubar Team
+     * @param {int} removeId - id of field that has been removed from form
+     * @param {string} type - form field type. not even used in the function...
+     */
+    function preview(removeId, type) {
+        $('#yourform').remove();
+
+        var fieldcount = 0;
+        var dropcounter = 0;
+
+        var fieldSet = $('&lt;fieldset id=\"yourform\">&lt;legend>Your Form&lt;/legend>&lt;/fieldset>');
+
+        // Iterate through each field and append its HTML to the preview form
+        $('#buildyourform div').each(function () {
+            var id = 'input' + $(this).attr('id').replace('field', '');
+            var label = $('&lt;label class=\"col-md-4\" for=\"' + id + '\">' + $(this).find('input.fieldname').first().val() + '&lt;/label>');
+            var input;
+
+            switch ($(this).find('select.fieldtype').first().val()) {
+                case 'textbox':
+                    fieldcount++;
+                    input = $('&lt;div class=\"previewForm col-md-8\">&lt;input class=\"form-control\" type=\"text\" id=\"' + id + '\" name=\"' + id + '\" />&lt;/div>');
+                    break;
+                case 'dropdown':
+                    dropcounter++;
+                    fieldcount++;
+
+                    if(removeId !== undefined) {
+
+                        // This element's options have been removed
+                        if(fieldcount.toString() === removeId.toString() ) {
+                            dropOptions.splice(dropcounter, 1);
+                        }
+                    }
+
+                    input = $('&lt;div class=\"previewForm col-md-8\">&lt;select class=\"form-control\" id=\"drop' + dropcounter + '\">  &lt;/select> &lt;button class=\"btn btn-default\" type=\"button\" onclick=\"insertOption(' + dropcounter +')\">Insert option&lt;/button> &lt;button class=\"btn btn-default btn-danger\" type=\"button\" onclick=\"removeOption(' + dropcounter + ')\">Remove option&lt;/button>&lt;/div>');
+                    break;
+            }
+
+            fieldSet.append(label);
+            fieldSet.append(input);
+        });
+
+        $('body').append(fieldSet);
+
+        // Add options to dropdown fields
+        for (i = 1; i &lt;= dropcounter; i++) {
+            if(dropOptions[i] !== undefined) {
+                for (j = 0; j &lt; dropOptions[i].length; j++) {
+                    x = document.getElementById('drop' + i.toString());
+                    x.add(dropOptions[i][j]);
+                }
+            }
+        }
+
+        $('#formContent').append(fieldSet);
+    }
+
+    // Add form creation buttons
+    $('#add').click(function () {
+        addField();
+    });
+
+    // Create JSON object and post to database
+    $('#submit').click(function() {
+        var json = {
+            business: findID,
+            fields: [
+            ]
+        };
+        var counter = 0;
+        var newForm = $('fieldset');
+
+        // Cycle through each preview form field
+        newForm.children().each(function(){
+
+            // Check field type and insert appropriate fields
+            if ($(this).find('select.fieldtype').first().val()) {
+                if ($(this).find('select.fieldtype').first().val() === 'dropdown') {
+                    var fieldname = $(this).find('input.fieldname').first().val();
+                    var dropJson = {
+                        type: 'dropdown',
+                        label: fieldname,
+                        options: []
+                    };
+
+                    counter ++;
+                    var options = $('#drop' + counter + ' option');
+
+                    $.map(options ,function(option) {
+                        dropJson.options.push(option.value);
+                    });
+
+                    json.fields.push(dropJson);
+                }
+                else {
+                    json.fields.push({type: 'textfield', label: $(this).find('input.fieldname').first().val()});
+                }
+            }
+        });
+
+        // If form exists, PUT to database
+        if(flag) {
+            $.ajax({
+                url:'/api/form',
+                type:'PUT',
+                data: JSON.stringify(json),
+                contentType:'application/json',
+                dataType:'json',
+                success:function(){
+                    alert('Form Updated!');
+                }
+            });
+        }
+
+        // POST to database
+        else {
+            $.ajax({
+                url:'/api/form',
+                type:'POST',
+                data: JSON.stringify(json),
+                contentType:'application/json',
+                dataType:'json',
+                success:function(){
+                    alert('Form Submitted!');
+                }
+            });
+
+        }
+
+    });
+
+    
+    /**
+     *  Gets form from database and creates fields
+     * @author Original Fubar Team
+     * @param {object} form - form object with fields used to populate a generic html form
+     */
+    function makeForm(form) {
+        flag = true;
+        var body = {};
+        var formHtml = '&lt;form class="form-horizontal" method="post" action="#" enctype="application/x-www-form-urlencoded">';
+        _.each(form.fields, function (field, index) {
+            formHtml += makeFormGroup(field, index, body);
+        });
+
+        formHtml += '&lt;/form>';
+    }
+
+    
+    /**
+     * Called by makeForm, creates appropriate text/drop fields
+     * @author Original Fubar Team
+     * @param {object} field - the form field to create
+     * @param {int} index - field index in the form
+     * @param {object} body - the body of the form we attach the field to
+     * @return {string} - the html string to create the form field
+     */
+    function makeFormGroup(field, index, body) {
+        var name = '_' + index;
+
+        var s = '&lt;div class="form-group">';
+        s += '&lt;label for="' + name + '" class="col-md-2 control-label">' + field.label + '&lt;/label>';
+
+        s += '&lt;div class="col-md-10">';
+        if (field.type === 'textfield') {
+            s += makeTextfield(name, body);
+            addField(field.label, field.type);
+        } else if (field.type === 'dropdown') {
+            dropCounter++;
+            s += makeDropdown(field.options, name, body);
+            addField(field.label, field.type);
+        }
+        s += '&lt;/div>';
+
+        s += '&lt;/div>';
+        return s;
+    }
+
+  
+    /**
+     * Creates dropdown field from database form
+     * @author Original Fubar Team
+     * @param {string} option - value of the selectable dropdown option
+     * @param {string} name - value of name attribute in dropdown tag
+     * @param {object} body - the body of the form we attach the dropdown to
+     * @return {string} - the html string to create the dropdown
+     */
+    function makeDropdown(options, name, body) {
+        var s = '&lt;select class="form-control" name="'+ name +'" id="'+ name +'">';
+        _.each(options, function (option) {
+            var optionText = document.createElement('option');
+
+            if(! dropOptions[dropCounter]) {
+                dropOptions[dropCounter] = [];
+            }
+
+            optionText.text = option;
+            dropOptions[dropCounter].push(optionText);
+
+            s += '&lt;option value="'+option+'" ' + (body[name] === option ? 'selected' : '') + '>'+option+'&lt;/option> ';
+        });
+
+        s+= '&lt;/select>';
+        return s;
+    }
+
+    
+    /**
+     * Creates text field from database form
+     * @author Original Fubar Team
+     * @param {string} name - value of the name attribute that goes with the text field
+     * @param {object} body - the body of the form we attach the text field to
+     * @return {string} - the html string to create the text field
+     */
+    function makeTextfield(name, body) {
+
+        return'&lt;input type="text" class="form-control" name="'+name+'" id="' + name + '"value="' + (body[name] || '') + '">';
+    }
+});
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#buyClick">buyClick</a></li><li><a href="global.html#checkIn">checkIn</a></li><li><a href="global.html#checkOut">checkOut</a></li><li><a href="global.html#checkTime">checkTime</a></li><li><a href="global.html#dateToString">dateToString</a></li><li><a href="global.html#debug">debug</a></li><li><a href="global.html#getAppDate">getAppDate</a></li><li><a href="global.html#getDate">getDate</a></li><li><a href="global.html#highlight">highlight</a></li><li><a href="global.html#homeview">homeview</a></li><li><a href="global.html#initializePage">initializePage</a></li><li><a href="global.html#insertOption">insertOption</a></li><li><a href="global.html#loginview">loginview</a></li><li><a href="global.html#poll">poll</a></li><li><a href="global.html#registerview">registerview</a></li><li><a href="global.html#removeOption">removeOption</a></li><li><a href="global.html#reschedule">reschedule</a></li><li><a href="global.html#sign1Click">sign1Click</a></li><li><a href="global.html#sign2Click">sign2Click</a></li><li><a href="global.html#startTime">startTime</a></li><li><a href="global.html#table">table</a></li><li><a href="global.html#tryClick">tryClick</a></li><li><a href="global.html#unhighlight">unhighlight</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.3.0</a> on Mon May 22 2017 21:58:04 GMT-0700 (Pacific Daylight Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

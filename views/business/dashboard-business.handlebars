@@ -9,8 +9,523 @@
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
 
-    <div class="pull-left" style = "width: 50%; margin: 0 auto;">
-        <img src="http://i25.photobucket.com/albums/c97/evilsmith/resizeAnalytics_zpsrfxnhb9b.png" alt="Analytics">
-    </div>
+    <div class = "dashboard-section">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>User Statistics</h1>
+        <!-- Server statistics -->
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Site Statistics</h1>
+            </div>
+        </div>
+        <hr/>
+
+        <!-- first row user stats-->
+        <div class="row">
+            <!-- bounce rate-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block">
+                    <h1>Bounce Rate</h1>
+                    <span class="main-data">89%</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span> 3% </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 90% </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+
+            <!-- avg site time-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block">
+                    <h1>Average Time Spent on Site (minutes)</h1>
+                    <span class="main-data">89</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span> 3 </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 45 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+
+            <!-- avg pages visited-->
+            <div class="col col-md-4" >
+                <div class ="dashboard-data-block data-block-green">
+                    <h1>Server Status</h1>
+                    <span class="main-data">&#9650; Up</span>
+                    <br/>
+                    <span>
+                       Last down never days ago
+                    </span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+
+            <div class ="col-md-8">
+                <div class="" id="new-visitors-chart">
+                    <canvas id="serverUptimeChart" width="400" height="200"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class = "row">
+        <div class="col col-md-4">
+            <canvas id="trafficSourceChart" height="200"></canvas>
+        </div>
+            <div class="col col-md-8">
+                <div class ="dashboard-data-block">
+                    <h1>Customer Feedback</h1>
+                    <div class = "dashboard-data-block dashboard-data-block-left">
+                        <span>
+                            <h2>Good</h2>
+                            <br/>
+                            <ul>
+                                <li>That one part is nice!</li>
+                                <li>Sick dashboard.</li>
+                                <li>Wow.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <div class = "dashboard-data-block">
+                        <span>
+                            <h2>Bad</h2>
+                            <br/>
+                            <ul>
+                                <li>Fix formbuilder pls.</li>
+                                <li>I can't log in as Peter.</li>
+                            </ul>
+                        </span>
+                    </div>
+                    <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span> 3 </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 90 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+
+        </div> <!-- end row -->
+
+        <!-- second row of user stats-->
+        <div class="row">
+            <div class ="col-md-8">
+                <!-- new visitor line chart-->
+                <div class="chart" >
+                    <canvas id="new-visitors-chart" width="400" height="200px"></canvas>
+                </div>
+            </div> <!-- end col -->
+
+            <!-- visitor occupation pie chart-->
+            <div class="col-md-4">
+                <div class="chart" >
+                    <canvas id ="visitor-occupations-chart" width="400" height="400px"></canvas>
+                </div>
+            </div><!-- end col-->
+        </div> <!-- end row-->
+
+    </div> <!-- end container-->
+
+<!-- KAT -->
+    <div class = "dashboard-section">
+        <div class="row">
+            <div class="col-md-12">
+                <h1>Revenue</h1>
+            </div>
+        </div>
+        <hr/>
+
+        <!-- revenue stats top row-->
+        <div class="row">
+            <!-- budget pie chart-->
+            <div class="col col-md-4">
+                <div class="chart" >
+                    <canvas id ="budget-breakdown-chart" width="400" height="400px"></canvas>
+
+                        <h2>General</h2>
+                        <br/>
+                        <ul>
+                            <li>Make it work pls.</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+            <!-- revenue line chart-->
+            <div class="col col-md-8" >
+                <div class="chart" >
+                    <canvas id="revenue-line-chart" width="400" height="200px"></canvas>
+                </div>
+            </div><!-- end col-->
+        </div>
+        <!-- bottom revenue row -->
+        <div class="row spacing">
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>Current Valuation</h1>
+                    <span class="main-data">$1.2M</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-up" aria-hidden="true"></i>
+                        </span>
+                        <span>  $2K </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> $2.1K/week </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>Average Revenue Per User</h1>
+                    <span class="main-data">$208</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  $3 </span>
+                    </span>
+
+    </div> <!-- end container-->
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> $211 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>New Subscriptions</h1>
+                    <span class="main-data">13</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  1 </span>
+                    </span>
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 14 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+            <!-- Valuation fluctuation -->
+            <div class="col col-md-3" >
+                <div class ="dashboard-data-block">
+                    <h1>Cancellations</h1>
+                    <span class="main-data">0</span> <br/>
+                    <span>
+                         <span>
+                            <i class="fa fa-arrow-down" aria-hidden="true"></i>
+                        </span>
+                        <span>  1 </span>
+                    </span>
+
+                    <br/>
+                    <span>6 Week Avg:</span>
+                    <span class="avg-data"> 1 </span>
+                    <br/>
+                    <span>Last updated at: 9:30</span>
+                </div> <!-- end percent-block-->
+            </div><!-- end col-->
+        </div> <!-- end row -->
+
+    </div> <!-- end container-->
 
 </section>
+z
+<script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+<!-- pie charts for visitor occupations-->
+<script>
+    var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
+    var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+        labels: ["dentist", " hair dresser", "peter", "charly", "doctor"],
+        datasets: [{
+            label: '# of New Visitors',
+            data: [12, 19, 3, 5, 2],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.7)',
+                'rgba(239, 105, 52, 0.7)',
+                'rgba(188, 133, 60, 0.7)',
+                'rgba(34, 45, 50, 0.7)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)',
+                'rgba(239, 105, 52, 1)',
+                'rgba(188, 133, 60, 1)',
+                'rgba(34, 45, 50, 1)'
+            ],
+            borderWidth: 1
+        }]
+
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Visitor Occupations'
+        },
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+
+    }
+});
+
+</script>
+<!-- line chart for new user visits-->
+<script>
+var ctx = document.getElementById("new-visitors-chart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["5/26", "5/27", "5/28", "5/29", "5/30"],
+        datasets: [{
+            label: '# of New Visitors',
+            data: [12, 19, 3, 5, 2, 3],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+
+
+var MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var uptimeCtx = document.getElementById("serverUptimeChart").getContext("2d");
+var serverUptimeChart = new Chart(uptimeCtx, {
+			type: 'line',
+			data: {
+				labels: ["January", "February", "March", "April", "May", "June", "July"],
+				datasets: [{
+					label: "Downtime (Avg: _s)",
+					borderColor: 'rgba(229, 166, 35, 0.2)', // Orange
+					backgroundColor: 'rgba(229, 166, 35, 1)',
+					data: [0, 0, 1, 0, 0, 0, 2],
+          fill: 'start'
+				}, {
+					label: "Uptime (_%)",
+					borderColor: 'rgba(64, 226, 144, 0.2)', // Green
+					backgroundColor: 'rgba(64, 226, 144, 1)',
+					data: [5, 6, 5, 5, 5, 6, 5],
+          fill: 'start'
+				}, {
+					label: "Response time",
+					borderColor: 'rgba(89, 189, 229, 0.2)', // Blue
+					backgroundColor: 'rgba(89, 189, 229, 1)',
+					data: [10, 12, 11, 9, 10, 12, 13],
+          fill: 'start'
+				}]
+			},
+			options: {
+        maintainAspectRatio: false,
+        title: {
+            display: true,
+            text: 'Server Uptime'
+        },
+			spanGaps: false,
+			elements: {
+				line: {
+					tension: 0.000001
+				}
+			},
+			scales: {
+				yAxes: [{
+					stacked: false
+				}]
+			},
+			plugins: {
+				filler: {
+					propagate: false
+				},
+				samples_filler_analyser: {
+					target: 'chart-analyser'
+				}
+			}
+  	}
+});
+
+var trafficCtx = document.getElementById("trafficSourceChart").getContext("2d");
+var trafficSourceChart = new Chart(trafficCtx, {
+    type: 'doughnut',
+    data: {
+        datasets: [{
+            data: [5, 4, 3, 2, 1],
+            backgroundColor: [
+                'rgba(89, 189, 229, 1)',
+                'rgba(64, 226, 144, 1)',
+                'rgba(229, 166, 35, 1)',
+                'rgba(264, 122, 159, 1)',
+                'rgba(239, 54, 64, 1)'
+            ],
+            label: 'Dataset 1'
+        }],
+        labels: [
+            "Facebook",
+            "Twitter",
+            "Instagram",
+            "Myspace",
+            "Other"
+        ]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'New Visitors per Day'
+        },
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Date'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: '# New Visitors'
+                },
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+</script>
+<!-- end user line chart-->
+
+<!--line chart for revenue-->
+<script>
+var ctx = document.getElementById("revenue-line-chart").getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["February", "March", "April", "May", "June"],
+        datasets: [{
+            label: '$',
+            data: [2160, 3012, 3673, 4002, 4873],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)'
+            ],
+            borderColor: [
+                'rgba(54, 162, 235, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Revenue Generated'
+        },
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+        scales: {
+            xAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Month'
+                }
+            }],
+            yAxes: [{
+                display: true,
+                scaleLabel: {
+                    display: true,
+                    labelString: 'Revenue ($)'
+                },
+                ticks: {
+                    beginAtZero:false
+                }
+            }]
+        }
+    }
+});
+</script>
+
+<!-- budget breakdown pie chart -->
+<script>
+    var ctx = document.getElementById("budget-breakdown-chart").getContext('2d');
+    var myPieChart = new Chart(ctx,{
+    type: 'pie',
+    data: {
+        labels: ["Mobile Dev", "Web Dev", "Office Lease", "Social Media", "Miscellaneous"],
+        datasets: [{
+            //label: 'Sections',
+            data: [35, 30, 23, 14, 9],
+            fill: false,
+            backgroundColor: [
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(72, 235, 54, 0.2)',
+                'rgba(235, 126, 54, 0.2)',
+                'rgba(217, 54, 235, 0.2)'
+            ]//,
+            //borderColor: [
+            //    'rgba(54, 162, 235, 1)'
+            //],
+            //borderWidth: 1
+        }]
+    },
+    options: {
+        title: {
+            display: true,
+            text: 'Budget Breakdown'
+        },
+        responsive: true,
+        responsiveAnimationDuration: 2000,
+    }
+});
+        legend: {
+            position: 'top',
+        },
+        title: {
+            display: true,
+            text: 'Traffic Sources'
+        },
+        animation: {
+            animateScale: true,
+            animateRotate: true
+        }
+    }
+});
+
+
+</script>

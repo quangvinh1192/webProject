@@ -1,3 +1,8 @@
+/**
+ * @file Sets the theme for the look of a page
+ * @author Original Fubar Team
+ */
+
 $(document).ready(function () {
     var $themeToolbar = $('#theme-toolbar');
 
