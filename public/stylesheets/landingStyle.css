@@ -23,9 +23,7 @@ h1 {
 
 }
 
-#h1Custom{
-    color: #fff;
-}
+
 
 /*
     <h3> format for footer
@@ -367,6 +365,7 @@ footer a{
     }
     
     .register_form .centerForm{
+        padding-left: 10px !important;
         width: 250px !important;
     }
     .register_form .centerForm:focus{
@@ -388,6 +387,51 @@ footer a{
     background: #F4F5F7 !important;
     font-family: "Karla", sans-serif;
     letter-spacing: 1px;
+}
+
+#contact_us h1{
+    color: #545454;
+}
+
+#contact_form{
+    margin: auto;
+    padding: 20px;
+    
+}
+
+#contact_form label{
+    font-size: 23px;
+    color: #545454;
+}
+
+#contact_form .btn{
+    border-radius: 2px;
+    height: 50px;
+    width: 150px;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+
+#contact_form input, #contact_form textarea{
+    min-height: 65px;
+    font-size: 20px !important;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-radius: 0;
+    padding: 20px 20px;
+    border: 3px solid #545454;
+    background: none;
+
+    
+}
+
+#contact_form input:focus, #contact_form textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border: 3px solid gainsboro;
 }
 .btn-warning{
     background-color: #071C33;
@@ -578,6 +622,11 @@ header .header-content .header-content-inner p {
 }
 
 /*************** Pricing Charts (Landing Page) **************/
+
+#pricing{
+    background: #F4F5F7;
+}
+
 .panel.price,
 .panel.price>.panel-heading{
     border-radius:0px;
@@ -589,13 +638,6 @@ header .header-content .header-content-inner p {
 }
 .panel.price:hover{
     box-shadow: 0px 0px 30px rgba(0,0,0, .2);
-}
-.panel.price:hover>.panel-heading{
-    box-shadow: 0px 0px 30px rgba(0,0,0, .2) inset;
-}
-
-
-.panel.price>.panel-heading{
 }
 
 .price .list-group-item{
@@ -611,10 +653,12 @@ header .header-content .header-content-inner p {
     border-top-left-radius: 0px;
 }
 
+
+
 .price .panel-footer {
-    color: #fff;
+    color: #545454;
     border-bottom:0px;
-    background: #72192D;
+
     text-align: middle;
     font-size: 2.5rem;
 }
@@ -622,20 +666,19 @@ header .header-content .header-content-inner p {
 
 
 
-.panel.price .btn{
-   
-    border:0px;
+
+.panel{
+}
+.price .panel-heading {
+    color: #1C1D22;
+    background: #E6E9EA;
+
 }
 
-.price.panel-green>.panel-heading {
-    color: #fff;
-    background-color: #72192D;
-}
 
-
-.price.panel-green>.panel-body {
-    color: #fff;
-    background-color: #A62A42;
+.price .panel-body {
+    color: #545454;
+    padding: 30px 10px;
 }
 
 
@@ -651,45 +694,18 @@ header .header-content .header-content-inner p {
     font-size: 24px;
 }
 
-.price.panel-red>.panel-heading {
-    color: #fff;
-    background-color: #071C33;
-    border-color: #071C33;
-    border-bottom: 1px solid #071C33;
-}
-
-
-.price.panel-red>.panel-body {
-    color: #fff;
-    background-color: #092543;
-}
-
-
-.price.panel-red>.panel-body .lead{
-    text-shadow: 0px 3px 0px rgba(50,50,50, .3);
-}
-
 .price.panel-red .list-group-item {
     color: #333;
     background-color: rgba(50,50,50, .01);
     font-weight:600;
-    text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+
     font-size: 24px;
 }
 
-#chartCheck {
-    color: green;
-    margin-right: 20px;
-}
 
-#chartX {
-    color: #72192D;
-    margin-right: 20px;
+.faded {
+    color: gainsboro !important;    
 }
-.list-group{
-    color: #888a8c;
-}
-
 .btn-success {
     background-color: #ffae00;
     color: #ffffff;
@@ -718,19 +734,10 @@ header .header-content .header-content-inner p {
 
 
 /******** Login Page Form ****/
-.form-control{
-    margin: 0 auto;
-    width: 300px;
-    border:3px solid #071C33;
-}
 
-.control-label, .label{
-    font-size: 18px;
-}
 
-.form-control:focus{
-    border-color: #ffae00;
-}
+
+
 
 /**Invalid login information**/
 .alert-danger {
@@ -790,8 +797,8 @@ header .header-content .header-content-inner p {
 .centerForm {
     color: white !important;
     display: block;
-    margin-bottom: 15px !important;s
-    padding-left: 10px;
+    margin-bottom: 15px !important;
+    padding-left: 10px !important;
     height: 50px;
     width: 300px;
     border-radius: 2px;
@@ -822,125 +829,6 @@ header .header-content .header-content-inner p {
     margin-left: 100px;
     margin-top: -10px;
     width:500px;
-}
-
-#contact_form .input {
-	position: relative;
-	z-index: 1 !important;
-    display: block;
-    left: calc(50% - 200px);
-    margin: 60px 0px;
-    width: 400px;
-	vertical-align: top;
-}
-
-#contact_form  .input__field {
-	position: relative;
-	display: block;
-	float: right;
-	padding: 1.3em;
-	border: none;
-	border-radius: 0;
-	color: #aaa;
-	font-weight: bold;
-	-webkit-appearance: none; /* for box shadows to show on iOS */
-}
-
-#contact_form .input__field:focus {
-	outline: none;
-}
-
-#contact_form .input__label {
-	display: inline-block;
-	float: right;
-	padding: 0 1em;
-	width: 100%;
-	color: #545454;
-    font-family: "Karla", sans-serif !important;
-    letter-spacing: 2px;
-	font-weight: bold;
-	font-size: 2rem;
-	-webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
-#contact_form .input__label-content {
-	position: relative;
-	display: block;
-	padding: 1.6em 0;
-	width: 100%;
-}
-
-/* Individual styles */
-
-/* Haruki */
-
-.input--haruki {
-
-}
-
-.input__field--haruki {
-	width: 100%;
-	background: transparent;
-	color: #AFB5BB;
-	font-size: 1.55em;
-}
-
-.input__label--haruki {
-	position: absolute;
-	width: 100%;
-	text-align: left;
-	pointer-events: none;
-}
-
-.input__label-content--haruki {
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
-
-.input__label--haruki::before,
-.input__label--haruki::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	z-index: -1;
-	width: 100%;
-	height: 4px;
-	background: #545454;
-	-webkit-transition: -webkit-transform 0.3s;
-	transition: transform 0.3s;
-}
-
-.input__label--haruki::before {
-	top: 0;
-}
-
-.input__label--haruki::after {
-	bottom: 0;
-}
-
-.input__field--haruki:focus + .input__label--haruki .input__label-content--haruki,
-.input--filled .input__label-content--haruki {
-	-webkit-transform: translate3d(0, -90%, 0);
-	transform: translate3d(0, -90%, 0);
-}
-
-.input__field--haruki:focus + .input__label--haruki::before,
-.input--filled .input__label--haruki::before {
-	-webkit-transform: translate3d(0, -0.5em, 0);
-	transform: translate3d(0, -0.5em, 0);
-}
-
-.input__field--haruki:focus + .input__label--haruki::after,
-.input--filled .input__label--haruki::after {
-	-webkit-transform: translate3d(0, 0.5em, 0);
-	transform: translate3d(0, 0.5em, 0);
 }
 
 
