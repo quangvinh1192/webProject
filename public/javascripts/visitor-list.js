@@ -1,12 +1,7 @@
 /**
   * @file This file contains functions that deals with user interactions
-<<<<<<< HEAD
-  * in creating an appointment. This includes different things a 
-  * receptionist would take care of with a new visitor. 
-=======
   * in creating an appointment. This includes different things a
   * receptionist would take care of with a new visitor.
->>>>>>> staging
   @author Original Fubar Team
 */
 
@@ -48,14 +43,6 @@ socket.on('checkin', function (data) {
 
 });
 
-<<<<<<< HEAD
-/**
- * Goes through appointment table, and highlights/unhighlights
- * according to user clicks
- * @author Original Fubar Team
- */
-function highlight() {
-=======
 var toggleHighlight = function () {
     if(!this.hilite){
         unhighlight();
@@ -67,7 +54,6 @@ var toggleHighlight = function () {
         this.hilite = false;
     }
 };
->>>>>>> staging
 
 /**
  * Goes through appointment table, and highlights/unhighlights
