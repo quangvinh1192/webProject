@@ -40,7 +40,7 @@
     "lodash": "^4.17.4",
     "minify": "^2.0.13",
     "mongodb": "*",
-    "monk": "^6.0.0",
+    "monk": "*",
     "morgan": "~1.5.1",
     "multer": "^0.1.8",
     "newrelic": "^1.16.4",
