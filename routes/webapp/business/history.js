@@ -18,7 +18,8 @@ exports.get = function(req,res){
   async.parallel({
       appointments: function(cb) {
           req.db.get('appointments').find({
-            businessID: req.user[0].business
+            businessID: req.user[0].business,
+            checkin: "yes",
           }, function (err,results){
 
               if (err) {
@@ -43,8 +44,8 @@ exports.get = function(req,res){
           throw err;
       }
 
-      res.render('business/appointments', {
-          title: 'Appointments',
+      res.render('business/history', {
+          title: 'Check-in History',
           isOwner: req.user[0].admin,
           businessId: req.user[0].business,
           appointments: "active",
@@ -53,34 +54,4 @@ exports.get = function(req,res){
 
   });
 
-}
-
-/**
- * Takes a req and res parameters and is inputted into function to get appointment data.
- *  Allows the User to input specified data and make changes
- * @param req and res The two parameters passed in to get the apprporiate appointments,
- * @returns The appropriate data about the appointment
- */
-exports.post = function(req,res,next){
-  // grab the appointments table from db
-  var appointments = req.db.get('appointments');
-  // grab the body of the data from the form
-  // var formData = req.body;
-
-  appointments.insert({
-    name: req.body.inputName,
-    time: req.body.inputTime,
-    date: req.body.inputDate,
-    email: req.body.inputEmail,
-    phone: req.body.inputPhone,
-    checkin: "no",
-    checkinTime: "",
-    businessID: req.user[0].business,
-  }, function (err, result) {
-    if (err) {
-      throw err;
-    }
-    return done(null, result);
-  });
-	res.redirect('/appointments');
 }
