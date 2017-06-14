@@ -18,8 +18,7 @@ module.exports = {
         browser
             .waitForElementVisible('body')
             .useXpath()
-            .setValue('//*[@id="inputFirst"]', "no")
-            .setValue('//*[@id="inputLast"]', "appointment")
+            .setValue('//*[@id="inputName"]', "no appointment")
             .setValue('//*[@id="inputPhone"]', "0000000000")
             .click('//*[@id="checkin"]')
             .assert.containsText("/html/body/div/div", "No appointment found")

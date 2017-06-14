@@ -62,7 +62,7 @@ module.exports = {
         browser
             .waitForElementVisible('body')
             .useXpath()
-            .click('/html/body/div/aside/section/ul/li[5]/a')
+            .click('/html/body/div/aside/section/ul/li[7]/a')
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')

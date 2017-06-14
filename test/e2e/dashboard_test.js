@@ -50,7 +50,7 @@ module.exports = {
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()
             .waitForElementVisible('/html/body')
-            .click('/html/body/div/aside/section/ul/li[5]/a')
+            .click('/html/body/div/aside/section/ul/li[7]/a')
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
@@ -65,7 +65,7 @@ module.exports = {
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()
             .waitForElementVisible('/html/body')
-            .click('/html/body/div/aside/section/ul/li[6]/a')
+            .click('/html/body/div/aside/section/ul/li[8]/a')
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/accountSettings')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
