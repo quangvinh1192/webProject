@@ -24,6 +24,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -38,6 +39,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -52,6 +54,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/addemployees')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -66,6 +69,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/accountSettings')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")

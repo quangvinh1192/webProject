@@ -23,6 +23,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -37,6 +38,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -52,6 +54,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -66,6 +69,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -94,6 +98,7 @@ module.exports = {
             .setValue('//*[@id="phone"]', "123-867-5309")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")

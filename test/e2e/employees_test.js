@@ -26,6 +26,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -40,6 +41,7 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -55,6 +57,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -69,6 +72,7 @@ module.exports = {
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/accountSettings')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -88,6 +92,7 @@ module.exports = {
             .assert.containsText('//*[@id="notRegisteredEmployees"]/tbody', email)
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -105,6 +110,7 @@ module.exports = {
             .assert.hidden('//*[@id="add-employee-modal"]/div') //TODO ???
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -120,6 +126,7 @@ module.exports = {
             .assert.not.hidden('//*[@id="add-employee-modal"]/div') //TODO ??? extra questionable???
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
