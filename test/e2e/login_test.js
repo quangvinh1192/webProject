@@ -3,7 +3,7 @@ var config = require('../../nightwatch.conf.BASIC.js');
 module.exports = { // adapted from: https://git.io/vodU0
     'Login Success and Logout Test': function(browser) {
         browser
-            .url('https://fubar-master.herokuapp.com/login')
+            .url('https://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
             .setValue("#email","c4xie@ucsd.edu")
             .setValue("#password","123123")
@@ -19,7 +19,7 @@ module.exports = { // adapted from: https://git.io/vodU0
 
     'Login Unsuccessful Test': function(browser) {
         browser
-            .url('https://fubar-master.herokuapp.com/login')
+            .url('https://nocontext-staging.herokuapp.com/login')
             .useCss()
             .waitForElementVisible('body')
             .setValue("#email","c4xie@apple.edu")
@@ -32,7 +32,7 @@ module.exports = { // adapted from: https://git.io/vodU0
 
     'Login Unsuccessful then Successful Test': function(browser) {
         browser
-            .url('https://fubar-master.herokuapp.com/login')
+            .url('https://nocontext-staging.herokuapp.com/login')
             .useCss()
             .waitForElementVisible('body')
             .setValue("#email","c4xie@apple.edu")
@@ -56,20 +56,20 @@ module.exports = { // adapted from: https://git.io/vodU0
 
     'Login no input test' : function(browser) {
         browser
-            .url('https://fubar-master.herokuapp.com/login')
+            .url('https://nocontext-staging.herokuapp.com/login')
             .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/header/div/form/div[3]/div/button")
-            .assert.urlEquals('https://fubar-master.herokuapp.com/login')
+            .assert.urlEquals('https://nocontext-staging.herokuapp.com/login')
             .end()
     },
 
     'No Login Test' : function(browser) {
         browser
-            .url('https://fubar-master.herokuapp.com/dashboard')
+            .url('https://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
-            .assert.urlEquals('https://fubar-master.herokuapp.com/')
+            .assert.urlEquals('https://nocontext-staging.herokuapp.com/')
             .end()
     },
 

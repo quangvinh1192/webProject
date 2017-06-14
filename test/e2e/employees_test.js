@@ -6,7 +6,7 @@ var email = name.concat("@test.com");
 module.exports = {
     beforeEach : function(browser) { //login
         browser
-            .url('http://fubar-master.herokuapp.com/login')
+            .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -23,9 +23,9 @@ module.exports = {
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[2]/a')
-            .assert.urlEquals("http://fubar-master.herokuapp.com/dashboard")
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -37,9 +37,9 @@ module.exports = {
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[3]/a')
-            .assert.urlEquals("http://fubar-master.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -52,9 +52,9 @@ module.exports = {
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[5]/a')
-            .assert.urlEquals('http://fubar-master.herokuapp.com/forms')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -66,9 +66,9 @@ module.exports = {
             .waitForElementVisible('body')
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[6]/a')
-            .assert.urlEquals('http://fubar-master.herokuapp.com/accountSettings')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/accountSettings')
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -87,7 +87,7 @@ module.exports = {
             .assert.containsText('//*[@id="notRegisteredEmployees"]/tbody', name)
             .assert.containsText('//*[@id="notRegisteredEmployees"]/tbody', email)
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -104,7 +104,7 @@ module.exports = {
             .click('//*[@id="add-employee-modal"]/div/div/div[2]/div[2]/button[1]')
             .assert.hidden('//*[@id="add-employee-modal"]/div') //TODO ???
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
@@ -119,7 +119,7 @@ module.exports = {
             .click('//*[@id="add-employee-modal"]/div/div/div[2]/div[1]/div/div/div[2]/form/input')
             .assert.not.hidden('//*[@id="add-employee-modal"]/div') //TODO ??? extra questionable???
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")

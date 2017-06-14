@@ -3,7 +3,7 @@ var config = require('../../nightwatch.conf.BASIC.js');
 module.exports = {
     beforeEach : function(browser) { //login
         browser
-            .url('http://fubar-master.herokuapp.com/login')
+            .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -24,7 +24,7 @@ module.exports = {
             .click('//*[@id="checkin"]')
             .assert.containsText("/html/body/div/div", "No appointment found")
             //logout
-            .url('http://fubar-master.herokuapp.com/dashboard')
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
