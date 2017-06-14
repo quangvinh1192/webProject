@@ -47,19 +47,25 @@
             <div class="col col-md-4" >
                 <div class ="dashboard-data-block">
                     <h1>Average Time Spent on Site (minutes)</h1>
-                    <span class="main-data">89</span> <br/>
+                    <span class="main-data" id="avg-session-time"></span> <br/>
                     <span>
+<<<<<<< HEAD
                          <span>
                             <i class="fa fa-arrow-down" aria-hidden="true"></i>
                         </span>
                         <span> 3 </span>
+=======
+                        <span id="avg-session-trend">
+                            
+                        </span> 
+                        <span id ="avg-session-diff"> </span>
+>>>>>>> visuals
                     </span>
 
                     <br/>
-                    <span>6 Week Avg:</span>
-                    <span class="avg-data"> 45 </span>
+                    <span>Last Week Avg:</span>
+                    <span class="avg-data" id="prev-avg-session-time"></span>
                     <br/>
-                    <span>Last updated at: 9:30</span>
                 </div> <!-- end percent-block-->
             </div><!-- end col-->
 
@@ -133,7 +139,7 @@
             <div class ="col-md-8">
                 <!-- new visitor line chart-->
                 <div class="chart" >
-                    <canvas id="new-visitors-chart" width="400" height="200px"></canvas>
+                    <canvas id="new-visitors-chart" width="400" height="187px"></canvas>
                 </div>
             </div> <!-- end col -->
 
@@ -147,6 +153,7 @@
 
     </div> <!-- end container-->
 
+<<<<<<< HEAD
 <!-- KAT -->
     <div class = "dashboard-section">
         <div class="row">
@@ -260,14 +267,31 @@
         </div> <!-- end row -->
 
     </div> <!-- end container-->
+=======
+    <!-- stuff we need for google analytics to work 
+        but we don't want it to show up on webpage cause it's 
+         ugly
+    -->
+<div id="embed-api-auth-container" class="hidden"></div>
+<div id="view-selector-1-container" class="hidden"></div>
+<div id="view-selector-2-container" class="hidden"></div>
+<div id="view-selector-3-container" class="hidden"></div>
+<div id="view-selector-4-container" class="hidden"></div>
+    
+>>>>>>> visuals
 
 </section>
-z
+
+<!-- import chart.js-->
 <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
 
-<!-- pie charts for visitor occupations-->
+<!-- import moment-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+
+<!-- load google analytics embed api -->
 <script>
+<<<<<<< HEAD
     var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
     var myPieChart = new Chart(ctx,{
     type: 'pie',
@@ -304,9 +328,19 @@ z
     }
 });
 
+=======
+    (function(w,d,s,g,js,fs){
+      g=w.gapi||(w.gapi={});g.analytics={q:[],ready:function(f){this.q.push(f);}};
+      js=d.createElement(s);fs=d.getElementsByTagName(s)[0];
+      js.src='https://apis.google.com/js/platform.js';
+      fs.parentNode.insertBefore(js,fs);js.onload=function(){g.load('analytics');};
+    }(window,document,'script'));
+>>>>>>> visuals
 </script>
-<!-- line chart for new user visits-->
+
+<!-- grab data from google analytics and display on dashboard -->
 <script>
+<<<<<<< HEAD
 var ctx = document.getElementById("new-visitors-chart").getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'line',
@@ -426,9 +460,282 @@ var trafficSourceChart = new Chart(trafficCtx, {
                 }
             }]
         }
+=======
+gapi.analytics.ready(function() {
+
+  /**
+    * Authorize the user immediately if the user has already granted access.
+    * If no access has been created, render an authorize button inside the
+    * element with the ID "embed-api-auth-container".
+    */
+    gapi.analytics.auth.authorize({
+        container: 'embed-api-auth-container',
+        clientid: '341666889438-0june0o3tepvttbi6jrffa2m9592rrvf.apps.googleusercontent.com'
+    });
+
+    /**
+      * Create a ViewSelector for a view to be rendered inside of
+      * @param {string} id - the elementin which the view should be rendered inside of
+      */
+    function createViewSelector(id){
+        return new gapi.analytics.ViewSelector({
+            container: id
+        });
     }
+    
+    //create google analytics view selectors
+    var viewSelector1 = createViewSelector('view-selector-1-container'); //belongs to sessions per day graph
+    var viewSelector2 = createViewSelector('view-selector-2-container'); //belongs to new vs returning visitors pie
+    
+    var viewSelector3 = createViewSelector('view-selector-3-container');
+    var viewSelector4 = createViewSelector('view-selector-4-container');    
+
+    // Render view selectors to the page.
+    viewSelector1.execute();
+    viewSelector2.execute();
+    viewSelector3.execute();
+    viewSelector4.execute();
+
+    
+    /**
+      * Extend the Embed APIs `gapi.analytics.report.Data` component to
+      * return a promise the is fulfilled with the value returned by the API.
+      * @param {Object} params The request parameters.
+      * @return {Promise} A promise.
+      */
+    function query(params) {
+      return new Promise(function(resolve, reject) {
+        var data = new gapi.analytics.report.Data({query: params});
+        data.once('success', function(response) { resolve(response); })
+            .once('error', function(response) { reject(response); })
+            .execute();
+      });
+>>>>>>> visuals
+    }
+    /*
+    */
+    function createCurrTimeLineQuery(ids, dimensions, metrics, now){
+        return query({
+          'ids': ids,
+          'dimensions': dimensions,
+          'metrics': metrics,
+          'start-date': moment(now).subtract(1, 'day').day(0).format('YYYY-MM-DD'),
+          'end-date': moment(now).format('YYYY-MM-DD')
+        });
+    }
+    // Set some global Chart.js defaults.
+    Chart.defaults.global.animationSteps = 60;
+    Chart.defaults.global.animationEasing = 'easeInOutQuart';
+    Chart.defaults.global.responsive = true;
+    Chart.defaults.global.maintainAspectRatio = false;
+    
+    /**
+      * Update the first dataChart when the first view selecter is changed.
+      */
+    viewSelector1.on('change', function(ids) {
+
+        var now = moment(); 
+
+        var thisWeek = createCurrTimeLineQuery(ids, 'ga:date,ga:nthDay', 'ga:sessions', now);
+
+        var lastWeek = query({
+          'ids': ids,
+          'dimensions': 'ga:date,ga:nthDay',
+          'metrics': 'ga:sessions',
+          'start-date': moment(now).subtract(1, 'day').day(0).subtract(1, 'week')
+              .format('YYYY-MM-DD'),
+          'end-date': moment(now).subtract(1, 'day').day(6).subtract(1, 'week')
+              .format('YYYY-MM-DD')
+        });
+
+        Promise.all([thisWeek, lastWeek]).then(function(results) {
+
+          var data1 = results[0].rows.map(function(row) { return +row[2]; });
+          var data2 = results[1].rows.map(function(row) { return +row[2]; });
+          var labels = results[1].rows.map(function(row) { return +row[0]; });
+
+          labels = labels.map(function(label) {
+            return moment(label, 'YYYYMMDD').format('ddd');
+          });
+
+          var data = {
+            labels : labels,
+            datasets : [
+              {
+                label: 'Last Week',
+                fill: true,
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'    
+                ],
+                borderWidth: 1,
+                data : data2
+              },
+              {
+                label: 'This Week',
+                fill: true,
+                backgroundColor: [
+                    'rgba(255, 162, 225, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(255, 162, 225, 1)'
+                ],
+                borderWidth: 1,
+                data : data1
+              }
+            ]
+          };
+
+
+
+            var ctx = document.getElementById("new-visitors-chart").getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'line',
+                data: data,
+                options: {
+                    title: {
+                        display: true,
+                        text: 'Sessions per Day'
+                    },
+                    responsive: true,
+                    responsiveAnimationDuration: 2000,
+                    scales: {
+                        xAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Date'
+                            }
+                        }],
+                        yAxes: [{
+                            display: true,
+                            scaleLabel: {
+                                display: true,
+                                labelString: '# New Visitors'
+                            },
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
+                }
+            });
+        });
+
+    });
+
+    /**
+     * Update the second dataChart when the second view selecter is changed.
+     */
+    viewSelector2.on('change', function(ids) {
+      query({
+        'ids': ids,
+        'dimensions': 'ga:userType',
+        'metrics': 'ga:sessions',
+        'max-results': 2
+      })
+      .then(function(response) {
+
+        var data = [];
+        var labels = [];
+        var colors = ['rgba(54, 162, 235, 0.7)'];
+
+        response.rows.forEach(function(row, i) {
+          labels.push(row[0]);
+          data.push(row[1]);
+        });
+ 
+        var ctx = document.getElementById("visitor-occupations-chart").getContext('2d');
+        var myPieChart = new Chart(ctx,{
+          type: 'pie',
+          data: {
+              labels: labels,
+              datasets:[{
+                  data: data,
+                  backgroundColor: colors
+              }]
+          },
+          options: {
+              title: {
+                  display: true,
+                  text: 'New vs. Returning Visitors'
+              },
+              responsive: true,
+              responsiveAnimationDuration: 2000,
+          }  
+        });
+      });
+    });
+    
+
+    /**
+      * Update the average session times
+      */
+    viewSelector3.on('change', function(ids) {
+        var now = moment(); // .subtract(3, 'day');
+
+        var thisWeek = createCurrTimeLineQuery(ids, 'ga:sessionDurationBucket, ga:sessionCount', 'ga:avgSessionDuration', now);
+
+        var lastWeek = query({
+          'ids': ids,
+          'dimensions': 'ga:date,ga:nthDay',
+          'metrics': 'ga:avgSessionDuration',
+          'start-date': moment(now).subtract(1, 'day').day(0).subtract(1, 'week')
+              .format('YYYY-MM-DD'),
+          'end-date': moment(now).subtract(1, 'day').day(6).subtract(1, 'week')
+              .format('YYYY-MM-DD')
+        });
+
+        Promise.all([thisWeek, lastWeek]).then(function(results) {
+
+            //avg session times in seconds for this week
+            var data1 = results[0].rows.map(function(row) { return +row[2]; });
+            //avg session times isn seconds for last week
+            var data2 = results[1].rows.map(function(row) { return +row[2]; });
+
+            var currWeek_avg = 0;
+            for(var i = 0; i < data1.length; i++){
+              currWeek_avg += data1[i];
+            }
+
+            var lastWeek_avg = 0;
+            for(var i = 0; i < data2.length; i++){
+              lastWeek_avg += data2[i];
+            }
+            currWeek_avg = (currWeek_avg/60)/(data1.length - 1);
+            //convert data to minutes and seconds
+            document.getElementById("avg-session-time").innerHTML = currWeek_avg.toFixed(2) ;
+
+            lastWeek_avg = (lastWeek_avg/60)/(data1.length - 1);
+
+            document.getElementById("prev-avg-session-time").innerHTML = lastWeek_avg.toFixed(2) ;
+
+            var diff = currWeek_avg - lastWeek_avg;
+
+            if(diff > 0){
+                document.getElementById("avg-session-trend").innerHTML = "<i class='fa fa-arrow-up' aria-hidden='true'></i>";
+            }
+            else if (diff < 0){
+                document.getElementById("avg-session-trend").innerHTML = "<i class='fa fa-arrow-down' aria-hidden='true'></i>";
+            }
+            else{ //no change
+
+            }
+
+            document.getElementById("avg-session-diff").innerHTML = diff;
+
+        }); //end promise all
+
+    });
+    
+    
+    
+    
 });
 </script>
+<<<<<<< HEAD
 <!-- end user line chart-->
 
 <!--line chart for revenue-->
@@ -529,3 +836,5 @@ var myChart = new Chart(ctx, {
 
 
 </script>
+=======
+>>>>>>> visuals

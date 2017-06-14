@@ -1,8 +1,16 @@
+<<<<<<< HEAD
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+=======
+@import url('https://fonts.googleapis.com/css?family=Karla:400,700');
+@import url('https://fonts.googleapis.com/css?family=Droid+Sans|Raleway');
+
+>>>>>>> visuals
 /*New stylesheet for landing page*/
 html, body {
     height: 100%;
     width: 100%;
+    padding-top: 50px;
+    overflow-x: hidden;
     font-family: 'Open Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -19,12 +27,16 @@ h1 {
 
 }
 
+<<<<<<< HEAD
 #h1Custom{
     color: #357266;
 }
 #h1Custom1{
     color: #fff;
 }
+=======
+
+>>>>>>> visuals
 
 /*
     <h3> format for footer
@@ -125,8 +137,13 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
     color: #ffffff;
+<<<<<<< HEAD
     background-color: #071C33;
     border-color: #6ED1DE;
+=======
+    background-color: #1C1D22;
+    border-color: #ffae00;
+>>>>>>> visuals
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
@@ -138,8 +155,13 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
     color: #ffffff;
+<<<<<<< HEAD
     background-color: #022F40;
     border-color: #6ED1DE;
+=======
+    background-color: #72192D;
+    border: none;
+>>>>>>> visuals
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -164,8 +186,13 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
+<<<<<<< HEAD
     background-color: #0F5257;
     border-color: #0F5257;
+=======
+    background-color: #72192D;
+    border: none;
+>>>>>>> visuals
 }
 .btn-primary .badge {
     color: #0F5257;
@@ -207,19 +234,30 @@ fieldset[disabled] .btn-primary.active {
 /***Footer***/
 footer {
     color: white;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 2px;
 }
 footer h3 {
     margin-bottom: 30px;
+    font-weight: 700 !important;
+    color: #A62A42 !important;
+
 }
 footer .footer-above {
+<<<<<<< HEAD
     color:white;
     background-color: #022F40;
+=======
+    padding-top: 50px;
+    background-color: #292528;
+>>>>>>> visuals
 }
 footer .footer-col {
     margin-bottom: 50px;
 }
 footer .footer-below {
     padding: 25px 0;
+<<<<<<< HEAD
     background: linear-gradient(
       rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
     background-color: #0F5257;
@@ -235,6 +273,9 @@ radial-gradient(circle at 50%  100%, white 10%, #C5E0D8 11%, #C5E0D8 23%, white 
 radial-gradient(circle at 100% 50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent),
 radial-gradient(circle at 0    50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent);
 background-size:100px 50px;
+=======
+    background-color: #1C1D22;
+>>>>>>> visuals
 }
 
 .btn-social {
@@ -246,6 +287,7 @@ background-size:100px 50px;
     text-align: center;
     font-size: 20px;
     line-height: 45px;
+    color: #545454 !important;
 }
 .btn:focus,
 .btn:active,
@@ -254,7 +296,11 @@ background-size:100px 50px;
 }
 
 footer a{
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #A62A42 !important;;
+>>>>>>> visuals
 }
 
 /********************* NavBar CSS **************************/
@@ -267,6 +313,7 @@ footer a{
 }
 
 .navbar-default {
+<<<<<<< HEAD
     background: linear-gradient(
       rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
     background-color: #0F5257;
@@ -275,33 +322,61 @@ footer a{
     font-weight: 300;
     font-size: 400;
     color: #FFF;
+=======
+    background-color: #1C1D22;
+    font-family: "Karla","Helvetica Neue",Arial,sans-serif;
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: #555964;
+>>>>>>> visuals
     text-transform: uppercase;
     opacity: 0.8;
 }
 .navbar-default .navbar-brand {
+<<<<<<< HEAD
    left-margin: 0;  
    top: 50%;    
    transform: translate(0%, 0) ;   
     color: #fff;
+=======
+    height: 100px;
+    font-size: 3rem;
+    line-height: 65px;
+    padding-left: 50px;
+    color:  white;
+>>>>>>> visuals
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
-    color: #ffffff;
+    color: #656565;
 }
 .navbar-default .navbar-text {
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #312F38;
+>>>>>>> visuals
 }
 .navbar-default .navbar-nav > li > a {
-    color: #ffffff;
+    height: 100px;
+    line-height: 65px;
+    color: white;
 }
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
-    color: #ffffff;
+    color: #656565;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+<<<<<<< HEAD
     color: #fff;
     background-color: #0F5257;
+=======
+    background: none;
+    color: white;
+>>>>>>> visuals
 }
+
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
+<<<<<<< HEAD
     color: #ffffff;
     background-color: #0F5257;
 }
@@ -321,26 +396,105 @@ footer a{
 }
 .navbar-default .navbar-link {
     color: #fff;
+=======
+    color: #656565 !important;
+}
+.navbar-default .navbar-toggle {
+    border: none;
+    height: 100px;
+    line-height: 65px;
+}
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #A62A42;
+
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: gainsboro;
+}
+.navbar-default .navbar-link {
+    color: #3498DB;
+>>>>>>> visuals
 }
 .navbar-default .navbar-link:hover {
     color: #ffffff;
 }
 
+/*get rid of scroll bar in collapse*/
+.navbar-collapse.in {
+    overflow: hidden;
+    max-height: none !important;
+    height: auto !important;
+}
 @media (max-width: 767px) {
+    
+    .navbar-default .navbar-brand {
+        line-height: 90px;
+    }
+    .navbar-default .navbar-nav > li > a {
+        line-height: 90px;
+    }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+<<<<<<< HEAD
         color: #fff;
+=======
+>>>>>>> visuals
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #ffffff;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+<<<<<<< HEAD
         color: #fff;
         background-color: #0F5257;
+=======
+    }
+    header{
+    }
+    header .header-content{
+        left: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        top: 0 !important;
+        height: 90vh !important;
+        border-radius: 2% !important;
+        position: relative;
+        background: #292528 !important;
+    }
+    
+    header .register_form{
+        top: 100px !important;
+        position: relative;
+        margin-bottom: 10px !important;
+    }
+    .register_form h2{
+        font-size: 2.75rem !important;
+    }
+    
+    .register_form .sign1Btn {
+        width: 252px !important;
+    }
+    
+    .register_form .centerForm{
+        padding-left: 10px !important;
+        width: 250px !important;
+    }
+    .register_form .centerForm:focus{
+        background: #1C1D22 !important;
+        border-color: #1C1D22 !important;
+>>>>>>> visuals
     }
 }
 
 .navbar-collapse, .navbar{
+<<<<<<< HEAD
     border-bottom-color: #fff;
+=======
+    border-bottom-color: gainsboro;
+>>>>>>> visuals
 }
 
 .navbar-landing-padding{
@@ -348,6 +502,56 @@ footer a{
 }
 
 /***Contact form***/
+#contact_us{
+    background: #F4F5F7 !important;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 1px;
+}
+
+#contact_us h1{
+    color: #545454;
+}
+
+#contact_form{
+    margin: auto;
+    padding: 20px;
+    
+}
+
+#contact_form label{
+    font-size: 23px;
+    color: #545454;
+}
+
+#contact_form .btn{
+    border-radius: 2px;
+    height: 50px;
+    width: 150px;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 2px;
+    font-size: 18px;
+}
+
+
+#contact_form input, #contact_form textarea{
+    min-height: 65px;
+    font-size: 20px !important;
+    font-family: "Karla", sans-serif;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    border-radius: 0;
+    padding: 20px 20px;
+    border: 3px solid #545454;
+    background: none;
+
+    
+}
+
+#contact_form input:focus, #contact_form textarea:focus{
+    outline: none;
+    box-shadow: none;
+    border: 3px solid gainsboro;
+}
 .btn-warning{
     background-color: #0F5257;
 }
@@ -359,6 +563,7 @@ footer a{
 
 .control-label{
     color: #fff;
+<<<<<<< HEAD
     text-shadow: 1px 0 #0F5257, 0 1px #0F5257, 1px 0 #0F5257, 0 1px #0F5257;
 }
 
@@ -368,11 +573,20 @@ footer a{
 
 .input-group-addon{
     border: 3px solid #0F5257;
+=======
+}
+
+.form-color{
+}
+
+.input-group-addon{
+>>>>>>> visuals
 }
 
 textarea.form-control {
     height: 100px;
 }
+
 /*** HEADER**/
 
 header {
@@ -384,7 +598,11 @@ header {
     background-size: cover;
     -o-background-size: cover;
     background-position: center;
+<<<<<<< HEAD
     background-image: url('https://fthmb.tqn.com/YmVEs-1-qxo4JqSGTW0q2MuSYms=/2000x1333/filters:fill(auto,1)/about/receptionist_hotel-517791323-58a4ce485f9b58a3c95c1114.jpg');
+=======
+    background-image: url('../images/lobby.jpg');
+>>>>>>> visuals
     text-align: center;
     color: white;
 
@@ -401,28 +619,39 @@ header {
 
 }
 header .header-content {
+    background: rgba(166, 42, 66, 0.9);
+	border-radius: 50%;
     position: relative;
     text-align: center;
     padding: 100px 15px 100px;
-    width: 100%;
+    width: 700px;
+    height:700px;
+	left: calc(50% - 350px);
+}
+header .header-content-inner{
+    position: relative;
+    top: 230px;
+    
 }
 header .header-content .header-content-inner h1 {
+    position: relative;
     font-weight: 700;
     text-transform: uppercase;
+    font-family: 'Droid Sans', sans-serif;
     margin-top: 0;
-    color: #FFF;
+    color: #fff;
     margin-bottom: 0;
-    text-shadow: 2px 2px 0px #000;
 }
 header .header-content .header-content-inner hr {
     margin: 30px auto;
+    max-width: none !important;
 }
 header .header-content .header-content-inner p {
     font-weight: 300;
     color: #FFFFFF;
-    font-size: 16px;
+    font-size: 2.4rem !important;
     margin-bottom: 50px;
-    text-shadow: 2px 2px 0px #000;
+    font-family: 'Karla', sans-serif;
 }
 .header-content1 { 
     border-style: solid;
@@ -458,7 +687,34 @@ header .header-content .header-content-inner p {
         font-size: 42px;
     }
 }
+/****OVERVIEW***/
+#overview{
+    background: #1C1D22;
+    color: #656565;
+    font-family: "Karla", sans-serif;
+    font-size: 1.25em;
+}
 
+#overview h1{
+    color: white;
+    font-family: "Droid Sans", sans-serif;
+    letter-spacing: 2px;
+}
+
+#overview h4{
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+#overview .text-center{
+    margin-bottom: 80px;
+}
+
+#overview #custom_hr{
+    border-color: #A62A42;
+    max-width: 500px;
+}
 /***** Testimonials *****/
 .testimonial {
     margin: 50px auto;
@@ -519,24 +775,22 @@ header .header-content .header-content-inner p {
 }
 
 /*************** Pricing Charts (Landing Page) **************/
+
+#pricing{
+    background: #F4F5F7;
+}
+
 .panel.price,
 .panel.price>.panel-heading{
     border-radius:0px;
+    font-family: "Karla", sans-serif;
+    font-weight: 800;
     -moz-transition: all .3s ease;
     -o-transition:  all .3s ease;
     -webkit-transition:  all .3s ease;
 }
 .panel.price:hover{
     box-shadow: 0px 0px 30px rgba(0,0,0, .2);
-}
-.panel.price:hover>.panel-heading{
-    box-shadow: 0px 0px 30px rgba(0,0,0, .2) inset;
-}
-
-
-.panel.price>.panel-heading{
-    box-shadow: 0px 5px 0px rgba(50,50,50, .2) inset;
-    text-shadow:0px 3px 0px rgba(50,50,50, .6);
 }
 
 .price .list-group-item{
@@ -552,19 +806,27 @@ header .header-content .header-content-inner p {
     border-top-left-radius: 0px;
 }
 
+
+
 .price .panel-footer {
-    color: #fff;
+    color: #545454;
     border-bottom:0px;
-    background-color:  rgba(0,0,0, .1);
-    box-shadow: 0px 3px 0px rgba(0,0,0, .3);
+
+    text-align: middle;
+    font-size: 2.5rem;
 }
 
 
-.panel.price .btn{
-    box-shadow: 0 -1px 0px rgba(50,50,50, .2) inset;
-    border:0px;
-}
 
+
+
+.panel{
+}
+.price .panel-heading {
+    color: #1C1D22;
+    background: #E6E9EA;
+
+<<<<<<< HEAD
 .price.panel-green>.panel-heading {
     color: #fff;
     background-color: #357266;
@@ -576,11 +838,19 @@ header .header-content .header-content-inner p {
 .price.panel-green>.panel-body {
     color: #fff;
     background-color: #439A86;
+=======
+}
+
+
+.price .panel-body {
+    color: #545454;
+    padding: 30px 10px;
+>>>>>>> visuals
 }
 
 
 .price.panel-green>.panel-body .lead{
-    text-shadow: 0px 3px 0px rgba(50,50,50, .3);
+  
 }
 
 .price.panel-green .list-group-item {
@@ -591,43 +861,18 @@ header .header-content .header-content-inner p {
     font-size: 24px;
 }
 
-.price.panel-red>.panel-heading {
-    color: #fff;
-    background-color: #071C33;
-    border-color: #071C33;
-    border-bottom: 1px solid #071C33;
-}
-
-
-.price.panel-red>.panel-body {
-    color: #fff;
-    background-color: #092543;
-}
-
-
-.price.panel-red>.panel-body .lead{
-    text-shadow: 0px 3px 0px rgba(50,50,50, .3);
-}
-
 .price.panel-red .list-group-item {
     color: #333;
     background-color: rgba(50,50,50, .01);
     font-weight:600;
-    text-shadow: 0px 1px 0px rgba(250,250,250, .75);
+
     font-size: 24px;
 }
 
-#chartCheck {
-    color: green;
-}
 
-#chartX {
-    color: red;
+.faded {
+    color: gainsboro !important;    
 }
-.list-group{
-    color: #888a8c;
-}
-
 .btn-success {
     background-color: #439A86;
     color: #ffffff;
@@ -656,19 +901,24 @@ header .header-content .header-content-inner p {
 
 
 /******** Login Page Form ****/
+<<<<<<< HEAD
 .form-control{
     margin: 0 auto;
     width: 300px;
     border:3px solid #022F40;
 }
+=======
+>>>>>>> visuals
 
-.control-label, .label{
-    font-size: 18px;
-}
 
+<<<<<<< HEAD
 .form-control:focus{
     border-color: #8EDCE6;
 }
+=======
+
+
+>>>>>>> visuals
 
 /**Invalid login information**/
 .alert-danger {
@@ -676,30 +926,83 @@ header .header-content .header-content-inner p {
     margin: 0 auto;
 }
 
+.login_form{
+    display: block;
+    position: relative;
+    top: 35%;
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
 /********************* Registration Page **************************/
+.register_form{
+    display: block;
+    position: relative;
+    top: 9%;
+    font-family: 'Karla', sans-serif;
+    color: white;
+}
+
+.register_form h2{
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.register_form .sign1Btn, .login_form .btn{
+    width: 302px;
+    height: 52px;
+    border-radius: 4px;
+}
+
+.centerForm::placeholder{
+    color: white;
+}
+
 .centerForm{
+    color: white !important;
+    letter-spacing: 2px;
     margin: 0 auto;
-    color: black;
+    border: solid white 2px;
+    background:none;
 }
 
 .centerForm:focus{
+<<<<<<< HEAD
     border-color: #fff;
+=======
+    background: #72192D;
+    border: solid #72192D 2px;
+    outline: none !important;
+    box-shadow: none !important;
+ 
+>>>>>>> visuals
 }
 
-.regis {
+.centerForm {
+    color: white !important;
     display: block;
-    margin-bottom: 15px;
-    margin-top: 20px;
-    height: 35px;
+    margin-bottom: 15px !important;
+    padding-left: 10px !important;
+    height: 50px;
     width: 300px;
+<<<<<<< HEAD
     border:3px solid #0F5257;
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+=======
+    border-radius: 2px;
+   
+>>>>>>> visuals
 }
 
 .regTitleColor{
     color: #fff;
+<<<<<<< HEAD
     text-shadow: 1px 0 #0F5257, 0 1px #0F5257, 1px 0 #0F5257, 0 1px #0F5257;
+=======
+   
+>>>>>>> visuals
 }
 
 .custom-center {
@@ -714,8 +1017,7 @@ header .header-content .header-content-inner p {
 }
 
 #form-separator {
-    border-right: 2px solid;
-    border-color: #999999;
+
 }
 
 #register-image {
@@ -723,6 +1025,7 @@ header .header-content .header-content-inner p {
     margin-top: -10px;
     width:500px;
 }
+
 
 /**** Mobile Only ****/
 @media only screen and (max-device-width: 480px){
@@ -751,5 +1054,6 @@ header .header-content .header-content-inner p {
     .fa-5x {
         font-size: 7em;
     }
+    
 
 }
