@@ -16,6 +16,10 @@
             font-family: 'Roboto', sans-serif;
             font-weight: 700;
         }
+        
+        .content-wrapper{
+            background: none;
+        }
 
         .customBG {
             background: #E0E4E8;
@@ -23,7 +27,7 @@
 
         }
 
-        .btn {
+        .checkin-btn {
            background: #071c33;
         }
 
@@ -34,29 +38,18 @@
         .box-primary{
             border-top-color: #071c33 !important;
         }
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            height: 50px;
-            background-color: #071C33;
-        }
-        footer h4 {
-            color: #eeeeee;
-            text-align: center;
-            padding: 0;
-            margin: 0;
-            line-height: 50px;
-            font-weight: bold;
-        }
     </style>
 
 
 </head>
 
-<body class = "customBG">
+<body class = "skin-blue customBG">
+    <div class="">
+        {{>header}}
 
-<!-- <div class="container container-checkin"> -->
+        {{>sidebar-business}}
+        <div class="content-wrapper">
+            <!-- <div class="container container-checkin"> -->
 
 <h1 class ="header text-center"><strong>Welcome to {{companyName}}</strong></h1>
 
@@ -81,17 +74,22 @@
                     </div>
 
                     <div class="box-footer">
-                        <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block" value="Check In" >
+                        <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block checkin-btn" value="Check In" >
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </div>
+        </div>
 
-<footer>
+        {{>footer}}
 
-</footer>
+    </div>
+
+
+
+
 
 </body>
 </html>
