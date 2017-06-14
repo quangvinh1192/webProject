@@ -38,6 +38,17 @@
         .box-primary{
             border-top-color: #071c33 !important;
         }
+        
+        footer{
+            position:fixed;
+            bottom: 0;
+        }
+        
+        footer .container{
+            position:relative !important; 
+            top: -15px !important;
+        }
+        
     </style>
 
 
@@ -51,36 +62,36 @@
         <div class="content-wrapper">
             <!-- <div class="container container-checkin"> -->
 
-<h1 class ="header text-center"><strong>Welcome to {{companyName}}</strong></h1>
+            <h1 class ="header text-center"><strong>Welcome to {{companyName}}</strong></h1>
 
-<div class="row">
-    <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 center-block" style="float:none; padding: 20px">
-        <div class="box box-primary">
-            <div class="box-header with-border">
-                <h3 class="box-title">Check In</h3>
-            </div>
-            {{#if error}}
-                <div class="alert alert-danger">{{error}}</div>
-            {{/if}}
-            <div class="box-body">
-                <form method="POST">
-                    <div class="form-group">
-                        <label class="control-label inputName">Name</label>
-                        <input type="name" id="inputName" name="inputName" value="{{ inputName }}" class="form-control" required autofocus>
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label inputDOB">Phone Number</label>
-                        <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
-                    </div>
+            <div class="row">
+                <div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 center-block" style="float:none; padding: 20px">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Check In</h3>
+                        </div>
+                        {{#if error}}
+                            <div class="alert alert-danger">{{error}}</div>
+                        {{/if}}
+                        <div class="box-body">
+                            <form method="POST">
+                                <div class="form-group">
+                                    <label class="control-label inputName">Name</label>
+                                    <input type="name" id="inputName" name="inputName" value="{{ inputName }}" class="form-control" required autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <label class="control-label inputDOB">Phone Number</label>
+                                    <input type="phone" id="inputPhone" name="inputPhone" value="{{ inputPhone }}" class="form-control" placeholder='(xxx) xxx-xxxx' required autofocus>
+                                </div>
 
-                    <div class="box-footer">
-                        <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block checkin-btn" value="Check In" >
+                                <div class="box-footer">
+                                    <input type="submit" id="checkin" class="btn btn-lg btn-primary center-block checkin-btn" value="Check In" >
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                </form>
+                </div>
             </div>
-        </div>
-    </div>
-</div>
         </div>
 
         {{>footer}}
