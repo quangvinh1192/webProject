@@ -468,7 +468,13 @@ header .header-content .header-content-inner p {
     font-style: italic;
     width: 70%;
 }
-
+#testimonial_blk{
+    background-color: #1C1D22;
+}
+.testimonial-container{
+    max-width: 100%;
+    overflow-x: hidden;
+}
 .arrow-down {
     width: 0;
     height: 0;
@@ -500,7 +506,7 @@ header .header-content .header-content-inner p {
 
 .testimonial-grey {
     background: #fff;
-    color: #0F5257;
+    color: #071C33;
 }
 
 .arrow-down-grey {
