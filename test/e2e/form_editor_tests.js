@@ -108,5 +108,4 @@ module.exports = {
             .end()
     },
 
-    //TODO add more tests about editor?
-}
+};

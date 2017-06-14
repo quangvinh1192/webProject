@@ -46,7 +46,7 @@ module.exports = {
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
             .end()
-    }
+    },
 
     'test already checked in' : function(browser) {
         browser
@@ -65,4 +65,4 @@ module.exports = {
             .end()
     }
 
-}
+};

@@ -90,4 +90,4 @@ module.exports = {
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/login")
             .end();
     }
-}
+};

@@ -136,4 +136,4 @@ module.exports = {
     },
 
     //I actually am unable to do the other two because there is no way to get unique xpaths to them
-}
+};

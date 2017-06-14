@@ -116,8 +116,8 @@ module.exports = {
 
     'new appointment test' : function(browser) {
         browser
-            .waitForElementVisible('body')
             .url('http://nocontext-staging.herokuapp.com/appointments')
+            .waitForElementVisible('body')
             .useXpath()
             //make appointment
             .click('//*[@id="add-appt-show"]')
@@ -149,6 +149,6 @@ module.exports = {
             .waitForElementVisible('/html/body')
             .click("/html/body/div/header/nav/a[2]")
             .end()
-    },
+    }
 
-}
+};
