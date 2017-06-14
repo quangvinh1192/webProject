@@ -48,7 +48,7 @@ exports.get = function(req,res){
           title: 'Check-in History',
           isOwner: req.user[0].admin,
           businessId: req.user[0].business,
-          appointments: "active",
+          history: "active",
           appointmentsList: appointmentsList
       });
 
