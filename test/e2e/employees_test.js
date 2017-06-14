@@ -48,6 +48,35 @@ module.exports = {
             .end()
     },
 
+    'employees to appointments' : function(browser) {
+        browser
+            .waitForElementVisible('body')
+            .useXpath()
+            .click('/html/body/div/aside/section/ul/li[5]/a')
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/appointments")
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
+            .waitForElementVisible('body')
+            .useXpath()
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    },
+
+    'employees to history' : function(browser) {
+        browser
+            .waitForElementVisible('body')
+            .useXpath()
+            .click('/html/body/div/aside/section/ul/li[6]/a')
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/history")
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
+            .waitForElementVisible('body')
+            .useXpath()
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    },
 
     'employees to form editor' : function(browser) {
         browser

@@ -45,6 +45,36 @@ module.exports = {
             .end()
     },
 
+    'dashboard to appointments' : function(browser) {
+        browser
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useXpath()
+            .waitForElementVisible('/html/body')
+            .click('/html/body/div/aside/section/ul/li[5]/a')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/appointmnets')
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useXpath()
+            .waitForElementVisible('/html/body')
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    },
+
+    'dashboard to history' : function(browser) {
+        browser
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useXpath()
+            .waitForElementVisible('/html/body')
+            .click('/html/body/div/aside/section/ul/li[6]/a')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/history')
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useXpath()
+            .waitForElementVisible('/html/body')
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    },
+
     'dashboard to form editor' : function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/dashboard')
