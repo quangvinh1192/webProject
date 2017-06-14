@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
-=======
 @import url('https://fonts.googleapis.com/css?family=Karla:400,700');
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans|Raleway');
 
->>>>>>> visuals
 /*New stylesheet for landing page*/
 html, body {
     height: 100%;
@@ -27,16 +23,12 @@ h1 {
 
 }
 
-<<<<<<< HEAD
 #h1Custom{
     color: #357266;
 }
 #h1Custom1{
     color: #fff;
 }
-=======
-
->>>>>>> visuals
 
 /*
     <h3> format for footer
@@ -137,13 +129,8 @@ fieldset[disabled] .btn-default.active {
 }
 .btn-primary {
     color: #ffffff;
-<<<<<<< HEAD
     background-color: #071C33;
     border-color: #6ED1DE;
-=======
-    background-color: #1C1D22;
-    border-color: #ffae00;
->>>>>>> visuals
     -webkit-transition: all 0.35s;
     -moz-transition: all 0.35s;
     transition: all 0.35s;
@@ -155,13 +142,8 @@ fieldset[disabled] .btn-default.active {
 .btn-primary.active,
 .open > .dropdown-toggle.btn-primary {
     color: #ffffff;
-<<<<<<< HEAD
     background-color: #022F40;
     border-color: #6ED1DE;
-=======
-    background-color: #72192D;
-    border: none;
->>>>>>> visuals
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -186,13 +168,8 @@ fieldset[disabled] .btn-primary:active,
 .btn-primary.disabled.active,
 .btn-primary[disabled].active,
 fieldset[disabled] .btn-primary.active {
-<<<<<<< HEAD
     background-color: #0F5257;
     border-color: #0F5257;
-=======
-    background-color: #72192D;
-    border: none;
->>>>>>> visuals
 }
 .btn-primary .badge {
     color: #0F5257;
@@ -244,20 +221,14 @@ footer h3 {
 
 }
 footer .footer-above {
-<<<<<<< HEAD
     color:white;
     background-color: #022F40;
-=======
-    padding-top: 50px;
-    background-color: #292528;
->>>>>>> visuals
 }
 footer .footer-col {
     margin-bottom: 50px;
 }
 footer .footer-below {
     padding: 25px 0;
-<<<<<<< HEAD
     background: linear-gradient(
       rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
     background-color: #0F5257;
@@ -273,9 +244,6 @@ radial-gradient(circle at 50%  100%, white 10%, #C5E0D8 11%, #C5E0D8 23%, white 
 radial-gradient(circle at 100% 50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent),
 radial-gradient(circle at 0    50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent);
 background-size:100px 50px;
-=======
-    background-color: #1C1D22;
->>>>>>> visuals
 }
 
 .btn-social {
@@ -296,11 +264,7 @@ background-size:100px 50px;
 }
 
 footer a{
-<<<<<<< HEAD
     color: #fff;
-=======
-    color: #A62A42 !important;;
->>>>>>> visuals
 }
 
 /********************* NavBar CSS **************************/
@@ -313,7 +277,6 @@ footer a{
 }
 
 .navbar-default {
-<<<<<<< HEAD
     background: linear-gradient(
       rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
     background-color: #0F5257;
@@ -322,40 +285,21 @@ footer a{
     font-weight: 300;
     font-size: 400;
     color: #FFF;
-=======
-    background-color: #1C1D22;
-    font-family: "Karla","Helvetica Neue",Arial,sans-serif;
-    font-weight: 700;
-    font-size: 1.75rem;
-    color: #555964;
->>>>>>> visuals
     text-transform: uppercase;
     opacity: 0.8;
 }
 .navbar-default .navbar-brand {
-<<<<<<< HEAD
    left-margin: 0;  
    top: 50%;    
    transform: translate(0%, 0) ;   
     color: #fff;
-=======
-    height: 100px;
-    font-size: 3rem;
-    line-height: 65px;
-    padding-left: 50px;
-    color:  white;
->>>>>>> visuals
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
     color: #656565;
 }
 .navbar-default .navbar-text {
-<<<<<<< HEAD
     color: #fff;
-=======
-    color: #312F38;
->>>>>>> visuals
 }
 .navbar-default .navbar-nav > li > a {
     height: 100px;
@@ -366,17 +310,11 @@ footer a{
     color: #656565;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
-<<<<<<< HEAD
     color: #fff;
     background-color: #0F5257;
-=======
-    background: none;
-    color: white;
->>>>>>> visuals
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
-<<<<<<< HEAD
     color: #ffffff;
     background-color: #0F5257;
 }
@@ -396,28 +334,6 @@ footer a{
 }
 .navbar-default .navbar-link {
     color: #fff;
-=======
-    color: #656565 !important;
-}
-.navbar-default .navbar-toggle {
-    border: none;
-    height: 100px;
-    line-height: 65px;
-}
-.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
-    background: none;
-}
-.navbar-default .navbar-toggle .icon-bar {
-    background-color: #A62A42;
-
-}
-.navbar-default .navbar-collapse,
-.navbar-default .navbar-form {
-    border-color: gainsboro;
-}
-.navbar-default .navbar-link {
-    color: #3498DB;
->>>>>>> visuals
 }
 .navbar-default .navbar-link:hover {
     color: #ffffff;
@@ -438,38 +354,43 @@ footer a{
         line-height: 90px;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-<<<<<<< HEAD
         color: #fff;
-=======
->>>>>>> visuals
     }
     .navbar-default .navbar-nav .open .dropdown-menu > li > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
         color: #ffffff;
     }
     .navbar-default .navbar-nav .open .dropdown-menu > .active > a, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover, .navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
-<<<<<<< HEAD
         color: #fff;
         background-color: #0F5257;
-=======
     }
-    header{
-    }
-    header .header-content{
-        left: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        top: 0 !important;
-        height: 90vh !important;
-        border-radius: 2% !important;
-        position: relative;
-        background: #292528 !important;
-    }
-    
-    header .register_form{
-        top: 100px !important;
-        position: relative;
-        margin-bottom: 10px !important;
-    }
+    @media (min-width: 768px) {
+     header {
+         min-height: 100%;
+     }
+     header .header-content {
+         position: absolute;
+         top: 50%;
+         -webkit-transform: translateY(-50%);
+         -ms-transform: translateY(-50%);
+         transform: translateY(-50%);
+         padding: 0 50px;
+     }
+     header .header-content .header-content-inner {
+         max-width: 1000px;
+         margin-left: auto;
+         margin-right: auto;
+     }
+     header .header-content .header-content-inner p {
+         font-size: 32px;
+         max-width: 80%;
+         margin-left: auto;
+         margin-right: auto;
+     }
+ 
+     header .header-content .header-content-inner h1 {
+         font-size: 42px;
+     }
+ }
     .register_form h2{
         font-size: 2.75rem !important;
     }
@@ -485,16 +406,11 @@ footer a{
     .register_form .centerForm:focus{
         background: #1C1D22 !important;
         border-color: #1C1D22 !important;
->>>>>>> visuals
     }
 }
 
 .navbar-collapse, .navbar{
-<<<<<<< HEAD
     border-bottom-color: #fff;
-=======
-    border-bottom-color: gainsboro;
->>>>>>> visuals
 }
 
 .navbar-landing-padding{
@@ -563,7 +479,6 @@ footer a{
 
 .control-label{
     color: #fff;
-<<<<<<< HEAD
     text-shadow: 1px 0 #0F5257, 0 1px #0F5257, 1px 0 #0F5257, 0 1px #0F5257;
 }
 
@@ -573,14 +488,6 @@ footer a{
 
 .input-group-addon{
     border: 3px solid #0F5257;
-=======
-}
-
-.form-color{
-}
-
-.input-group-addon{
->>>>>>> visuals
 }
 
 textarea.form-control {
@@ -590,75 +497,60 @@ textarea.form-control {
 /*** HEADER**/
 
 header {
-    position: relative;
-    width: 100%;
-    min-height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-    background-position: center;
-<<<<<<< HEAD
-    background-image: url('https://fthmb.tqn.com/YmVEs-1-qxo4JqSGTW0q2MuSYms=/2000x1333/filters:fill(auto,1)/about/receptionist_hotel-517791323-58a4ce485f9b58a3c95c1114.jpg');
-=======
-    background-image: url('../images/lobby.jpg');
->>>>>>> visuals
-    text-align: center;
-    color: white;
-
-}
-.header-overlay { 
-    position: absolute;
-    width: 100%; height:100%;
-    top:0; left:0;
-    background:rgba(0,0,0,0.6);
-    opacity: 1;
-    transition: all 1s;
-    -webkit-transition: all 1s;
-    margin: 10px;
-
-}
-header .header-content {
-    background: rgba(166, 42, 66, 0.9);
-	border-radius: 50%;
-    position: relative;
-    text-align: center;
-    padding: 100px 15px 100px;
-    width: 700px;
-    height:700px;
-	left: calc(50% - 350px);
-}
-header .header-content-inner{
-    position: relative;
-    top: 230px;
-    
-}
-header .header-content .header-content-inner h1 {
-    position: relative;
-    font-weight: 700;
-    text-transform: uppercase;
-    font-family: 'Droid Sans', sans-serif;
-    margin-top: 0;
-    color: #fff;
-    margin-bottom: 0;
-}
-header .header-content .header-content-inner hr {
-    margin: 30px auto;
-    max-width: none !important;
-}
-header .header-content .header-content-inner p {
-    font-weight: 300;
-    color: #FFFFFF;
-    font-size: 2.4rem !important;
-    margin-bottom: 50px;
-    font-family: 'Karla', sans-serif;
-}
-.header-content1 { 
-    border-style: solid;
-    border-color: white;
-    border-width: 1px;
-    border-radius: 5px;
-}
+     position: relative;
+     width: 100%;
+     min-height: 100%;
+     -webkit-background-size: cover;
+     -moz-background-size: cover;
+     background-size: cover;
+     -o-background-size: cover;
+     background-position: center;
+     background-image: url('https://fthmb.tqn.com/YmVEs-1-qxo4JqSGTW0q2MuSYms=/2000x1333/filters:fill(auto,1)/about/receptionist_hotel-517791323-58a4ce485f9b58a3c95c1114.jpg');
+     text-align: center;
+     color: white;
+ 
+ }
+ .header-overlay { 
+     position: absolute;
+     width: 100%; height:100%;
+     top:0; left:0;
+     background:rgba(0,0,0,0.6);
+     opacity: 1;
+     transition: all 1s;
+     -webkit-transition: all 1s;
+     margin: 10px;
+ 
+ }
+ header .header-content {
+     position: relative;
+     text-align: center;
+     padding: 100px 15px 100px;
+     width: 100%;
+ }
+ header .header-content .header-content-inner h1 {
+     font-weight: 700;
+     text-transform: uppercase;
+     margin-top: 0;
+     color: #FFF;
+     margin-bottom: 0;
+     text-shadow: 2px 2px 0px #000;
+ }
+ header .header-content .header-content-inner hr {
+     margin: 30px auto;
+ }
+ header .header-content .header-content-inner p {
+     font-weight: 300;
+     color: #FFFFFF;
+     font-size: 16px;
+     margin-bottom: 50px;
+     text-shadow: 2px 2px 0px #000;
+ }
+ .header-content1 { 
+     border-style: solid;
+     border-color: white;
+     border-width: 1px;
+     border-radius: 5px;
+ }
 @media (min-width: 768px) {
     header {
         min-height: 100%;
@@ -901,24 +793,15 @@ header .header-content .header-content-inner p {
 
 
 /******** Login Page Form ****/
-<<<<<<< HEAD
 .form-control{
     margin: 0 auto;
     width: 300px;
     border:3px solid #022F40;
 }
-=======
->>>>>>> visuals
 
-
-<<<<<<< HEAD
 .form-control:focus{
     border-color: #8EDCE6;
 }
-=======
-
-
->>>>>>> visuals
 
 /**Invalid login information**/
 .alert-danger {
@@ -968,15 +851,9 @@ header .header-content .header-content-inner p {
 }
 
 .centerForm:focus{
-<<<<<<< HEAD
-    border-color: #fff;
-=======
-    background: #72192D;
-    border: solid #72192D 2px;
+    border: solid #fff 2px;
     outline: none !important;
     box-shadow: none !important;
- 
->>>>>>> visuals
 }
 
 .centerForm {
@@ -986,23 +863,14 @@ header .header-content .header-content-inner p {
     padding-left: 10px !important;
     height: 50px;
     width: 300px;
-<<<<<<< HEAD
     border:3px solid #0F5257;
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
-=======
-    border-radius: 2px;
-   
->>>>>>> visuals
 }
 
 .regTitleColor{
     color: #fff;
-<<<<<<< HEAD
     text-shadow: 1px 0 #0F5257, 0 1px #0F5257, 1px 0 #0F5257, 0 1px #0F5257;
-=======
-   
->>>>>>> visuals
 }
 
 .custom-center {
