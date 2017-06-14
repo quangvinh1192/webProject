@@ -1,6 +1,6 @@
 
 <section class="content-header">
-    <h1>Dashboard </h1>
+    <h1>Appointments</h1>
     <div id="txt" class="pull-right"></div>
     <h1 class="pull-right" id="currentDate"></h1>
 </section>
@@ -9,7 +9,7 @@
     {{#if message}}
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
-    
+
         <!-- edit modal-->
         <div id= "edit-modal" class="modal fade">
           <div class="modal-dialog" role="document">
@@ -37,7 +37,7 @@
                         </div>
                       </form>
                 </div>
-                  
+
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
@@ -46,7 +46,7 @@
                         </div>
                     </div>
                 </div>
-                
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-primary">Save changes</button>
@@ -81,7 +81,13 @@
                               </span>
                           </div>
                           <label for="Time">Time</label>
-                          <input type="text" id="inputTime" name="inputTime" value="{{ time }}" class="form-control" required>
+                          <div class='input-group date' id='datetimepicker2'>
+                            <input type="text" id="inputTime" name="inputTime" value="{{ time }}" class="form-control" required>
+                              <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-time"></span>
+                              </span>
+                          </div>
+                          <div id="datetimepicker12"></div>
                       </div>
                       <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/appointments" value="Add Appointment">
                   </form>
@@ -93,7 +99,7 @@
               </div>
             </div>
           </div>
-    
+
         <div class="col-md-12">
             <div class="box box-success">
                 <div class="box-header with-border">
@@ -104,10 +110,10 @@
                       <li class="active"><a data-toggle="tab" href="#upcoming"><span></span>Upcoming</a></li>
                       <li><a data-toggle="tab" href="#open"><span>Open</span></a></li>
                       <li><a data-toggle="tab" href="#tba"><span>Needs Approval</span></a></li>
-                        
+
                     </ul>
 
-                    <div class="tab-content">
+                    <div class="tab-content scrollable-div">
                       <div id="upcoming" class="tab-pane fade in active">
                         <p>Date: <input type="text" id="datepicker" size="30"></p>
                         <ul class="cbp_tmtimeline">
@@ -118,7 +124,7 @@
                                 <div class="cbp_tmlabel">
                                     <div class="left_section ">
                                         <div class="container">
-                                            
+
                                             <div class="row">
                                                 <div class="half-width">
                                                     <i class="fa fa-check-square-o" aria-hidden="true"></i>
@@ -149,14 +155,9 @@
                                                 <td>{{phone}}</td>
                                             </tr>
                                         </table>
-                                            
-                                             
-                                             
-                                             
-                                            
                                         </p>
                                     </div>
-                                   
+
                                 </div>
                             </li>
                         {{/each}}
@@ -180,14 +181,14 @@
                         <p>Some content in menu 2.</p>
                       </div>
                     </div>
-                    
+
                 </div>
             </div>
         </div>
 
-        <button id="add-appt-show"  data-toggle="modal" data-target="#add-appt-modal">+</button>
+        <button id="add-appt-show"  data-toggle="modal" data-target="#add-appt-modal">+</button><!--
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
         <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
         <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
         <script>
@@ -197,16 +198,15 @@
             $(function () {
                 $("#datepicker").datepicker({
                 });
-
             });
             $('.edit').click(
                 function(){
-                    //auto populate data                  
+                    //auto populate data
                     $('#name-edit').val($(this).parents('.cbp_tmlabel').first().find('.customer-name').first().html());
-                    
+
                     var time = $(this).parents('li').first().find('.appt-time').first().html();
                     $('#time-edit').val(time);
-                    
+
                     //donut chart
                     var donutEl = document.getElementById("history-donut").getContext("2d");
                     var donut = new Chart(donutEl,{
@@ -220,9 +220,8 @@
                             }]
                         },
                     });
-               
-                    
-                        $('#edit-modal').modal('show');
+
+                    $('#edit-modal').modal('show');
                 }
             );
             $('.datepicker').datepicker({
