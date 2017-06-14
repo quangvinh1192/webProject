@@ -24,12 +24,45 @@ module.exports = {
             .assert.containsText("/html/body/div/div", "No appointment found")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
             .end()
     },
 
-    //I'm not sure how to make an appointment so this is about where the tests end
-    //or how to check that the no input thing pops up
+    'test wrong day appointment' : function(browser) {
+        browser
+            .waitForElementVisible('body')
+            .useXpath()
+            .setValue('//*[@id="inputName"]', "late")
+            .setValue('//*[@id="inputPhone"]', "1234567890")
+            .click('//*[@id="checkin"]')
+            .assert.containsText("/html/body/div/div/div/div[2]", "Your appointment is on 06/13/2017. Please check in on this date.")
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
+            .waitForElementVisible('body')
+            .useXpath()
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    }
+
+    'test already checked in' : function(browser) {
+        browser
+            .waitForElementVisible('body')
+            .useXpath()
+            .setValue('//*[@id="inputName"]', "bob")
+            .setValue('//*[@id="inputPhone"]', "1112223333")
+            .click('//*[@id="checkin"]')
+            .assert.containsText('/html/body/div/div/div/div[2]', "You already checked in") //not full string
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
+            .waitForElementVisible('body')
+            .useXpath()
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    }
+
 }

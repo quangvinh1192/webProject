@@ -1,5 +1,12 @@
 var config = require('../../nightwatch.conf.BASIC.js');
 
+var date = new Date();
+var day = date.toLocaleDateString();
+var name = date.getTime().toString();
+var email = name.concat("@test.com");
+var phone = "111-222-3333";
+var time = "12:00";
+
 module.exports = {
     beforeEach : function(browser) { //login
         browser
@@ -99,6 +106,43 @@ module.exports = {
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[8]/a')
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/accountSettings')
+            //logout
+            .url('http://nocontext-staging.herokuapp.com/dashboard')
+            .useXpath()
+            .waitForElementVisible('/html/body')
+            .click("/html/body/div/header/nav/a[2]")
+            .end()
+    },
+
+    'new appointment test' : function(browser) {
+        browser
+            .waitForElementVisible('body')
+            .url('http://nocontext-staging.herokuapp.com/appointments')
+            .useXpath()
+            //make appointment
+            .click('//*[@id="add-appt-show"]')
+            .setValue('//*[@id="inputName"]', name)
+            .setValue('//*[@id="inputEmail"]', email)
+            .setValue('//*[@id="inputPhone"]', phone)
+            .setValue('//*[@id="inputDate"]', day)
+            .setValue('//*[@id="inputTime"]', time)
+            .click('//*[@id="add-appt-modal"]/div/div/div[2]/form/input')
+            //this might not be right
+            .assert.containsText('/html/body/div[1]/div/section[2]', name)
+
+            //check in
+            .url('https://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin')
+            .waitForElementVisible('/html/body')
+            .setValue('//*[@id="inputName"]',name)
+            .setValue('//*[@id="inputPhone"]', phone)
+            .click('//*[@id="checkin"]')
+            .assert.containsText('/html/body/div/div/div/div[2]',"Welcome to test. You have checked in!")
+
+            //verify
+            .url('https://nocontext-staging.herokuapp.com/history'
+            .waitForElementVisible('/html/body')
+            .assert.containsText('/html/body/div/div/section[2]/div/div/div[2]/table', name)
+
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()

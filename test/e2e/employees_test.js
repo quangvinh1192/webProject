@@ -1,6 +1,6 @@
 var config = require('../../nightwatch.conf.BASIC.js');
 
-var name = new Date().getTime();
+var name = new Date().getTime().toString();
 var email = name.concat("@test.com");
 
 module.exports = {
