@@ -4,3 +4,7 @@ public/javascripts/*.min.*
 public/javascripts/*-min.*
 public/javascripts/analytics.js
 public/javascripts/spectrum.js
+<<<<<<< HEAD
+public/javascripts/*.js
+=======
+>>>>>>> bc56c47f09a6d1b10c75e0e87b0ab007515a5a01

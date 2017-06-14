@@ -13,6 +13,8 @@ var addEmployees = require('./addemployees');
 var employeeRegister = require('./employeeregister');
 var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
+var appointments = require('./appointments');
+var history = require('./history')
 
 /*
  * TODO: Explain where this export is pointing to.
@@ -46,6 +48,12 @@ module.exports = function (passport) {
 
     router.get('/addemployees', isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees', isLoggedInBusiness, addEmployees.post);
+
+
+    router.get('/appointments', isLoggedInBusiness, appointments.get);
+    router.post('/appointments', isLoggedInBusiness, appointments.post);
+
+    router.get('/history', isLoggedInBusiness, history.get);
 
     router.get('/employeeregister', employeeRegister.get);
     router.post('/employeeregister', passport.authenticate('local-signup-employee', {

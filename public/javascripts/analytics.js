@@ -1,9 +1,12 @@
 // Possibly a framework
+
 /**
  * @file Provides analytics for our web pages.
  * @author Original Fubar Team
  */
+
 'use strict';
+
 
 
 /**
