@@ -18,7 +18,7 @@
         <link rel="shortcut icon" href="/images/favicon.ico" />
     </head>
 
-    <body>
+    <body id="top-page">
         <!--Navigation bar-->
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class = "container-fluid">
@@ -32,13 +32,13 @@
                         <span class = "icon-bar"></span>
                     </button>
                     <!--No Implementation of navbar-brand & page-scroll-->
-                    <a class = "navbar-brand page-scroll" href="/">Enqué</a>
-                </div>
+                    <a class = "navbar-brand page-scroll" href="#top-page"><img src='images/logo.png'></a>
+               </div>
                 <!-- No Implementation of page-scroll-->
                 <div class = "collapse navbar-collapse" id="navbar-collapse-1">
-                    <ul class="nav navbar-nav navbar-right navbar-landing-padding">
+                   <ul class="nav navbar-nav navbar-right navbar-landing-padding">
                         <li>
-                            <a href="/register" class="page-scroll" style="color: #315659;">Register</a>
+                            <a href="/register" class="page-scroll" style="color: #8EDCE6;">Register</a>
                         </li>
                     </ul>
                 </div>
@@ -46,6 +46,7 @@
         </nav>
         <!--Main Part that needs styling-->
         <header>
+            <div class="header-overlay">
             <div class="header-content">
                 <div class="login_form">
                     <form class="form-horizontal" action="login" method="post">
@@ -69,7 +70,7 @@
                 {{#if message}}
                     <div class="alert alert-danger">{{message}}</div>
                 {{/if}}
-            </div>
+            </div> </div>
 
         </header>
 
@@ -78,7 +79,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-12">
-                            Copyright &copy; Team Fubar, CSE 112 Winter 2016. All Rights Reserved.
+                            Copyright &copy; Team No Context, CSE 112 Spring 2017. All Rights Reserved.
                         </div>
                     </div>
                 </div>
