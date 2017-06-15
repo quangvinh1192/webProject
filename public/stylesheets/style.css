@@ -1,6 +1,52 @@
 /* These are global changes applied to every page that is linked to this stylesheet */
 /* End: Changes made by William Huang 2/7/15 */
+hr{
+    border: 2px solid #555;
+}
+.chart{
+    background-color: white;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
 
+.dashboard-data-block{
+    background-color:cadetblue;
+    text-align: center;
+    padding-bottom: 25px;
+    padding-top: 10px;
+    margin-bottom: 20px;
+    height: 300px;
+}
+.dashboard-data-block h1{
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 0px;
+}
+
+.dashboard-data-block h2{
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 0px;
+    color: white;
+}
+
+.dashboard-data-block span{
+    color: #555;
+}
+.dashboard-data-block .main-data{
+    font-size: 60px;
+    font-weight: bold;
+    color: white;
+}
+.dashboard-data-block .avg-data{
+    margin-left: 5px;
+}
+.dashboard-section{
+    margin-bottom: 25px;
+}
+
+<<<<<<< HEAD
 .tab-pane{
     padding-top: 15px;
 }
@@ -282,6 +328,8 @@ hr{
     margin-bottom: 25px;
 }
 
+=======
+>>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
 .dashboard-data-block-left {
     float:left;
     width: 50%;
@@ -320,10 +368,13 @@ hr{
     background-color: #3989b6;
 }
 
+<<<<<<< HEAD
 .scrollable-div {
   overflow-y: auto;
   max-height: 60vh;
 }
+=======
+>>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
 /******************/
 .html, .body {
   height: 100%;
