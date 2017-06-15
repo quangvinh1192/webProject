@@ -123,8 +123,8 @@ describe('sms test', function() {
       assert.equal(validation.isValidName(""), false);
     });
   });
-  describe('test phone: 4088888888', function() {
-      it('test phone: 4088888888', function() {
+  describe('test phone validation: 4088888888', function() {
+      it('test phone validation: 4088888888', function() {
       assert.equal(validation.phone("4088888888"), true);
     });
   });
@@ -136,6 +136,11 @@ describe('sms test', function() {
   describe('test invalid phone: 4088aaa88888', function() {
       it('test invalid phone: 4088aaa88888', function() {
       assert.equal(validation.phone("4088aaa88888"), false);
+    });
+  });
+  describe('test valid phone #: +18888888888', function() {
+      it('test invalid phone #: +18888888888', function() {
+      assert.equal(validation.phone("+18888888888"), false);
     });
   });
   describe('test invalid phone: +14088?88888', function() {
@@ -157,6 +162,36 @@ describe('sms test', function() {
 	it('test sending email: kukhunga2@gmail.com', function() {
 		req.body.inputEmail = 'kukhunga2@gmail.com'
 		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
+  	});
+  });
+  describe('test sending 2 emails: kukhunga2@gmail.com and testing cse112team8@gmail.com', function() {
+	it('test sending email: kukhunga2@gmail.com', function() {
+		req.body.inputEmail = 'kukhunga2@gmail.com, testing cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
+  	});
+  });
+  describe('test sending email: empty address', function() {
+	it('test sending email: empty address', function() {
+		req.body.inputEmail = ''
+		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), false);
+  	});
+  });
+  describe('test sending email: empty text', function() {
+	it('test sending email: empty text', function() {
+		req.body.inputEmail = 'cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, ''), false);
+  	});
+  });
+  describe('test sending email: only email', function() {
+	it('test sending email: only email', function() {
+		req.body.inputEmail = 'cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, ''), false);
+  	});
+  });
+  describe('test sending email: empty address and text', function() {
+	it('test sending email: empty address and text', function() {
+		req.body.inputEmail = ''
+		assert.equal(EMAIL.email(req, ''), false);
   	});
   });
 });

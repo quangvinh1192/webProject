@@ -11,17 +11,18 @@ module.exports.email = function(req,smsBody){
             pass: 'fubarForPeter'
         }
     });
+    if (req.body.inputEmail=='' || smsBody == '') {
+        return false;
+    }
+    // setup email data with unicode symbols
+    var mailOptions = {
+        from: 'Enque <cse112team8@gmail>', // sender address
+        to: req.body.inputEmail, // list of receivers
+        subject: 'Appointment Confirmation', // Subject line
+        text: smsBody,
 
-	// setup email data with unicode symbols
-	var mailOptions = {
-		from: 'Enque <cse112team8@gmail>', // sender address
-		to: req.body.inputEmail, // list of receivers
-		subject: 'Appointment Confirmation', // Subject line
-		text: smsBody,
-
-	};
-
-	// send mail with defined transport object
+    };
+    // send mail with defined transport object
     transporter.sendMail(mailOptions, function(error, info){
         if(error){
             return console.log(error);

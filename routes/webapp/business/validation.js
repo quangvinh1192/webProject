@@ -14,7 +14,7 @@ module.exports.isValidName = function(name){
 
 }
 module.exports.phone = function(phone){
-    if (phone.length != 10) {
+    if (phone.length < 10) {
 		return false;
 	}
 
