@@ -24,7 +24,7 @@
     <div class = "dashboard-section">
         <div class="row bottom-padding">
             <div class="col-md-12">
-                <h3>Hello Charly,</h3>
+                <h3>Hello {{name}},</h3>
                 <h4>You have <strong>10</strong> upcoming appointments today.</h4>
                 <hr/>
             </div>
@@ -36,7 +36,7 @@
                             <div class="bar-wrapper">
                                 <div class="bar-container">
                                     <div class="bar-background"></div>
-                                    <div class="bar-inner"></div>
+                                    <div class="bar-inner" id="checkins-bar"></div>
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
@@ -53,7 +53,7 @@
                             <div class="bar-wrapper">
                                 <div class="bar-container">
                                     <div class="bar-background"></div>
-                                    <div class="bar-inner"></div>
+                                    <div class="bar-inner" id ="appts-bar"></div>
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
@@ -71,7 +71,7 @@
                             <div class="bar-wrapper">
                                 <div class="bar-container">
                                     <div class="bar-background"></div>
-                                    <div class="bar-inner"></div>
+                                    <div class="bar-inner" id ="openings-bar"></div>
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
@@ -151,4 +151,11 @@
         }
     });
 
+</script>
+
+<!-- set progressbar to correct height-->
+<script>
+    $('#checkins-bar').css('height', '50%');
+    $('#appts-bar').css('height', '20%');
+    $('#openings-bar').css('height', '90%');
 </script>
