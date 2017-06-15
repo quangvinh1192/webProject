@@ -46,6 +46,7 @@
     "newrelic": "^1.16.4",
     "nightwatch": "^0.9.14",
     "node-qunit-phantomjs": "^1.5.0",
+    "nodemailer": "^4.0.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
     "plivo-node": "^0.2.5",
@@ -55,6 +56,7 @@
     "sendgrid": "^1.6.0",
     "serve-favicon": "^2.2.1",
     "socket.io": "^1.4.5",
+    "twilio": "^3.3.0",
     "underscore": "^1.8.1"
   },
   "devDependencies": {
@@ -76,6 +78,7 @@
     "karma": "^0.12.31",
     "karma-chrome-launcher": "^0.1.7",
     "karma-jasmine": "^0.3.5",
+    "mocha": "^3.4.2",
     "mongobackup": "^0.1.8",
     "yargs": "^3.4.4"
   },
