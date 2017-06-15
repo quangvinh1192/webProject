@@ -202,16 +202,23 @@ gulp.task('mongorestore', function() {
 
 gulp.task('default', ['browser-sync']);
 
+/******************
 var karma = require('karma').server;
+
+*******************/
+
 /**
  * Run test once and exit
  */
+
+ /**************
 gulp.task('test', function (done) {
   karma.start({
     configFile: __dirname + '/karma.conf.js',
     singleRun: true
   }, done);
 });
+*****************/
 
 // prerequisites - must have heroku command line tools installed
 //               - must be authenticated with heroku
