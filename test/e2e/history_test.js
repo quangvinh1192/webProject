@@ -1,7 +1,7 @@
 var config = require('../../nightwatch.conf.BASIC.js');
 
 module.exports = {
-    beforeEach : function(browser) { //login
+/*    beforeEach : function(browser) { //login
         browser
             .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
@@ -11,11 +11,20 @@ module.exports = {
             .click('/html/body/header/div/div/div/form/div[3]/div/button')
             .waitForElementVisible('/html/body')
             .end()
-    },
+    },*/
 
 
     'history to dashboard' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')
@@ -32,6 +41,15 @@ module.exports = {
 
     'history to sign in' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')
@@ -48,6 +66,15 @@ module.exports = {
 
     'history to employees' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')
@@ -64,6 +91,15 @@ module.exports = {
 
     'history to appointments' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')
@@ -79,6 +115,15 @@ module.exports = {
 
     'appiontments to form editor' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')
@@ -94,6 +139,15 @@ module.exports = {
 
     'history to settings' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
+            .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+
             .url('http://nocontext-staging.herokuapp.com/history')
             .useXpath()
             .waitForElementVisible('/html/body')

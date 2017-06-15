@@ -1,7 +1,7 @@
 var config = require('../../nightwatch.conf.BASIC.js');
 
 module.exports = {
-    beforeEach : function(browser) { //login
+/*    beforeEach : function(browser) { //login
         browser
             .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
@@ -12,11 +12,20 @@ module.exports = {
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[3]/a')
             .end()
-    },
+    },*/
 
     'test no appointment' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+            .click('/html/body/div/aside/section/ul/li[3]/a')
+
             .useXpath()
             .setValue('//*[@id="inputName"]', "no appointment")
             .setValue('//*[@id="inputPhone"]', "0000000000")
@@ -33,7 +42,16 @@ module.exports = {
 
     'test wrong day appointment' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+            .click('/html/body/div/aside/section/ul/li[3]/a')
+
             .useXpath()
             .setValue('//*[@id="inputName"]', "late")
             .setValue('//*[@id="inputPhone"]', "1234567890")
@@ -50,7 +68,16 @@ module.exports = {
 
     'test already checked in' : function(browser) {
         browser
+            //login
+            .url('http://nocontext-staging.herokuapp.com/login')
             .waitForElementVisible('body')
+            .setValue("#email","test@ucsd.edu")
+            .setValue("#password","test")
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .waitForElementVisible('/html/body')
+            .click('/html/body/div/aside/section/ul/li[3]/a')
+
             .useXpath()
             .setValue('//*[@id="inputName"]', "bob")
             .setValue('//*[@id="inputPhone"]', "1112223333")
