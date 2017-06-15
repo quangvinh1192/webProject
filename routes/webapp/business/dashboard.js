@@ -18,15 +18,93 @@ exports.get = function (req, res) {
 			dashboard: "active"
 		});
 	} else if( isOwner ) {
-		res.render('business/dashboard-business', {
-			title: 'Dashboard',
-			eid: employeeId,
-			employeeName: employeename,
-			message: req.flash("permission"),
-			isOwner: isOwner,
-			businessId: req.user[0].business,
-			dashboard: "active"
-		});
+		var appt = req.db.get('appointments');
+		var num_appt, appts_past, num_checkins;
+
+		async.parallel({
+	      num_appt: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						num_appt = result.length;
+						cb();
+					});
+	      },
+				appts_past: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						time: {$lt: getTime()},
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						appts_past = result.length;
+						cb();
+					});
+	      },
+				num_checkins: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						checkin: "yes",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						num_checkins = result.length;
+						cb();
+					});
+				}
+	  },
+
+	  function(err,results){
+
+	      if(err){
+	          throw err;
+	      }
+
+				res.render('business/dashboard-business', {
+					num_appt: num_appt,
+					num_checkins: num_checkins,
+					appts_past: appts_past,
+					title: 'Dashboard',
+					eid: employeeId,
+					employeeName: employeename,
+					message: req.flash("permission"),
+					isOwner: isOwner,
+					businessId: req.user[0].business,
+					dashboard: "active"
+				});
+
+	  });
+
+		function getTime () {
+				var unformattedApptTime = new Date();
+				var formattedHour = unformattedApptTime.getUTCHours() - 7;
+				var formattedMinutes = unformattedApptTime.getUTCMinutes();
+				var formattedSecond = unformattedApptTime.getUTCSeconds();
+				var formattedApptTime = formattedHour + ":" + formattedMinutes;
+
+				return formattedApptTime;
+		}
+
+		function todayDate() {
+			var unformattedApptTime = new Date();
+			var formattedDay = unformattedApptTime.getUTCDate();
+			formattedDay = (unformattedApptTime.getUTCHours() < 7) ? formattedDay - 1 : formattedDay;
+			formattedDay = (formattedDay < 10) ? "0" + formattedDay : formattedDay;
+			var formattedMonth = unformattedApptTime.getUTCMonth() + 1;
+			formattedMonth = (formattedMonth < 10) ? "0" + formattedMonth : formattedMonth;
+			var formattedYear = unformattedApptTime.getUTCFullYear();
+			var formattedDate = formattedMonth + "/" + formattedDay + "/" + formattedYear;
+			return formattedDate;
+		}
+
 	} else {
 
 		var db = req.db;
