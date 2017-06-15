@@ -91,7 +91,7 @@ module.exports = {
             .useXpath()
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[5]/a')
-            .assert.urlEquals('http://nocontext-staging.herokuapp.com/appointmnets')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/appointments')
             /*//logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()
