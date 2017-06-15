@@ -194,5 +194,65 @@ describe('sms test', function() {
 		assert.equal(EMAIL.email(req, ''), false);
   	});
   });
+  describe('test date validation: 12-29-1993', function() {
+	it('test date validation: 12-29-1993', function() {
+		var date1 = new Date("12-29-1993");
+		assert.equal(validation.date(date1), false);
+  	});
+  });
+  describe('test date validation: 12-29-2019', function() {
+	it('test date validation: 12-29-2019', function() {
+		var date1 = new Date("12-29-2019");
+		assert.equal(validation.date(date1), true);
+  	});
+  });
+  describe('test date validation: today', function() {
+	it('test date validation: today', function() {
+		var date1 = new Date();
+		assert.equal(validation.date(date1), true);
+  	});
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: today', function() {
+        var date3 = new Date("happy");
+        assert.equal(validation.date(date3), false);
+    });
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: today', function() {
+        var date3 = new Date(22-11-1131);
+        assert.equal(validation.date(date3), false);
+    });
+  });
+  describe('test time validation: valid time', function() {
+    it('test date validation: time', function() {
+        assert.equal(validation.time("12:00"), true);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 1:00', function() {
+        assert.equal(validation.time("1:00"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 13:00', function() {
+        assert.equal(validation.time("13:00"), true);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 25:00', function() {
+        assert.equal(validation.time("25:00"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 12:99', function() {
+        assert.equal(validation.time("12:99"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: a:20', function() {
+        assert.equal(validation.time("a:20"), false);
+    });
+  });
 });
 ;
