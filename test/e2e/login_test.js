@@ -68,6 +68,7 @@ module.exports = { // adapted from: https://git.io/vodU0
     'No Login Test' : function(browser) {
         browser
             .url('https://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
             .waitForElementVisible('body')
             .assert.urlEquals('https://nocontext-staging.herokuapp.com/')
             .end()

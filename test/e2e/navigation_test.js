@@ -15,6 +15,7 @@ module.exports = {
     'login to home': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click("/html/body/nav/div/div[1]/a")
@@ -25,6 +26,7 @@ module.exports = {
     'home to overview': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[1]/a')
@@ -35,6 +37,7 @@ module.exports = {
     'home to testimonial': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[2]/a')
@@ -45,6 +48,7 @@ module.exports = {
     'home to pricing': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[3]/a')
@@ -55,6 +59,7 @@ module.exports = {
     'home to contact': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[4]/a')
@@ -74,6 +79,7 @@ module.exports = {
     'login to register': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li/a')
@@ -84,6 +90,7 @@ module.exports = {
     'register to login': function(browser) {
         browser
             .url('http://nocontext-staging.herokuapp.com/register')
+            .useCss()
             .waitForElementVisible("nav")
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li/a')
