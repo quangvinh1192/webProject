@@ -8,7 +8,7 @@ module.exports = {
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
             .useXpath()
-            .click('/html/body/header/div/div/form/div[3]/div/button')
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[5]/a')
             .waitForElementVisible('/html/body')
