@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 
 <section class="content-header">
     <h1>Appointments </h1>
 
-=======
-<section class="content-header">
-    <h1>Dashboard </h1>
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
     <div id="txt" class="pull-right"></div>
     <h1 class="pull-right" id="currentDate"></h1>
 </section>
@@ -16,7 +11,6 @@
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
 
-<<<<<<< HEAD
         <!-- edit modal-->
         <div id= "edit-modal" class="modal fade">
           <div class="modal-dialog" role="document">
@@ -64,8 +58,6 @@
         </div>
 
         <!-- add appt modal-->
-=======
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
         <div id="add-appt-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
            <div class="modal-dialog">
               <div class="modal-content">
@@ -90,7 +82,6 @@
                               </span>
                           </div>
                           <label for="Time">Time</label>
-<<<<<<< HEAD
                           <div class='input-group date' id='datetimepicker2'>
                             <input type="text" id="inputTime" name="inputTime" value="{{ time }}" class="form-control" required>
                               <span class="input-group-addon">
@@ -98,9 +89,6 @@
                               </span>
                           </div>
                           <div id="datetimepicker12"></div>
-=======
-                          <input type="text" id="inputTime" name="inputTime" value="{{ time }}" class="form-control" required>
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
                       </div>
                       <input class="btn btn-block btn-primary btn-lg btn-flat" name="submit" type="submit" href="/appointments" value="Add Appointment">
                   </form>
@@ -112,7 +100,6 @@
               </div>
             </div>
           </div>
-<<<<<<< HEAD
 
         <div class="col-md-12">
             <div class="box box-success">
@@ -204,39 +191,10 @@
                       </div>
                     </div>
 
-=======
-        <div class="col-md-12">
-            <div class="box box-success">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Appointments</h3>
-                </div>
-                <div class="box-body">
-                    <table class="table table-striped">
-                        <tbody>
-                            <tr>
-                                <th>Name</th>
-                                <th>Email</th>
-                                <th>Phone</th>
-                                <th>Date</th>
-                                <th>Time</th>
-                            </tr>
-                            {{#each appointmentsList}}
-                            <tr>
-                                <td>{{name}}</td>
-                                <td>{{email}}</td>
-                                <td>{{phone}}</td>
-                                <td>{{date}}</td>
-                                <td>{{time}}</td>
-                            </tr>
-                            {{/each}}
-                        </tbody>
-                    </table>
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
                 </div>
             </div>
         </div>
 
-<<<<<<< HEAD
         <button id="add-appt-show"  data-toggle="modal" data-target="#add-appt-modal">+</button><!--
         <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>-->
@@ -280,14 +238,6 @@
 >>>>>>> c295ca1c50ef64f290f62c716a07a9660d91d43b
                 }
             );
-=======
-        <button id="add-appt-show"  data-toggle="modal" data-target="#add-appt-modal">+</button>
-
-        <script>
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
             $('.datepicker').datepicker({
                 format: 'mm/dd/yyyy',
                 startDate: '-3d'
