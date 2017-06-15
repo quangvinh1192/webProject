@@ -68,6 +68,8 @@ if(app.get('env') !== 'development') {
   app.use('/api/*', validate);
 }
 
+
+
 app.use('/auth', auth);
 app.use('/api', user);
 app.use('/api', product);
@@ -89,5 +91,6 @@ server.listen(app.get('port'), function() {
  * Create Socket.io server.
  */
 var server = socketIO.createServer(io);
+
 
 module.exports = app;

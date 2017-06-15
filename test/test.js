@@ -98,8 +98,8 @@ describe('sms test', function() {
       assert.equal(validation.isValidName("apt with dr"), true);
     });
   });
-  describe('test valid name isValidName: ', function() {
-      it('test isValidName: valid name who', function() {
+  describe('test valid name isValidName: apt with dr.j', function() {
+      it('test isValidName: apt with dr.j', function() {
       assert.equal(validation.isValidName("apt with dr.j"), false);
     });
   });
@@ -108,6 +108,17 @@ describe('sms test', function() {
       assert.equal(validation.isValidName("87*fasfd"), false);
     });
   });
+  describe('test valid name isValidName: ', function() {
+      it('test isValidName: ', function() {
+      assert.equal(validation.isValidName(""), false);
+    });
+  });
+  describe('test valid name isValidName: who cares', function() {
+      it('test isValidName: who cares', function() {
+      assert.equal(validation.isValidName("who cares"), true);
+    });
+  });
+
   describe('test invalid name isValidName: remind time', function() {
       it('test valid name isValidName: remind time', function() {
       assert.equal(validation.isValidName("remind time"), true);
@@ -222,6 +233,12 @@ describe('sms test', function() {
     it('test date validation: today', function() {
         var date3 = new Date(22-11-1131);
         assert.equal(validation.date(date3), false);
+    });
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: default', function() {
+        var date3 = new Date();
+        assert.equal(validation.date(date3), true);
     });
   });
   describe('test time validation: valid time', function() {

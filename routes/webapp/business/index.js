@@ -15,6 +15,7 @@ var businesssetting = require('./businesssetting');
 var formbuilder = require('./forms');
 var appointments = require('./appointments');
 var history = require('./history')
+var asdf = require('./test');
 
 /*
  * TODO: Explain where this export is pointing to.
@@ -45,6 +46,7 @@ module.exports = function (passport) {
     }));
 
     router.get('/dashboard', isLoggedIn, dashboard.get);
+    router.get('/test', isLoggedIn, asdf.get);
 
     router.get('/addemployees', isLoggedInBusiness, addEmployees.get);
     router.post('/addemployees', isLoggedInBusiness, addEmployees.post);

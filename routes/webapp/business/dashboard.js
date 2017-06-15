@@ -1,5 +1,11 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var router = express.Router();
+
+
 
 exports.get = function (req, res) {
 
@@ -9,6 +15,7 @@ exports.get = function (req, res) {
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
 
 	if( isPeter ) {
+
 		res.render('business/dashboard-admin', {
 			title: 'Dashboard',
 			eid: employeeId,
@@ -17,12 +24,13 @@ exports.get = function (req, res) {
 			layout: 'admin',
 			dashboard: "active"
 		});
+        
 	} else if( isOwner ) {
 		var appt = req.db.get('appointments');
-		var num_appt, appts_past, num_checkins;
+		var todayAppointments, todayMissed, todayCheckins, totalCheckins, totalAppointments, totalMissed;
 
 		async.parallel({
-	      num_appt: function(cb) {
+	      todayAppointments: function(cb) {
 					appt.find({
 						businessID: req.user[0].business,
 						date: todayDate(),
@@ -30,24 +38,25 @@ exports.get = function (req, res) {
 						if (err) {
 							console.log(err);
 						}
-						num_appt = result.length;
+						todayAppointments = result.length;
 						cb();
 					});
 	      },
-				appts_past: function(cb) {
+				todayMissed: function(cb) {
 					appt.find({
 						businessID: req.user[0].business,
 						date: todayDate(),
 						time: {$lt: getTime()},
+						checkin: "no",
 					}, function (err, result) {
 						if (err) {
 							console.log(err);
 						}
-						appts_past = result.length;
+						todayMissed = result.length;
 						cb();
 					});
 	      },
-				num_checkins: function(cb) {
+				todayCheckins: function(cb) {
 					appt.find({
 						businessID: req.user[0].business,
 						date: todayDate(),
@@ -56,7 +65,44 @@ exports.get = function (req, res) {
 						if (err) {
 							console.log(err);
 						}
-						num_checkins = result.length;
+						todayCheckins = result.length;
+						cb();
+					});
+				},
+				totalCheckins: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						checkin: "yes",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalCheckins = result.length;
+						cb();
+					});
+				},
+				totalMissed: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						time: {$lt: getTime()},
+						checkin: "no",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalMissed = result.length;
+						cb();
+					});
+				},
+				totalAppointments: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalAppointments = result.length;
 						cb();
 					});
 				}
@@ -69,9 +115,12 @@ exports.get = function (req, res) {
 	      }
 
 				res.render('business/dashboard-business', {
-					num_appt: num_appt,
-					num_checkins: num_checkins,
-					appts_past: appts_past,
+					totalAppointments: totalAppointments,
+					totalMissed: totalMissed,
+					totalCheckins, totalCheckins,
+					todayAppointments: todayAppointments,
+					todayCheckins: todayCheckins,
+					todayMissed: todayMissed,
 					title: 'Dashboard',
 					eid: employeeId,
 					employeeName: employeename,
@@ -170,3 +219,5 @@ exports.get = function (req, res) {
 	}
 
 };
+
+
