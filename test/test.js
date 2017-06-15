@@ -1,4 +1,4 @@
-//var assert = require('assert');
+var assert = require('assert');
 describe('First_install', function() {
   describe('test_assert', function() {
     it('should return -1 when the value is not present', function() {
