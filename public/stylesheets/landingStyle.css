@@ -215,32 +215,21 @@ footer {
 footer h3 {
     margin-bottom: 30px;
     font-weight: 700 !important;
-    color: #A62A42 !important;
-
 }
 footer .footer-above {
     color:white;
-    background-color: #022F40;
+    background-color: #1C1D22;
 }
 footer .footer-col {
     margin-bottom: 50px;
 }
 footer .footer-below {
     padding: 25px 0;
-    background: linear-gradient(
-      rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
     background-color: #0F5257;
     border-color: #0F5257;
 }
 footer .pattern-bg1 {
-
-    background-color:#C5E0D8;
-background-image:
-radial-gradient(circle at 100% 150%, #C5E0D8 24%, white 25%, white 28%, #C5E0D8 29%, #C5E0D8 36%, white 36%, white 40%, transparent 40%, transparent),
-radial-gradient(circle at 0    150%, #C5E0D8 24%, white 25%, white 28%, #C5E0D8 29%, #C5E0D8 36%, white 36%, white 40%, transparent 40%, transparent),
-radial-gradient(circle at 50%  100%, white 10%, #C5E0D8 11%, #C5E0D8 23%, white 24%, white 30%, #C5E0D8 31%, #C5E0D8 43%, white 44%, white 50%, #C5E0D8 51%, #C5E0D8 63%, white 64%, white 71%, transparent 71%, transparent),
-radial-gradient(circle at 100% 50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent),
-radial-gradient(circle at 0    50%, white 5%, #C5E0D8 6%, #C5E0D8 15%, white 16%, white 20%, #C5E0D8 21%, #C5E0D8 30%, white 31%, white 35%, #C5E0D8 36%, #C5E0D8 45%, white 46%, white 49%, transparent 50%, transparent);
+background-color:#C5E0D8;
 background-size:100px 50px;
 }
 
@@ -272,29 +261,33 @@ footer a{
 .navbar{
     margin-bottom: 0px !important;
     position: relative;
+
 }
 
 .navbar-default {
-    background: linear-gradient(
-      rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
-    background-color: #0F5257;
+    height: 90px;
+    line-height: 90px !important;
+    background: url('images/backgrounds/topography.png');
+    background-color: #3F7579;
     border-color: #0F5257;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 300;
     font-size: 400;
     color: #FFF;
     text-transform: uppercase;
-    opacity: 0.8;
+    
 }
 .navbar-default .navbar-brand {
-   left-margin: 0;
-   top: 50%;
-   transform: translate(0%, 0) ;
-    color: #fff;
+   left-margin: 0;  
+   top: 50%;    
+   transform: translate(0%, 0) ;   
+   color: #fff;
+    
 }
-.navbar-brand img {
-    height: 150%;
-    position: absolute;
+
+.navbar-brand img { 
+    height: 50px;
+    position: relative;
 }
 
 .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
@@ -304,16 +297,23 @@ footer a{
     color: #fff;
 }
 .navbar-default .navbar-nav > li > a {
-    height: 100px;
-    line-height: 65px;
+    height: 90px;
+    line-height: 60px;
     color: white;
+    font-weight: 700;
+    font-family: 'Karla', sans-serif;
+    letter-spacing: 2px;
 }
+
 .navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus {
     color: #656565;
 }
 .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
     color: #fff;
-    background-color: #0F5257;
+    background-color: #3F7579;
+    border-bottom: none !important;
+    height: 90px;
+    outline: none !important;
 }
 
 .navbar-default .navbar-nav > .open > a, .navbar-default .navbar-nav > .open > a:hover, .navbar-default .navbar-nav > .open > a:focus {
@@ -321,8 +321,11 @@ footer a{
     background-color: #0F5257;
 }
 .navbar-default .navbar-toggle {
-    border-color: #0F5257;
-    background-color: #367fa9;
+    border: none !important;
+    background-color: none !important;
+ 
+    top: 20px;
+    padding-top: none !important;
 }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
     background-color: #0F5257;
@@ -348,6 +351,11 @@ footer a{
     height: auto !important;
 }
 @media (max-width: 767px) {
+    .navbar-collapse{
+        margin-top: 35px;
+        background: #3F7579;
+        opacity: 1;
+    }
 
     .navbar-default .navbar-brand {
         line-height: 90px;
@@ -366,6 +374,7 @@ footer a{
         background-color: #0F5257;
     }
     @media (min-width: 768px) {
+
      header {
          min-height: 100%;
      }
