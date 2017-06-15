@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 module.exports.sms = function(req,res){
 	const AccountSID = 'ACf817b4f585f4e1327dbe72724b548a88';

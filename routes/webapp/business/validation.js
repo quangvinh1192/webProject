@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 module.exports.isValidName = function(name){
     if (name.length < 1 && name.length > 30) {
 		return false;

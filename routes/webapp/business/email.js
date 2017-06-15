@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 var nodemailer = require('nodemailer');
 
 module.exports.email = function(req,smsBody){
