@@ -19,7 +19,7 @@ exports.get = function (req, res) {
 		});
 	} else if( isOwner ) {
 		var appt = req.db.get('appointments');
-		var totalAppointments, todayMissed, todayCheckins, totalCheckins, totalAppointments, totalMissed;
+		var todayAppointments, todayMissed, todayCheckins, totalCheckins, totalAppointments, totalMissed;
 
 		async.parallel({
 	      todayAppointments: function(cb) {
