@@ -1,5 +1,6 @@
 # Introduction
 ----------------------------
+
 Welcome to Extension. We are the extension between you and your customers, creating a smooth and convienient interaction  for both sides. With our application you gain a variety of tools--
 * 
 ..*
