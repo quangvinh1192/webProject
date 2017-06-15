@@ -62,12 +62,12 @@
 		this.navLeftCtrl = document.createElement('button');
 		this.navLeftCtrl.className = 'navbutton navbutton--next';
 		this.navLeftCtrl.setAttribute('aria-label', 'Next item');
-		this.navLeftCtrl.innerHTML = '<svg width="100px" height="30px" viewBox="0 0 100 30"><polyline class="navbutton__line" fill="none" stroke="#74182D" stroke-width="5" points="69.821,3.795 92.232,26.205 0,26.205"/></svg>';
+		this.navLeftCtrl.innerHTML = '<svg width="100px" height="30px" viewBox="0 0 100 30"><polyline class="navbutton__line" fill="none" stroke="#439A86" stroke-width="5" points="69.821,3.795 92.232,26.205 0,26.205"/></svg>';
 
 		this.navRightCtrl = document.createElement('button');
 		this.navRightCtrl.className = 'navbutton navbutton--prev';
 		this.navRightCtrl.setAttribute('aria-label', 'Previous item');
-		this.navRightCtrl.innerHTML = '<svg width="100px" height="30px" viewBox="0 0 100 30"><polyline class="navbutton__line" fill="none" stroke="#74182D" stroke-width="5" points="30.179,26.205 7.768,3.795 100,3.795"/></svg>';
+		this.navRightCtrl.innerHTML = '<svg width="100px" height="30px" viewBox="0 0 100 30"><polyline class="navbutton__line" fill="none" stroke="#439A86" stroke-width="5" points="30.179,26.205 7.768,3.795 100,3.795"/></svg>';
 
 		this.el.insertBefore(this.navLeftCtrl, this.el.firstChild);
 		this.el.insertBefore(this.navRightCtrl, this.el.firstChild);
