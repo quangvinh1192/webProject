@@ -11,15 +11,15 @@
 <section class="content">
     <!--form builder -->
     <div id="fb-editor"></div>
-    
+
     <hr/>
-    
+
     <!-- generated form-->
     <!-- NOTE: this is just an example. should have its own page and some styling to it-->
     <div id="fb-rendered-form">
         <form action=""></form>
     </div>
-   
+
 </section>
 
 
@@ -28,30 +28,29 @@
     jQuery(function($){
         //form builder editor
         var $fbEditor = $(document.getElementById('fb-editor'));
-        
+
         //user displayed form element
         var $formContainer = $(document.getElementById('fb-rendered-form'));
-        
+
         //custom options
         var fbOptions = {
             onSave: function() { //when you hit the save btn
                 //debugging
                 console.log(formBuilder.formData);
-                
+
                 //generate rendered form using json data grabbed from formbuilder
                 $('form', $formContainer).formRender({
                   formData: formBuilder.formData
                 });//end form render constructor
-                
+
               },//end save
               disabledActionButtons: ['data'],
               fieldRemoveWarn: true
             }; //end options
-        
+
         var formBuilder = $fbEditor.formBuilder(fbOptions);
-        
-        
-        
+
+
+
     }); //end jQuery
 </script>
-
