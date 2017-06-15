@@ -193,7 +193,10 @@
   background-color: #3b8ab8;
 }
 .skin-blue-light .main-header li.user-header {
-  background-color: #3c8dbc;
+  background: linear-gradient(
+      rgba(67,154,134, 0.5), rgba(26,58,58, 0.45)), url('images/backgrounds/topography.png');
+    background-color: #0F5257;
+    border-color: #0F5257;
 }
 .skin-blue-light .content-header {
   background: transparent;

@@ -1,3 +1,16 @@
+# Introduction
+----------------------------
+Welcome to Extension. We are the extension between you and your customers, creating a smooth and convienient interaction  for both sides. With our application you gain a variety of tools at your disposal--
+* Buisness side
+..* Checking in your customers
+..* Seeing appointment analytics 
+
+* Customer side
+..* Similer appointment set ups
+..* No need for application download, uses methods they already use
+..* Appointments at their conviennce, regardless of buisness hours
+All together this will help you better service your customer, see their habits and general buisness trends. With this information you can better understand how you can improve your buisness, as well as increasing customer satisfaction
+
 # web-app [ ![Codeship Status for CSE112-GoldTeam/web-app](https://codeship.com/projects/5f33bf40-cb9d-0133-dbda-4a84e368cd36/status?branch=master)](https://codeship.com/projects/59497)
 
 First Run
