@@ -13,7 +13,7 @@ module.exports = { // adapted from: https://git.io/vodU0
             .assert.containsText("/html/body/div/div/section[1]/h1","Dashboard")
             .click("/html/body/div/header/nav/a[2]")
             .waitForElementVisible('/html/body')
-            .assert.containsText("/html/body/header/div/form/div[3]/div/button","SIGN IN")
+            .assert.containsText("/html/body/header/div/div/div/form/div[3]/div/button","SIGN IN")
             .end();
     },
 
@@ -49,7 +49,7 @@ module.exports = { // adapted from: https://git.io/vodU0
             .assert.containsText("/html/body/div/div/section[1]/h1","Dashboard")
             .click("/html/body/div/header/nav/a[2]")
             .waitForElementVisible('/html/body')
-            .assert.containsText("/html/body/header/div/form/div[3]/div/button","SIGN IN")
+            .assert.containsText("/html/body/header/div/div/div/form/div[3]/div/button","SIGN IN")
 
             .end();
     },

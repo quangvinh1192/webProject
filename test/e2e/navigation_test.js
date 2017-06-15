@@ -8,7 +8,7 @@ module.exports = {
             .useXpath()
             .click('//*[@id="navbar-collapse-1"]/ul/li[5]/a')
             .assert.urlEquals('http://nocontext-staging.herokuapp.com/login')
-            .assert.containsText('/html/body/header/div/form/div[3]/div/button', "SIGN IN")
+            .assert.containsText('/html/body/header/div/div/div/form/div[3]/div/button', "SIGN IN")
             .end();
     },
 
