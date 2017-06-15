@@ -18,8 +18,9 @@ exports.get = function (req,res) {
     var employees = db.get('employees');
     var businesses = db.get('businesses');
 
-    businesses.findById(businessID,
-        function (err, business){
+    businesses.findOne({
+			_id: businessID
+		}, function (err, business){
             if(err){
                 return next(err);
             }
@@ -27,7 +28,7 @@ exports.get = function (req,res) {
             render(req, res, {
                 message: req.flash("permission"),
             });
-            
+
         }
     );
 
@@ -93,7 +94,7 @@ exports.post = function (req, res) {
 
     if (inputPhone != null || inputEmail != null || inputName != null)
     {
-    
+
 
 
         var setContactInfo = {};
@@ -154,7 +155,7 @@ exports.post = function (req, res) {
         employees.findAndModify({_id: eid}, { $set: {smsNotify: smsSet}}, function(err, data)
         {
             if (err) { return handleError(res, err);}
-	        
+
             render(req, res, {
                 edited: 'SMS notification settings successfully changed!'
             });
@@ -240,8 +241,9 @@ exports.uploadLogo = function(req, res, next){
 
     if(req.files.userLogo){
 
-        businesses.findById(businessID,
-            function (err, results){
+        businesses.findOne({
+					_id: businessID
+				}, function (err, results){
 
                 if(err){
                     return next(err);
@@ -276,8 +278,9 @@ exports.uploadLogo = function(req, res, next){
             });
 
     } else {
-        businesses.findById(businessID,
-            function (err, results){
+        businesses.findOne({
+					_id: businessID
+				}, function (err, results){
                 if(err){
                     return next(err);
                 }
@@ -314,8 +317,9 @@ function render(req, res, additionalFields) {
     var employees = db.get('employees');
     var businesses = db.get('businesses');
 
-    businesses.findById(businessID,
-        function (err, business){
+    businesses.findOne({
+			_id: businessID
+		}, function (err, business){
             if(err){
                 return next(err);
             }
