@@ -1,3 +1,4 @@
 db/*
 .idea/*
 config.codekit
+node_modules/*
