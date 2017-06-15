@@ -37,7 +37,7 @@ module.exports = {
             .useXpath()
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[2]/a')
-            .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()
