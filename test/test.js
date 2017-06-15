@@ -14,7 +14,7 @@ var assert = require('assert');
 var req = {
     body:{
     inputName:"test",
-    inputDate:"Monday",å
+    inputDate:"Monday",
     inputTime:"20",
     inputPhone:"+aaa",
 	inputEmail:"cse112team8@gmail.com"
