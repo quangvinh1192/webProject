@@ -71,7 +71,7 @@ module.exports = {
         browser
             .url('http://nocontext-staging.herokuapp.com/')
             .useXpath()
-            .click('//*[@id="navbar-collapse-1"]/ul/li[5]/a')
+            .click('//*[@id="top-page"]/header/div/div/div/a')
             .assert.urlEquals("http://nocontext-staging.herokuapp.com/register")
             .end();
     },
