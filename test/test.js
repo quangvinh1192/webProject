@@ -98,8 +98,8 @@ describe('sms test', function() {
       assert.equal(validation.isValidName("apt with dr"), true);
     });
   });
-  describe('test valid name isValidName: ', function() {
-      it('test isValidName: valid name who', function() {
+  describe('test valid name isValidName: apt with dr.j', function() {
+      it('test isValidName: apt with dr.j', function() {
       assert.equal(validation.isValidName("apt with dr.j"), false);
     });
   });
@@ -108,6 +108,17 @@ describe('sms test', function() {
       assert.equal(validation.isValidName("87*fasfd"), false);
     });
   });
+  describe('test valid name isValidName: ', function() {
+      it('test isValidName: ', function() {
+      assert.equal(validation.isValidName(""), false);
+    });
+  });
+  describe('test valid name isValidName: who cares', function() {
+      it('test isValidName: who cares', function() {
+      assert.equal(validation.isValidName("who cares"), true);
+    });
+  });
+
   describe('test invalid name isValidName: remind time', function() {
       it('test valid name isValidName: remind time', function() {
       assert.equal(validation.isValidName("remind time"), true);
@@ -123,8 +134,8 @@ describe('sms test', function() {
       assert.equal(validation.isValidName(""), false);
     });
   });
-  describe('test phone: 4088888888', function() {
-      it('test phone: 4088888888', function() {
+  describe('test phone validation: 4088888888', function() {
+      it('test phone validation: 4088888888', function() {
       assert.equal(validation.phone("4088888888"), true);
     });
   });
@@ -136,6 +147,11 @@ describe('sms test', function() {
   describe('test invalid phone: 4088aaa88888', function() {
       it('test invalid phone: 4088aaa88888', function() {
       assert.equal(validation.phone("4088aaa88888"), false);
+    });
+  });
+  describe('test valid phone #: +18888888888', function() {
+      it('test invalid phone #: +18888888888', function() {
+      assert.equal(validation.phone("+18888888888"), false);
     });
   });
   describe('test invalid phone: +14088?88888', function() {
@@ -158,6 +174,102 @@ describe('sms test', function() {
 		req.body.inputEmail = 'kukhunga2@gmail.com'
 		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
   	});
+  });
+  describe('test sending 2 emails: kukhunga2@gmail.com and testing cse112team8@gmail.com', function() {
+	it('test sending email: kukhunga2@gmail.com', function() {
+		req.body.inputEmail = 'kukhunga2@gmail.com, testing cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
+  	});
+  });
+  describe('test sending email: empty address', function() {
+	it('test sending email: empty address', function() {
+		req.body.inputEmail = ''
+		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), false);
+  	});
+  });
+  describe('test sending email: empty text', function() {
+	it('test sending email: empty text', function() {
+		req.body.inputEmail = 'cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, ''), false);
+  	});
+  });
+  describe('test sending email: only email', function() {
+	it('test sending email: only email', function() {
+		req.body.inputEmail = 'cse112team8@gmail.com'
+		assert.equal(EMAIL.email(req, ''), false);
+  	});
+  });
+  describe('test sending email: empty address and text', function() {
+	it('test sending email: empty address and text', function() {
+		req.body.inputEmail = ''
+		assert.equal(EMAIL.email(req, ''), false);
+  	});
+  });
+  describe('test date validation: 12-29-1993', function() {
+	it('test date validation: 12-29-1993', function() {
+		var date1 = new Date("12-29-1993");
+		assert.equal(validation.date(date1), false);
+  	});
+  });
+  describe('test date validation: 12-29-2019', function() {
+	it('test date validation: 12-29-2019', function() {
+		var date1 = new Date("12-29-2019");
+		assert.equal(validation.date(date1), true);
+  	});
+  });
+  describe('test date validation: today', function() {
+	it('test date validation: today', function() {
+		var date1 = new Date();
+		assert.equal(validation.date(date1), true);
+  	});
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: today', function() {
+        var date3 = new Date("happy");
+        assert.equal(validation.date(date3), false);
+    });
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: today', function() {
+        var date3 = new Date(22-11-1131);
+        assert.equal(validation.date(date3), false);
+    });
+  });
+  describe('test date validation: invalid date', function() {
+    it('test date validation: default', function() {
+        var date3 = new Date();
+        assert.equal(validation.date(date3), true);
+    });
+  });
+  describe('test time validation: valid time', function() {
+    it('test date validation: time', function() {
+        assert.equal(validation.time("12:00"), true);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 1:00', function() {
+        assert.equal(validation.time("1:00"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 13:00', function() {
+        assert.equal(validation.time("13:00"), true);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 25:00', function() {
+        assert.equal(validation.time("25:00"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: 12:99', function() {
+        assert.equal(validation.time("12:99"), false);
+    });
+  });
+  describe('test time validation: invalid time', function() {
+    it('test date validation: a:20', function() {
+        assert.equal(validation.time("a:20"), false);
+    });
   });
 });
 ;
