@@ -1,4 +1,4 @@
-const BINPATH = './node_modules/nightwatch/bin/';
+BINPATH = './node_modules/nightwatch/bin/';
 
 // we use a nightwatch.conf.js file so we can include comments and helper functions
 module.exports = {

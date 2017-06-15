@@ -94,18 +94,18 @@ exports.post = function(req,res,next){
       throw err;
     }
   });
-	
-  
+
+
   	client.messages.create({
 		to:req.body.inputPhone,
 		from:"+14154771446",
 		body: smsBody
-	
-	
+
+
 	}, function(err,message){
-		console.log(message.sid);
+		console.log(err);
 	});
-  
+
 	var transporter = nodemailer.createTransport({
 	service: 'Gmail',
 		auth:{
@@ -120,7 +120,7 @@ exports.post = function(req,res,next){
 		to: req.body.inputEmail, // list of receivers
 		subject: 'Appointment Confirmation', // Subject line
 		text: smsBody,
-		
+
 	};
 
 	// send mail with defined transport object
@@ -135,7 +135,3 @@ exports.post = function(req,res,next){
 	res.redirect('/appointments');
 
 }
-
-
-
-
