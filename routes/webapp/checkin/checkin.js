@@ -105,6 +105,9 @@ exports.post = function (req, res, next) {
         else if (result[0].date != currDate) {
           returnMessage = 'Your appointment is on ' + result[0].date + '.\nPlease check in on this date.';
         }
+        else if (result[0].time < getTime()) {
+          returnMessage = 'Sorry, you missed your appointment time at ' + result[0].time + ".";
+        }
         else {
           appointments.update({
             businessID: ObjectID(req.params.id),
@@ -193,21 +196,22 @@ exports.post = function (req, res, next) {
 
         function getTime () {
             var unformattedApptTime = new Date();
-            var formattedHour = unformattedApptTime.getHours() > 12 ? unformattedApptTime.getHours() % 12 : unformattedApptTime.getHours();
-            var formattedMinutes = unformattedApptTime.getMinutes();
-            var ampm = unformattedApptTime.getHours() > 12 ? "pm" : "am";
-            var formattedApptTime = formattedHour + ":" + formattedMinutes + ampm;
+            var formattedHour = unformattedApptTime.getUTCHours() - 7;
+            var formattedMinutes = unformattedApptTime.getUTCMinutes();
+            var formattedSecond = unformattedApptTime.getUTCSeconds();
+            var formattedApptTime = formattedHour + ":" + formattedMinutes;
 
             return formattedApptTime;
         }
 
         function todayDate() {
           var unformattedApptTime = new Date();
-          var formattedDay = unformattedApptTime.getDate();
+          var formattedDay = unformattedApptTime.getUTCDate();
+          formattedDay = (unformattedApptTime.getUTCHours() < 7) ? formattedDay - 1 : formattedDay;
           formattedDay = (formattedDay < 10) ? "0" + formattedDay : formattedDay;
-          var formattedMonth = unformattedApptTime.getMonth() + 1;
+          var formattedMonth = unformattedApptTime.getUTCMonth() + 1;
           formattedMonth = (formattedMonth < 10) ? "0" + formattedMonth : formattedMonth;
-          var formattedYear = unformattedApptTime.getFullYear();
+          var formattedYear = unformattedApptTime.getUTCFullYear();
           var formattedDate = formattedMonth + "/" + formattedDay + "/" + formattedYear;
           return formattedDate;
         }

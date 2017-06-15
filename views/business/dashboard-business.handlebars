@@ -10,6 +10,7 @@
     }
 
 </style>
+
 <section class="content-header">
     <h1>Dashboard </h1>
     <div id="txt" class="pull-right"></div>
@@ -25,7 +26,7 @@
         <div class="row bottom-padding">
             <div class="col-md-12">
                 <h3>Hello {{name}},</h3>
-                <h4>You have <strong>{{upcoming_appts}}</strong> upcoming appointments today.</h4>
+                <h4>You have <strong id="upcoming"></strong> upcoming appointment(s) today.</h4>
                 <hr/>
             </div>
 
@@ -41,7 +42,11 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{num_checkins}}/{{num_appt}}</div>
+                            <div class="graph-data">
+                                <span id="todayCheckins">
+                                    {{todayCheckins}}
+                                </span>/
+                                <span id="todayAppointments">{{todayAppointments}}</span></div>
                         </li>
                     </ul>
                     <h4>Number of Check Ins Today</h4>
@@ -59,7 +64,8 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{num_missed}}/{{num_appt}}</div>
+                            <div class="graph-data">
+                                <span id="todayMissed">{{todayMissed}}</span>/{{todayAppointments}}</div>
                         </li>
                     </ul>
                     <h4>Missed Appointments Today</h4>
@@ -77,7 +83,8 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{total_checkins}}/{{total_appts}}</div>
+                            <div class="graph-data"><span id="totalCheckins">{{totalCheckins}}</span>/
+                                <span id="totalAppt">{{totalAppointments}}</span></div>
                         </li>
                     </ul>
                     <h4>Total Checkins</h4>
@@ -94,7 +101,7 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{total_missed}}/{{total_appts}}</div>
+                            <div class="graph-data"><span id="totalMissed">{{totalMissed}}</span>/{{totalAppointments}}</div>
                         </li>
                     </ul>
                     <h4>Total Missed Appointments</h4>
@@ -127,52 +134,98 @@
 <!-- import chart.js-->
 <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
+
 
 
 <!-- generate line chart for checkins vs appointments-->
 <script>
-    var ctx = document.getElementById('retentionChart').getContext('2d');
-    ctx.canvas.height = 450;
+  var chartData;
 
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
+  $.get(
+    '/test',
+    function(data) {
+        chartData = data;
+        console.log(chartData.labels);
+        
+        var ctx = document.getElementById('retentionChart').getContext('2d');
+        ctx.canvas.height = 450;
 
-        // The data for our dataset
-        data: {
-            labels: ["date 1", "date2", " date 3 ", "date 4", "date 5 ", "date 6", "date7"],
-            datasets: [{
-                label: "check ins",
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45],
-                fill : false
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    label: "check ins",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: chartData.checkinData,
+                    fill : false
+                },
+                {
+                    label: "appointments",
+                    backgroundColor: 'rgb(0, 99, 132)',
+                    borderColor: 'rgb(0, 99, 132)',
+                    data: chartData.apptData,
+                    fill : false
+                }]
             },
-            {
-                label: "appointments",
-                backgroundColor: 'rgb(0, 99, 132)',
-                borderColor: 'rgb(0, 99, 132)',
-                data: [1, 10, 7, 5, 22, 31, 48],
-                fill : false
-            }]
-        },
 
-        // Configuration options go here
-        options: {
-            maintainAspectRatio: false
-        }
-    });
-
+            // Configuration options go here
+            options: {
+                maintainAspectRatio: false
+            }
+        });
+    }
+  );
 </script>
 
 <!-- set progressbar to correct height-->
 <script>
-    $('#checkins-bar').css('height', '50%');
-    $('#total-checkins-bar').css('height', '20%');
-    $('#missed-bar').css('height', '90%');
-    $('#total-missed-bar').css('height', '10%');
+    var todayCheckins = parseFloat($('#todayCheckins').html());
+    var todayAppointments = parseFloat($('#todayAppointments').html());
+    var todayMissed = parseFloat($('#todayMissed').html());
+    
+     var totalCheckins = parseFloat($('#totalCheckins').html());
+    var totalAppointments = parseFloat($('#totalAppt').html());
+    var totalMissed = parseFloat($('#totalMissed').html());
+    
+     var todayCheckinsVal = parseFloat(todayCheckins/todayAppointments) * 100.0 + '%';
+    var todayMissedVal = parseFloat(todayMissed/todayAppointments) * 100.0 + '%';
+    var totalCheckinsVal = parseFloat(totalCheckins/totalAppointments) * 100.0 + '%';
+    var totalMissedVal = parseFloat(totalMissed/totalAppointments) * 100.0 + '%';
+    
+    if(todayAppointments == 0){
+        $('#checkins-bar').css('height', '100%');
+        $('#missed-bar').css('height', '0%');
+        
+    }
+    else{
+        $('#checkins-bar').css('height', todayCheckinsVal);
+        $('#missed-bar').css('height', todayMissedVal);
+    }
+    
+    if(totalAppointments == 0){
+        $('#total-checkins-bar').css('height', '100%');
+    
+        $('#total-missed-bar').css('height', '0%');
+        
+    }
+    else{
+        $('#total-checkins-bar').css('height', totalCheckinsVal);
+        $('#total-missed-bar').css('height', totalMissedVal);
+    }
+    
+    $('#upcoming').html(todayAppointments - (todayCheckins + todayMissed));
+    
+    
+</script>
+
+
+
+<script>
+    
+
 </script>
