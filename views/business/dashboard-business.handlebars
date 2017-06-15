@@ -25,7 +25,7 @@
         <div class="row bottom-padding">
             <div class="col-md-12">
                 <h3>Hello {{name}},</h3>
-                <h4>You have <strong>{{upcoming_appts}}</strong> upcoming appointments today.</h4>
+                <h4>You have <strong id="upcoming"></strong> upcoming appointment(s) today.</h4>
                 <hr/>
             </div>
 
@@ -41,7 +41,11 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{num_checkins}}/{{num_appt}}</div>
+                            <div class="graph-data">
+                                <span id="todayCheckins">
+                                    {{todayCheckins}}
+                                </span>/
+                                <span id="todayAppointments">{{todayAppointments}}</span></div>
                         </li>
                     </ul>
                     <h4>Number of Check Ins Today</h4>
@@ -59,7 +63,8 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{num_missed}}/{{num_appt}}</div>
+                            <div class="graph-data">
+                                <span id="todayMissed">{{todayMissed}}</span>/{{todayAppointments}}</div>
                         </li>
                     </ul>
                     <h4>Missed Appointments Today</h4>
@@ -77,7 +82,8 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{totalcheckin}}/{{totalappointment}}</div>
+                            <div class="graph-data"><span id="totalCheckins">{{totalCheckins}}</span>/
+                                <span id="totalAppt">{{totalAppointments}}</span></div>
                         </li>
                     </ul>
                     <h4>Total Checkins</h4>
@@ -94,7 +100,7 @@
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{total_missed}}/{{totalappointment}}</div>
+                            <div class="graph-data"><span id="totalMissed">{{totalMissed}}</span>/{{totalAppointments}}</div>
                         </li>
                     </ul>
                     <h4>Total Missed Appointments</h4>
@@ -177,10 +183,43 @@
 
 <!-- set progressbar to correct height-->
 <script>
-    $('#checkins-bar').css('height', '50%');
-    $('#total-checkins-bar').css('height', '20%');
-    $('#missed-bar').css('height', '90%');
-    $('#total-missed-bar').css('height', '10%');
+    var todayCheckins = parseFloat($('#todayCheckins').html());
+    var todayAppointments = parseFloat($('#todayAppointments').html());
+    var todayMissed = parseFloat($('#todayMissed').html());
+    
+     var totalCheckins = parseFloat($('#totalCheckins').html());
+    var totalAppointments = parseFloat($('#totalAppt').html());
+    var totalMissed = parseFloat($('#totalMissed').html());
+    
+     var todayCheckinsVal = parseFloat(todayCheckins/todayAppointments) * 100.0 + '%';
+    var todayMissedVal = parseFloat(todayMissed/todayAppointments) * 100.0 + '%';
+    var totalCheckinsVal = parseFloat(totalCheckins/totalAppointments) * 100.0 + '%';
+    var totalMissedVal = parseFloat(totalMissed/totalAppointments) * 100.0 + '%';
+    
+    if(todayAppointments == 0){
+        $('#checkins-bar').css('height', '100%');
+        $('#missed-bar').css('height', '0%');
+        
+    }
+    else{
+        $('#checkins-bar').css('height', todayCheckinsVal);
+        $('#missed-bar').css('height', todayMissedVal);
+    }
+    
+    if(totalAppointments == 0){
+        $('#total-checkins-bar').css('height', '100%');
+    
+        $('#total-missed-bar').css('height', '0%');
+        
+    }
+    else{
+        $('#total-checkins-bar').css('height', totalCheckinsVal);
+        $('#total-missed-bar').css('height', totalMissedVal);
+    }
+    
+    $('#upcoming').html(todayAppointments - (todayCheckins + todayMissed));
+    
+    
 </script>
 
 
