@@ -76,7 +76,7 @@ exports.get = function (req, res) {
 				totalMissed: function(cb) {
 					appt.find({
 						businessID: req.user[0].business,
-						date: {$lt, todayDate()},
+						date: todayDate(),
 						time: {$lt: getTime()},
 						checkin: "no",
 					}, function (err, result) {
