@@ -28,6 +28,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -53,6 +54,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -77,6 +79,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -101,6 +104,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -125,6 +129,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -149,6 +154,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -169,4 +175,4 @@ module.exports = {
             .end()
     },
 
-};
+}
