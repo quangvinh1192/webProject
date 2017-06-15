@@ -8,7 +8,7 @@ module.exports.email = function(req,smsBody){
         secure: true, // use SSL
         auth: {
             user:'cse112team8@gmail.com',
-            pass: 'fubarForPeter123'
+            pass: 'fubarForPeter'
         }
     });
 

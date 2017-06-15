@@ -16,7 +16,8 @@ var req = {
     inputName:"test",
     inputDate:"Monday",
     inputTime:"20",
-    inputPhone:"+aaa"
+    inputPhone:"+aaa",
+	inputEmail:"cse112team8@gmail.com"
 }
 };
 var res = "test";
@@ -132,15 +133,31 @@ describe('sms test', function() {
       assert.equal(validation.phone("408888888"), false);
     });
   });
-  describe('test invalid phone: 4088a88888', function() {
-      it('test invalid phone: 4088a88888', function() {
-      assert.equal(validation.phone("4088a88888"), false);
+  describe('test invalid phone: 4088aaa88888', function() {
+      it('test invalid phone: 4088aaa88888', function() {
+      assert.equal(validation.phone("4088aaa88888"), false);
     });
   });
-  describe('test invalid phone: 4088?88888', function() {
-      it('test invalid phone: 4088?88888', function() {
-      assert.equal(validation.phone("4088?88888"), false);
+  describe('test invalid phone: +14088?88888', function() {
+      it('test invalid phone: +14088?88888', function() {
+      assert.equal(validation.phone("+14088?888888"), false);
     });
+  });
+  describe('test sending email: ', function() {
+	  it('test invalid phone: ', function() {
+	  assert.equal(EMAIL.email(req, "testing"), undefined);
+	});
+  });
+  describe('test sending email: cse112team8@gmail.com', function() {
+	it('test sending email: cse112team8@gmail.com', function() {
+	assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
+  	});
+  });
+  describe('test sending email: kukhunga2@gmail.com', function() {
+	it('test sending email: kukhunga2@gmail.com', function() {
+		req.body.inputEmail = 'kukhunga2@gmail.com'
+		assert.equal(EMAIL.email(req, "testing cse112team8@gmail.com"), undefined);
+  	});
   });
 });
 ;
