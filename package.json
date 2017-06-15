@@ -24,7 +24,7 @@
     "express-session": "^1.10.3",
     "express.io": "^1.1.13",
     "express3-handlebars": "^0.5.2",
-    "formBuilder": "^2.2.7",
+    "formBuilder": "^2.5.3",
     "gm": "^1.17.0",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
@@ -46,6 +46,7 @@
     "newrelic": "^1.16.4",
     "nightwatch": "^0.9.14",
     "node-qunit-phantomjs": "^1.5.0",
+    "nodemailer": "^4.0.1",
     "passport": "~0.1.17",
     "passport-local": "~0.1.6",
     "plivo-node": "^0.2.5",
@@ -55,6 +56,7 @@
     "sendgrid": "^1.6.0",
     "serve-favicon": "^2.2.1",
     "socket.io": "^1.4.5",
+    "twilio": "^3.3.0",
     "underscore": "^1.8.1"
   },
   "devDependencies": {

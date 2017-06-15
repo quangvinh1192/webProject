@@ -1,3 +1,7 @@
+<!--import form builder and form renderer-->
+<script src="http://formbuilder.online/assets/js/form-builder.min.js"></script>
+<script src="https://formbuilder.online/assets/js/form-render.min.js"></script>
+
 <section class="content-header">
     <h1>Form Editor </h1>
     <div id="txt" class="pull-right"></div>
@@ -5,15 +9,48 @@
 </section>
 
 <section class="content">
-    <form method="POST">
-        <textarea id="fill-me-in"></textarea>
-    </form>
-    {{>scripts}}
-    <script src="/plugins/formBuilder/form-builder.js"></script>
-    <script src="/plugins/jQueryUI/jquery-ui.js"></script>
-    <link rel="stylesheet" type="text/css" href="/plugins/formBuilder/form-builder.css">
-    <script>
-        $("#fill-me-in").formBuilder();
-    </script>
+    <!--form builder -->
+    <div id="fb-editor"></div>
+
+    <hr/>
+
+    <!-- generated form-->
+    <!-- NOTE: this is just an example. should have its own page and some styling to it-->
+    <div id="fb-rendered-form">
+        <form action=""></form>
+    </div>
+
 </section>
 
+
+<!--form builder-->
+<script>
+    jQuery(function($){
+        //form builder editor
+        var $fbEditor = $(document.getElementById('fb-editor'));
+
+        //user displayed form element
+        var $formContainer = $(document.getElementById('fb-rendered-form'));
+
+        //custom options
+        var fbOptions = {
+            onSave: function() { //when you hit the save btn
+                //debugging
+                console.log(formBuilder.formData);
+
+                //generate rendered form using json data grabbed from formbuilder
+                $('form', $formContainer).formRender({
+                  formData: formBuilder.formData
+                });//end form render constructor
+
+              },//end save
+              disabledActionButtons: ['data'],
+              fieldRemoveWarn: true
+            }; //end options
+
+        var formBuilder = $fbEditor.formBuilder(fbOptions);
+
+
+
+    }); //end jQuery
+</script>

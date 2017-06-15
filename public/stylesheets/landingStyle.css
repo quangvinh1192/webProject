@@ -654,7 +654,7 @@ header {
 
 .testimonial-grey {
     background: #fff;
-    color: #071C33;
+    color: #3c8dbc;
 }
 
 .arrow-down-grey {
@@ -717,27 +717,11 @@ header {
 .price .panel-heading {
     color: #1C1D22;
     background: #E6E9EA;
-
-<<<<<<< HEAD
-.price.panel-green>.panel-heading {
-    color: #fff;
-    background-color: #357266;
-    border-color: #357266;
-    border-bottom: 1px solid #439A86;
 }
-
-
-.price.panel-green>.panel-body {
-    color: #fff;
-    background-color: #439A86;
-=======
-}
-
 
 .price .panel-body {
     color: #545454;
     padding: 30px 10px;
->>>>>>> visuals
 }
 
 
@@ -774,7 +758,7 @@ header {
 }
 
 .btn-danger {
-    background-color: #071C33;
+    background-color: #3c8dbc;
     color: #ffffff;
     font-family: 'Lato', sans-serif;
     border-radius: 4px; /* Overrides bootstrap rounded corners*/

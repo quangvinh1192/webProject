@@ -71,6 +71,9 @@ exports.post = function (req, res, next) {
         name: inputName,
         phone: inputPhone
     }, function(err, result) {
+      if (err) {
+        throw err;
+      }
 
         // slack integration
         // //TODO: Uncomment this when front end is actually tied to the DB and checking if the appointment is valid
@@ -93,7 +96,7 @@ exports.post = function (req, res, next) {
         var returnMessage;
         var currDate = todayDate();
 
-        if (result.length === 0) {
+        if (result.length == 0) {
           returnMessage = 'No appointment found';
         }
         else if (result[0].checkin == "yes") {
@@ -109,17 +112,19 @@ exports.post = function (req, res, next) {
             phone: inputPhone
           },
           {
-            name: appt.name,
-            time: appt.time,
-            date: appt.date,
-            email: appt.email,
-            phone: appt.phone,
+            name: result[0].name,
+            time: result[0].time,
+            date: result[0].date,
+            email: result[0].email,
+            phone: result[0].phone,
             checkin: "yes",
             checkinTime: getTime(),
             businessID: req.user[0].business,
           },
-          function(err, result) {
-            throw err;
+          function(err2, result) {
+            if (err2) {
+              throw err2;
+            }
           });
           returnMessage = 'Welcome to ' + business.companyName + '.\nYou have checked in!'
         }
