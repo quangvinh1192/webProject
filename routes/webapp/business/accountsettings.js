@@ -22,7 +22,7 @@ exports.get = function (req,res) {
 			_id: businessID
 		}, function (err, business){
             if(err){
-                console.log(err);
+                return next(err);
             }
 
             render(req, res, {
@@ -246,7 +246,7 @@ exports.uploadLogo = function(req, res, next){
 				}, function (err, results){
 
                 if(err){
-                    console.log(err);
+                    return next(err);
                 }
 
                 fs.unlink('public/'+results.logo);
