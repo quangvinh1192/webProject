@@ -1,5 +1,11 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var router = express.Router();
+
+
 
 exports.get = function (req, res) {
 
@@ -9,6 +15,7 @@ exports.get = function (req, res) {
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
 
 	if( isPeter ) {
+
 		res.render('business/dashboard-admin', {
 			title: 'Dashboard',
 			eid: employeeId,
@@ -17,6 +24,7 @@ exports.get = function (req, res) {
 			layout: 'admin',
 			dashboard: "active"
 		});
+        
 	} else if( isOwner ) {
 		var appt = req.db.get('appointments');
 		var todayAppointments, todayMissed, todayCheckins, totalCheckins, totalAppointments, totalMissed;
@@ -211,3 +219,5 @@ exports.get = function (req, res) {
 	}
 
 };
+
+
