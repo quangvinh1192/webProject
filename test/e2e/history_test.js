@@ -18,6 +18,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -29,7 +30,7 @@ module.exports = {
             .useXpath()
             .waitForElementVisible('/html/body')
             .click('/html/body/div/aside/section/ul/li[2]/a')
-            .assert.urlEquals("http://nocontext-staging.herokuapp.com/office/592a3d14f8d4f2000fe12bd6/checkin")
+            .assert.urlEquals("http://nocontext-staging.herokuapp.com/dashboard")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useXpath()
@@ -43,6 +44,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -68,6 +70,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -93,6 +96,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -117,6 +121,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")
@@ -141,6 +146,7 @@ module.exports = {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
+            .useCss()
             .waitForElementVisible('body')
             .setValue("#email","test@ucsd.edu")
             .setValue("#password","test")

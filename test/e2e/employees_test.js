@@ -225,7 +225,7 @@ module.exports = {
             .setValue('//*[@id="inputName"]', name)
             .setValue('//*[@id="inputEmail"]', email)
             .click('//*[@id="add-employee-modal"]/div/div/div[2]/div[2]/button[1]')
-            .assert.hidden('//*[@id="add-employee-modal"]/div') //TODO ???
+            .assert.hidden('//*[@id="add-employee-modal"]/div')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useCss()
@@ -235,7 +235,7 @@ module.exports = {
             .end()
     }, 
 
-    'Test add nothing' : function(browser){
+/*    'Test add nothing' : function(browser){
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
@@ -252,7 +252,7 @@ module.exports = {
             .useXpath()
             .click('//*[@id="add-employee-show"]')
             .click('//*[@id="add-employee-modal"]/div/div/div[2]/div[1]/div/div/div[2]/form/input')
-            .assert.not.hidden('//*[@id="add-employee-modal"]/div') //TODO ??? extra questionable???
+            .assert.not.hidden('//*[@id="add-employee-modal"]/div')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useCss()
@@ -260,5 +260,5 @@ module.exports = {
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
             .end()
-    },
+    },*/
 }
