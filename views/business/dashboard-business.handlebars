@@ -25,12 +25,12 @@
         <div class="row bottom-padding">
             <div class="col-md-12">
                 <h3>Hello {{name}},</h3>
-                <h4>You have <strong>10</strong> upcoming appointments today.</h4>
+                <h4>You have <strong>{{upcoming_appts}}</strong> upcoming appointments today.</h4>
                 <hr/>
             </div>
 
 
-            <div class="col-md-4 graph-col">
+            <div class="col-md-3 graph-col">
                 <center>
                     <ul class="graph-container">
                         <li>
@@ -48,39 +48,56 @@
                 </center>
             </div>
 
-            <div class="col-md-4 graph-col">
+            <div class="col-md-3 graph-col">
                 <center>
                     <ul class="graph-container">
                         <li>
                             <div class="bar-wrapper">
                                 <div class="bar-container">
                                     <div class="bar-background"></div>
-                                    <div class="bar-inner" id="appts-bar"></div>
+                                    <div class="bar-inner" id="missed-bar"></div>
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{appts_past}}/{{num_appt}}</div>
+                            <div class="graph-data">{{num_missed}}/{{num_appt}}</div>
                         </li>
                     </ul>
-                    <h4>Total Appointments Today</h4>
+                    <h4>Missed Appointments Today</h4>
                 </center>
 
             </div>
-            <div class="col-md-4 graph-col">
+            <div class="col-md-3 graph-col">
                 <center>
                     <ul class="graph-container">
                         <li>
                             <div class="bar-wrapper">
                                 <div class="bar-container">
                                     <div class="bar-background"></div>
-                                    <div class="bar-inner" id="openings-bar"></div>
+                                    <div class="bar-inner" id="total-checkins-bar"></div>
                                     <div class="bar-foreground"></div>
                                 </div>
                             </div>
-                            <div class="graph-data">{{num_appt}}/{{num_open}}</div>
+                            <div class="graph-data">{{total_checkins}}/{{total_appts}}</div>
                         </li>
                     </ul>
-                    <h4>Appointment Openings Filled Today</h4>
+                    <h4>Total Checkins</h4>
+                </center>
+            </div>
+            <div class="col-md-3 graph-col">
+                <center>
+                    <ul class="graph-container">
+                        <li>
+                            <div class="bar-wrapper">
+                                <div class="bar-container">
+                                    <div class="bar-background"></div>
+                                    <div class="bar-inner" id="total-missed-bar"></div>
+                                    <div class="bar-foreground"></div>
+                                </div>
+                            </div>
+                            <div class="graph-data">{{total_missed}}/{{total_appts}}</div>
+                        </li>
+                    </ul>
+                    <h4>Total Missed Appointments</h4>
                 </center>
             </div>
         </div>
@@ -155,6 +172,7 @@
 <!-- set progressbar to correct height-->
 <script>
     $('#checkins-bar').css('height', '50%');
-    $('#appts-bar').css('height', '20%');
-    $('#openings-bar').css('height', '90%');
+    $('#total-checkins-bar').css('height', '20%');
+    $('#missed-bar').css('height', '90%');
+    $('#total-missed-bar').css('height', '10%');
 </script>
