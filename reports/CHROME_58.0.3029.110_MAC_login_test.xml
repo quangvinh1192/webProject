@@ -5,9 +5,9 @@
 
   <testsuite name="login_test"
     errors="0" failures="0" hostname="" id="" package="login_test" skipped="0"
-    tests="3" time="19.03" timestamp="Tue, 16 May 2017 01:24:40 GMT">
+    tests="3" time="20.05" timestamp="Thu, 15 Jun 2017 20:07:50 GMT">
   
-    <testcase name="Login Success and Logout Test" classname="login_test" time="6.062" assertions="5">
+    <testcase name="Login Success and Logout Test" classname="login_test" time="5.984" assertions="5">
 
     
 
@@ -20,14 +20,14 @@
     
     </testcase>
   
-    <testcase name="Login Unsuccessful Test" classname="login_test" time="3.504" assertions="2">
+    <testcase name="Login Unsuccessful Test" classname="login_test" time="3.885" assertions="2">
 
     
 
     
     </testcase>
   
-    <testcase name="Login Unsuccessful then Successful Test" classname="login_test" time="9.465" assertions="6">
+    <testcase name="Login Unsuccessful then Successful Test" classname="login_test" time="10.19" assertions="6">
 
     
 
@@ -42,6 +42,9 @@
     
     </testcase>
   
+
+  
+
   
   </testsuite>
 </testsuites>
