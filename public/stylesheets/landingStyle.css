@@ -232,10 +232,10 @@ footer .footer-below {
     background-color: #0F5257;
     border-color: #0F5257;
 }
-footer .pattern-bg1 { 
+footer .pattern-bg1 {
 
     background-color:#C5E0D8;
-background-image: 
+background-image:
 radial-gradient(circle at 100% 150%, #C5E0D8 24%, white 25%, white 28%, #C5E0D8 29%, #C5E0D8 36%, white 36%, white 40%, transparent 40%, transparent),
 radial-gradient(circle at 0    150%, #C5E0D8 24%, white 25%, white 28%, #C5E0D8 29%, #C5E0D8 36%, white 36%, white 40%, transparent 40%, transparent),
 radial-gradient(circle at 50%  100%, white 10%, #C5E0D8 11%, #C5E0D8 23%, white 24%, white 30%, #C5E0D8 31%, #C5E0D8 43%, white 44%, white 50%, #C5E0D8 51%, #C5E0D8 63%, white 64%, white 71%, transparent 71%, transparent),
@@ -271,7 +271,7 @@ footer a{
 */
 .navbar{
     margin-bottom: 0px !important;
-    position: relative; 
+    position: relative;
 }
 
 .navbar-default {
@@ -287,12 +287,12 @@ footer a{
     opacity: 0.8;
 }
 .navbar-default .navbar-brand {
-   left-margin: 0;  
-   top: 50%;    
-   transform: translate(0%, 0) ;   
+   left-margin: 0;
+   top: 50%;
+   transform: translate(0%, 0) ;
     color: #fff;
 }
-.navbar-brand img { 
+.navbar-brand img {
     height: 150%;
     position: absolute;
 }
@@ -348,7 +348,7 @@ footer a{
     height: auto !important;
 }
 @media (max-width: 767px) {
-    
+
     .navbar-default .navbar-brand {
         line-height: 90px;
     }
@@ -388,7 +388,7 @@ footer a{
          margin-left: auto;
          margin-right: auto;
      }
- 
+
      header .header-content .header-content-inner h1 {
          font-size: 42px;
      }
@@ -396,11 +396,11 @@ footer a{
     .register_form h2{
         font-size: 2.75rem !important;
     }
-    
+
     .register_form .sign1Btn {
         width: 252px !important;
     }
-    
+
     .register_form .centerForm{
         padding-left: 10px !important;
         width: 250px !important;
@@ -433,7 +433,7 @@ footer a{
 #contact_form{
     margin: auto;
     padding: 20px;
-    
+
 }
 
 #contact_form label{
@@ -463,7 +463,7 @@ footer a{
     background: none;
     color: white;
 
-    
+
 }
 
 #contact_form input:focus, #contact_form textarea:focus{
@@ -511,9 +511,9 @@ header {
      background-image: url('https://fthmb.tqn.com/YmVEs-1-qxo4JqSGTW0q2MuSYms=/2000x1333/filters:fill(auto,1)/about/receptionist_hotel-517791323-58a4ce485f9b58a3c95c1114.jpg');
      text-align: center;
      color: white;
- 
+
  }
- .header-overlay { 
+ .header-overlay {
      position: absolute;
      width: 100%; height:100%;
      top:0; left:0;
@@ -521,8 +521,6 @@ header {
      opacity: 1;
      transition: all 1s;
      -webkit-transition: all 1s;
-     margin: 10px;
- 
  }
  header .header-content {
      position: relative;
@@ -548,7 +546,7 @@ header {
      margin-bottom: 50px;
      text-shadow: 2px 2px 0px #000;
  }
- .header-content1 { 
+ .header-content1 {
      border-style: solid;
      border-color: white;
      border-width: 1px;
@@ -714,7 +712,7 @@ header {
     font-size: 2.5rem;
     background-color: #357266;
 }
-.panel-red .panel-footer { 
+.panel-red .panel-footer {
      background-color: #0E3B43;
 }
 
@@ -747,7 +745,7 @@ header {
 
 
 .price.panel-green>.panel-body .lead{
-  
+
 }
 
 .price.panel-green .list-group-item {
@@ -786,7 +784,7 @@ header {
 
 
 .faded {
-    color: gainsboro !important;    
+    color: gainsboro !important;
 }
 .btn-success {
     background-color: #439A86;
@@ -945,6 +943,6 @@ header {
     .fa-5x {
         font-size: 7em;
     }
-    
+
 
 }
