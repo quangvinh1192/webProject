@@ -4,15 +4,13 @@ var async = require('async');
 // var sendgrid  = require('sendgrid')('robobetty', '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');
 var sendgrid = require('sendgrid')('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');
 var ObjectId = require('mongodb').ObjectID;
-<<<<<<< HEAD
-=======
 const AccountSID = 'ACf817b4f585f4e1327dbe72724b548a88';
 const AuthToken = '7efcb4ba2558466154f8f352c538199c';
 var SMS = require('./sms');
 const nodemailer = require('nodemailer');
 
 var client = require('twilio')(AccountSID,AuthToken);
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
+
 
  /**
  * Takes a req and res parameters and is inputted into function to get appointment data.
@@ -75,11 +73,10 @@ exports.post = function(req,res,next){
   var appointments = req.db.get('appointments');
   // grab the body of the data from the form
   // var formData = req.body;
-<<<<<<< HEAD
-=======
+
+
   var smsBody ="Hi "+req.body.inputName+"\n You appointment has been created for "+
 			req.body.inputDate+ " at "+ req.body.inputTime +"\nThankyou!";
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
 
   appointments.insert({
     name: req.body.inputName,
@@ -87,24 +84,17 @@ exports.post = function(req,res,next){
     date: req.body.inputDate,
     email: req.body.inputEmail,
     phone: req.body.inputPhone,
-<<<<<<< HEAD
+
     checkin: "no",
     checkinTime: "",
-=======
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
+
     businessID: req.user[0].business,
   }, function (err, result) {
     if (err) {
       throw err;
     }
-<<<<<<< HEAD
-    return done(null, result);
   });
-	res.redirect('/appointments');
-}
-=======
-   
-  });
+	
   
   	client.messages.create({
 		to:req.body.inputPhone,
@@ -148,4 +138,4 @@ exports.post = function(req,res,next){
 
 
 
->>>>>>> 73c6a413f28d8548244572b3f241db4de2bde601
+
