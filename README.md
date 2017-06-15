@@ -1,7 +1,6 @@
 # web-app [ ![Codeship Status for CSE112-FinalProj/web-app](https://app.codeship.com/projects/1603ac60-1b36-0135-93c1-725b0e594e8b/status?branch=master)](https://codeship.com/projects/219549)
 
 # Introduction
-----------------------------
 
 Welcome to Extension. We are the extension between you and your customers, creating a smooth and convienient interaction  for both sides. With our application you gain a variety of tools at your disposal--
 * Buisness side
@@ -15,7 +14,6 @@ Welcome to Extension. We are the extension between you and your customers, creat
 All together this will help you better service your customer, see their habits and general buisness trends. With this information you can better understand how you can improve your buisness, as well as increasing customer satisfaction
 
 # First Run
-----------------------------
 1. Install [Node.js](http://nodejs.org/download/)
 2. Navigate to the root directory
 3. Install npm dependencies:
@@ -26,7 +24,10 @@ All together this will help you better service your customer, see their habits a
 
 4. Use ``gulp`` to run the application
 5. Navigate your browser to [http://localhost:4000](http://localhost:4000/)
+
+
 Optional
+
 1. Setup account with [mLab](https://mlab.com/) - one already provided below
 2. Copy mongoDB access point into app.js:
 
@@ -34,7 +35,7 @@ Optional
 
 
 ## First Run Potential Errors
-----------------------------
+
 * Error: Cannot find module 'express' - 
 	* rerun $ npm install
 * Error: Cannot find module 'monk' - 
@@ -50,38 +51,39 @@ Optional
 	* line 116 add the resave and saveunitialized values
 	* app.use(session({secret: '1234567890QWERTY',resave: true, saveUninitialized: true }));
 
-# Push to testing environment
-----------------------------
+## Push to testing environment
+
 1. Simply push your experimental changes to the ``staging`` branch.
 2. Changes may be view on the [staging site](https://nocontext-staging.herokuapp.com/). Changes may take a few minutes to appear due to pipeline running tests.
 
 # Logging in as Peter
-----------------------------
+
 In order to login as peter, use the following credentials
 
 	username: peter@nocontext.com
 	password: peter
 
 # Logging in for Demo Purposes
-----------------------------
+
 
 	username: nocontext@nocontext.com
 	password: nocontext
 	
 # Places to Know
-----------------------------
+
 * The live app can be found [here](https://nocontext-staging.herokuapp.com/).
 	
 * Slack Integration can be found here
+	``NoContext-CSE112.slack.com``
 
-	NoContext-CSE112.slack.com
-	
+```
 	username: sgvillal@ucsd.edu
 	password: extension
+```
 
 # Our Pipeline
-----------------------------
-Version control -> CI -> unit test -> e2e testing -> linting -> document -> minify -> deployment
+
+``Version control -> CI -> unit test -> e2e testing -> linting -> document -> minify -> deployment``
 
 * Version control: Github
 * CI - codeship
@@ -93,8 +95,8 @@ Version control -> CI -> unit test -> e2e testing -> linting -> document -> mini
 * deployment - heroku with Node
 
 ## Access to Github 
-----------------------------
-Go to the [Github](https://github.com/charlyxie/CSE112-FinalProj/) website.
+
+Go to the [Github](https://github.com/charlyxie/CSE112-FinalProj/) .
 
 Hints
 * Always Pull before you push
@@ -102,38 +104,44 @@ Hints
 * Make sure you don't leave git remnants in your code
 
 ## Access to CI platform on Codeship
-----------------------------
+
 Go to the [Codeship](http://codeship.io) website.
 Use the following credentials:
-
+```
 	username: c4xie@ucsd.edu
 	password: 48vipun7ftnA
+```
 
 Click the restart button on the latest build to rebuild it.
 
 ## Access to Facebook 
-----------------------------
+
 Go to the [Facebook](http://facebook.com) website.
+```
 	username: cse112team8@gmail.com
 	password: fubarForPeter
+```
 
 ## Access to mLab 
-----------------------------
+
 Go to the [mLab](https://mlab.com/) website.
+```
 	username: cse112-team8
 	password: 85kw4Prey3L2
+```
 
 ## Access to Heroku 
-----------------------------
+
 Go to the [Heroku](https://id.heroku.com/login) website.
+```
 	username: c4xie@ucsd.edu
 	password: 7xp8Gs4trkaU
-
+```
 
 
 
 # Technical Information for Future Devolpers
-----------------------------
+
 * SMS Integration
 	* In order for this to work, you must add the number in twillio (no need to do this for email). This is due to us using a trial version of Twillio, so phone numbers must be verified
 	![SMS & Email Confirmations for manual appointment][SMSEmailManual]
@@ -153,12 +161,13 @@ Go to the [Heroku](https://id.heroku.com/login) website.
 
 
 # CodeShip Walkthrough
-----------------------------
+
 Go to the [Codeship](http://codeship.io) website.
 Use the following credentials:
-
+```
 	username: c4xie@ucsd.edu
 	password: 48vipun7ftnA
+```
 
 ![Codeship login][CodeshipLogin]
 
@@ -172,5 +181,5 @@ Here we can see all recently passed and failed deployments
 
 [CodeshipLogin]: documentation/codeship-login.png "Codeship login"
 [CodeshipProject]: documentation/codeship-projects.png "Codeship Project"
-[CodeshipDeploy]: documentation/codeship-deploys "Codeship Deploy"
+[CodeshipDeploy]: documentation/codeship-deploys.png "Codeship Deploy"
 
