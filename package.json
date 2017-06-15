@@ -27,6 +27,7 @@
     "express3-handlebars": "^0.5.2",
     "formBuilder": "^2.5.3",
     "gm": "^1.17.0",
+    "gulp": "^3.9.1",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-rename": "^1.2.0",
