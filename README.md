@@ -8,6 +8,20 @@ Welcome to Extension. We are the extension between you and your customers, creat
 	* Checking in your customers
 	* Seeing appointment analytics 
 
+# Spring 2017 Progress
+* Features added
+	* Manual appointments
+	* checkins functionality and design
+	* Checkin through Facebook Bot
+	* MVP of the buisness dashboard
+	* Designed and facelifted website
+
+
+* Features to be Finalized
+	* Peter's dashboard - We set up google analytics and connected it, but choose other features as priority
+	* Business owner's line chart 
+	* Extra manual features in the appointment page
+
 * Customer side
 	* Similer appointment set ups
 	* No need for application download, uses methods they already use

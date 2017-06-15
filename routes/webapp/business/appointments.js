@@ -116,7 +116,7 @@ exports.post = function(req,res,next){
 
 	// setup email data with unicode symbols
 	var mailOptions = {
-		from: 'Enque <cse112team8@gmail>', // sender address
+		from: 'Extension <cse112team8@gmail>', // sender address
 		to: req.body.inputEmail, // list of receivers
 		subject: 'Appointment Confirmation', // Subject line
 		text: smsBody,
