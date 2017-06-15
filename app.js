@@ -113,7 +113,10 @@ app.use(express.static(path.join(__dirname, 'static')));
 //note to j
 
 // required for passport
-app.use(session({secret: '1234567890QWERTY'}));
+app.use(session({secret: '1234567890QWERTY',
+                 resave: true,
+                 saveUninitialized: true
+                }));
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
@@ -138,6 +141,7 @@ app.use(function(req, res, next) {
 // Set Webapp Routes
 app.use('/office', require('./routes/webapp/checkin'));
 app.use('/', businessRoutes);
+//app.use('/makeAppointment', require('./routes/webapp/makeAppointment'));
 
 
 

@@ -1,3 +1,7 @@
 public/javascripts/bootstrap.js
 public/javascripts/bootstrap.min.js
+public/javascripts/*.min.*
+public/javascripts/*-min.*
+public/javascripts/analytics.js
+public/javascripts/spectrum.js
 public/javascripts/*.js

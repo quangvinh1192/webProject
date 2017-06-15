@@ -1,5 +1,11 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var router = express.Router();
+
+
 
 exports.get = function (req, res) {
 
@@ -7,26 +13,147 @@ exports.get = function (req, res) {
 	var isOwner = req.user[0].admin;
 	var employeeId = req.user[0]._id;
 	var employeename = req.user[0].fname + ' ' + req.user[0].lname;
- 
+
 	if( isPeter ) {
+
 		res.render('business/dashboard-admin', {
-			title: 'Express',
+			title: 'Dashboard',
 			eid: employeeId,
 			employeeName: employeename,
 			message: req.flash("permission"),
 			layout: 'admin',
 			dashboard: "active"
 		});
+        
 	} else if( isOwner ) {
-		res.render('business/dashboard-business', {
-			title: 'Express',
-			eid: employeeId,
-			employeeName: employeename,
-			message: req.flash("permission"),
-			isOwner: isOwner,
-			businessId: req.user[0].business,
-			dashboard: "active"
-		});
+		var appt = req.db.get('appointments');
+		var todayAppointments, todayMissed, todayCheckins, totalCheckins, totalAppointments, totalMissed;
+
+		async.parallel({
+	      todayAppointments: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						todayAppointments = result.length;
+						cb();
+					});
+	      },
+				todayMissed: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						time: {$lt: getTime()},
+						checkin: "no",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						todayMissed = result.length;
+						cb();
+					});
+	      },
+				todayCheckins: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						checkin: "yes",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						todayCheckins = result.length;
+						cb();
+					});
+				},
+				totalCheckins: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						checkin: "yes",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalCheckins = result.length;
+						cb();
+					});
+				},
+				totalMissed: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+						date: todayDate(),
+						time: {$lt: getTime()},
+						checkin: "no",
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalMissed = result.length;
+						cb();
+					});
+				},
+				totalAppointments: function(cb) {
+					appt.find({
+						businessID: req.user[0].business,
+					}, function (err, result) {
+						if (err) {
+							console.log(err);
+						}
+						totalAppointments = result.length;
+						cb();
+					});
+				}
+	  },
+
+	  function(err,results){
+
+	      if(err){
+	          throw err;
+	      }
+
+				res.render('business/dashboard-business', {
+					totalAppointments: totalAppointments,
+					totalMissed: totalMissed,
+					totalCheckins, totalCheckins,
+					todayAppointments: todayAppointments,
+					todayCheckins: todayCheckins,
+					todayMissed: todayMissed,
+					title: 'Dashboard',
+					eid: employeeId,
+					employeeName: employeename,
+					message: req.flash("permission"),
+					isOwner: isOwner,
+					businessId: req.user[0].business,
+					dashboard: "active"
+				});
+
+	  });
+
+		function getTime () {
+				var unformattedApptTime = new Date();
+				var formattedHour = unformattedApptTime.getUTCHours() - 7;
+				var formattedMinutes = unformattedApptTime.getUTCMinutes();
+				var formattedSecond = unformattedApptTime.getUTCSeconds();
+				var formattedApptTime = formattedHour + ":" + formattedMinutes;
+
+				return formattedApptTime;
+		}
+
+		function todayDate() {
+			var unformattedApptTime = new Date();
+			var formattedDay = unformattedApptTime.getUTCDate();
+			formattedDay = (unformattedApptTime.getUTCHours() < 7) ? formattedDay - 1 : formattedDay;
+			formattedDay = (formattedDay < 10) ? "0" + formattedDay : formattedDay;
+			var formattedMonth = unformattedApptTime.getUTCMonth() + 1;
+			formattedMonth = (formattedMonth < 10) ? "0" + formattedMonth : formattedMonth;
+			var formattedYear = unformattedApptTime.getUTCFullYear();
+			var formattedDate = formattedMonth + "/" + formattedDay + "/" + formattedYear;
+			return formattedDate;
+		}
+
 	} else {
 
 		var db = req.db;
@@ -48,7 +175,7 @@ exports.get = function (req, res) {
 			if( filteredAppts.length ) {
 				filteredAppts.forEach( function (elem, i, arr) {
 					var apptInfo = {};
-					
+
 
 					apptInfo.visitor = elem.fname + ' ' + elem.lname;
 					apptInfo.apptTime = formatDate(elem.date);
@@ -74,7 +201,7 @@ exports.get = function (req, res) {
 
 		function renderDashboard () {
 			res.render('business/visitor-list', {
-				title: "Express",
+				title: "Visitor List",
 				isAdmin: req.user[0].admin,
 				patients: patientList
 			});
@@ -92,3 +219,5 @@ exports.get = function (req, res) {
 	}
 
 };
+
+

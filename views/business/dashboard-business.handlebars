@@ -1,3 +1,15 @@
+<link rel="stylesheet" type="text/css" href="stylesheets/graph.css" />
+<style>
+    #retentionChart{
+        background:#fefefe;
+        padding: 50px 20px;
+    }
+
+    .bottom-padding{
+        margin-bottom: 100px;
+    }
+
+</style>
 <section class="content-header">
     <h1>Dashboard </h1>
     <div id="txt" class="pull-right"></div>
@@ -9,8 +21,171 @@
         <div class="alert alert-danger">{{message}}</div>
     {{/if}}
 
-    <div class="pull-left" style = "width: 50%; margin: 0 auto;">
-        <img src="http://i25.photobucket.com/albums/c97/evilsmith/resizeAnalytics_zpsrfxnhb9b.png" alt="Analytics">
-    </div>
+    <div class = "dashboard-section">
+        <div class="row bottom-padding">
+            <div class="col-md-12">
+                <h3>Hello {{name}},</h3>
+                <h4>You have <strong>{{upcoming_appts}}</strong> upcoming appointments today.</h4>
+                <hr/>
+            </div>
+
+
+            <div class="col-md-3 graph-col">
+                <center>
+                    <ul class="graph-container">
+                        <li>
+                            <div class="bar-wrapper">
+                                <div class="bar-container">
+                                    <div class="bar-background"></div>
+                                    <div class="bar-inner" id="checkins-bar"></div>
+                                    <div class="bar-foreground"></div>
+                                </div>
+                            </div>
+                            <div class="graph-data">{{num_checkins}}/{{num_appt}}</div>
+                        </li>
+                    </ul>
+                    <h4>Number of Check Ins Today</h4>
+                </center>
+            </div>
+
+            <div class="col-md-3 graph-col">
+                <center>
+                    <ul class="graph-container">
+                        <li>
+                            <div class="bar-wrapper">
+                                <div class="bar-container">
+                                    <div class="bar-background"></div>
+                                    <div class="bar-inner" id="missed-bar"></div>
+                                    <div class="bar-foreground"></div>
+                                </div>
+                            </div>
+                            <div class="graph-data">{{num_missed}}/{{num_appt}}</div>
+                        </li>
+                    </ul>
+                    <h4>Missed Appointments Today</h4>
+                </center>
+
+            </div>
+            <div class="col-md-3 graph-col">
+                <center>
+                    <ul class="graph-container">
+                        <li>
+                            <div class="bar-wrapper">
+                                <div class="bar-container">
+                                    <div class="bar-background"></div>
+                                    <div class="bar-inner" id="total-checkins-bar"></div>
+                                    <div class="bar-foreground"></div>
+                                </div>
+                            </div>
+                            <div class="graph-data">{{totalcheckin}}/{{totalappointment}}</div>
+                        </li>
+                    </ul>
+                    <h4>Total Checkins</h4>
+                </center>
+            </div>
+            <div class="col-md-3 graph-col">
+                <center>
+                    <ul class="graph-container">
+                        <li>
+                            <div class="bar-wrapper">
+                                <div class="bar-container">
+                                    <div class="bar-background"></div>
+                                    <div class="bar-inner" id="total-missed-bar"></div>
+                                    <div class="bar-foreground"></div>
+                                </div>
+                            </div>
+                            <div class="graph-data">{{total_missed}}/{{totalappointment}}</div>
+                        </li>
+                    </ul>
+                    <h4>Total Missed Appointments</h4>
+                </center>
+            </div>
+        </div>
+    </div> <!-- end container-->
+
+    <div class = "dashboard-section">
+        <div class="row">
+            <div class="col-md-12">
+                <h3> Check Ins vs. Scheduled Appointments</h3>
+                <h4>Check your retention stats.</h4>
+                <hr/>
+            </div>
+
+            <div class="col-md-12">
+                <div class="white-chart">
+                    <canvas id="retentionChart"></canvas>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div> <!-- end container-->
 
 </section>
+
+<!-- import chart.js-->
+<script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
+<script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+
+
+
+<!-- generate line chart for checkins vs appointments-->
+<script>
+  var chartData;
+
+  $.get(
+    '/test',
+    function(data) {
+        chartData = data;
+        console.log(chartData.labels);
+        
+        var ctx = document.getElementById('retentionChart').getContext('2d');
+        ctx.canvas.height = 450;
+
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    label: "check ins",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: chartData.checkinData,
+                    fill : false
+                },
+                {
+                    label: "appointments",
+                    backgroundColor: 'rgb(0, 99, 132)',
+                    borderColor: 'rgb(0, 99, 132)',
+                    data: chartData.apptData,
+                    fill : false
+                }]
+            },
+
+            // Configuration options go here
+            options: {
+                maintainAspectRatio: false
+            }
+        });
+    }
+  );
+</script>
+
+<!-- set progressbar to correct height-->
+<script>
+    $('#checkins-bar').css('height', '50%');
+    $('#total-checkins-bar').css('height', '20%');
+    $('#missed-bar').css('height', '90%');
+    $('#total-missed-bar').css('height', '10%');
+</script>
+
+
+
+<script>
+    
+
+</script>

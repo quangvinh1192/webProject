@@ -21,7 +21,7 @@ exports.get = function(req,res){
         async.parallel({
             employee: function(cb) {
                 employeeDB.find({
-                    registrationToken: {$exists: false}, 
+                    registrationToken: {$exists: false},
                     business: ObjectId(businessID)
                 }, function (err,results){
                         if( err ) { return next(err); }
@@ -33,7 +33,7 @@ exports.get = function(req,res){
             },
             nonemployee: function(cb) {
                 employeeDB.find({
-                    registrationToken: {$exists: true}, 
+                    registrationToken: {$exists: true},
                     business: ObjectId(businessID)}, function (err,results){
 
                     if (err) {
@@ -59,7 +59,7 @@ exports.get = function(req,res){
             }
 
             res.render('business/addemployees', {
-                title: 'Express',
+                title: 'Employees',
                 notsigned: notemployee,
                 signed: employeee,
                 isOwner: req.user[0].admin,

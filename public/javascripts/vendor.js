@@ -7,6 +7,13 @@ $(function(){
 
 });
 
+/**
+ * gets the date of the current day, and turn it into a string that containsText
+ * the day and month.
+ * @author Original Fubar Team
+ * @param {object} date - The current date
+ * @return {string} A string that contains the current date.
+ */
 function dateToString(date) {
 	var monthNames = [ 'January', 'February', 'March', 'April', 'May', 'June',
     'July', 'August', 'September', 'October', 'November', 'December' ];
@@ -19,6 +26,12 @@ function dateToString(date) {
 
 
 }
+
+
+/**
+ * gets current date and puts it in the header 1 tag
+ * @author Original Fubar Team
+ */
 function getDate(){
 	var currentdate = new Date();
 	var datetime= '';
@@ -29,6 +42,11 @@ function getDate(){
 	 $header.append(datetime);
 	$('#currentDate').replaceWith($header);
 }
+
+/**
+ * sets the text in the tag with the txt id to the time this function was called
+ * @author Original Fubar Team
+ */
 function startTime() {
     var today=new Date();
     var h=today.getHours();
@@ -45,11 +63,38 @@ function startTime() {
     setTimeout(function(){startTime();},500);
 }
 
+/**
+ * makes sure time components are two digits long
+ * @author Original Fubar Team
+ * @param {int} i - the number to check
+ * @return {int} - correctly formatted two digit number
+ */
 function checkTime(i) {
     if (i<10) {i = '0' + i;}  // add zero in front of numbers < 10
     return i;
 }
 
+var putCheckedIn = function() {
+    var $appid = $(this).data('appid');
+
+    $.ajax({
+        url :  '/api/appointments/'+$appid+'/state',
+        type : 'PUT'
+    });
+
+};
+
+var putRoomed = function () {
+    $.ajax({
+	url: '/api/appointments/'+x+'/state',
+	type: 'PUT',
+    });
+};
+
+/**
+ * popuates table with appointment data
+ * @author Original Fubar Team
+ */
 function table() {
     var cols,$btn;
 
@@ -88,14 +133,7 @@ function table() {
 
                 if (data[i].state === 'checkedIn'){
                     var $check = $('<input type="checkbox">').data('appid',data[i]._id);
-                    $check.change(function(){
-                        var $appid = $(this).data('appid');
-
-                        $.ajax({
-                            url :  '/api/appointments/'+$appid+'/state',
-                            type : 'PUT'
-                        });
-                    });
+                    $check.change(putCheckedIn);
 
                      cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$check,$img];
                 }
@@ -103,12 +141,7 @@ function table() {
                 else if(data[i].state === 'roomed') {
                     $btn = $('<button class="btn btn-primary"><span class="glyphicon glyphicon-ok-sign" aria-hidden="true"></span></button>');
                     var x = data[i]._id;
-                     $btn.click(function() {
-                        $.ajax({
-                            url: '/api/appointments/'+x+'/state',
-                            type: 'PUT',
-                         });
-                    });
+                     $btn.click(putRoomed);
 
                      cols = [count,data[i].fname + ' ' + data[i].lname,$form,appTime,data[i].state,$btn,$img];
 
@@ -128,7 +161,10 @@ function table() {
     });//end of $get()
 }//end of table()
 
-
+/**
+ * update the table every 1000ms
+ * @author Original Fubar Team
+ */
 function poll() {
     setTimeout(function(){
         table();
@@ -153,7 +189,12 @@ function insRow(cols) {
 
 // Script to add, remove, preview and submit form elements
 
-// Insert options into appropriate dropdown field
+
+/**
+ * Insert options into appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - the number of the dropdown
+ */
 function insertOption(dropcounter) {
     var x = document.getElementById('drop' + dropcounter);
     var option = document.createElement('option');
@@ -172,7 +213,12 @@ function insertOption(dropcounter) {
 
 }
 
-// Remove option from appropriate dropdown field
+
+/**
+ * Remove option from appropriate dropdown field
+ * @author Original Fubar Team
+ * @param {int} dropcounter - the number of the dropdown
+ */
 function removeOption(dropcounter) {
     var x = document.getElementById('drop' + dropcounter);
     x.remove(x.selectedIndex);
@@ -180,6 +226,10 @@ function removeOption(dropcounter) {
 
 $(document).ready(function () {
 
+    /**
+     * shows preview of your form
+     * @author Original Fubar Team
+     */
     function preview() {
         var dropCounter = 0;
         $('#yourform').remove();
@@ -1306,8 +1356,8 @@ $(document).ready(function () {
         var hasTouch = ('ontouchstart' in window);
 
         var duringDragEvents = {};
-        duringDragEvents["selectstart"] = prevent;
-        duringDragEvents["dragstart"] = prevent;
+        duringDragEvents.selectstart = prevent;
+        duringDragEvents.dragstart = prevent;
         duringDragEvents["touchmove mousemove"] = move;
         duringDragEvents["touchend mouseup"] = stop;
 
@@ -1493,7 +1543,7 @@ $(document).ready(function () {
         this._b = rgb.b,
         this._a = rgb.a,
         this._roundA = mathRound(100*this._a) / 100,
-        this._format = opts.format || rgb.format;
+        this._format = opts.format || rgb.format; // jshint ignore:line
         this._gradientType = opts.gradientType;
 
         // Don't let the range of [0,255] come back in [0,1].

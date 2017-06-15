@@ -7,9 +7,10 @@
   "scripts": {
     "build": "gulp",
     "start": "node ./bin/www",
-    "test": "gulp test"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "dependencies": {
+    "assert": "^1.4.1",
     "async": "^0.9.0",
     "babyparse": "^0.4.1",
     "bcrypt-nodejs": "latest",
@@ -24,7 +25,9 @@
     "express-session": "^1.10.3",
     "express.io": "^1.1.13",
     "express3-handlebars": "^0.5.2",
+    "formBuilder": "^2.5.3",
     "gm": "^1.17.0",
+    "gulp": "^3.9.1",
     "gulp-clean": "^0.3.1",
     "gulp-concat": "^2.5.2",
     "gulp-rename": "^1.2.0",
@@ -38,8 +41,9 @@
     "jshint": "^2.9.4",
     "lodash": "^4.17.4",
     "minify": "^2.0.13",
-    "mongodb": "*",
-    "monk": "*",
+    "mocha": "^3.4.2",
+    "mongodb": "^1.4.4",
+    "monk": "^6.0.0",
     "morgan": "~1.5.1",
     "multer": "^0.1.8",
     "newrelic": "^1.16.4",
@@ -61,7 +65,7 @@
   "devDependencies": {
     "browser-sync": "^2.1.1",
     "check-pages": "^0.7.1",
-    "gulp": "^3.8.11",
+    "gulp": "^3.9.1",
     "gulp-apidoc": "^0.1.2",
     "gulp-connect": "^2.2.0",
     "gulp-express": "^0.1.7",
@@ -81,6 +85,6 @@
     "yargs": "^3.4.4"
   },
   "engines": {
-    "node": "0.10.x"
+    "node": "6.11"
   }
 }
