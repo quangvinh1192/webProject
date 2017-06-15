@@ -1,5 +1,19 @@
 var auth = require('../../../lib/auth');
 var async = require('async');
+var express = require('express');
+var bodyParser = require('body-parser');
+var app = express();
+var router = express.Router();
+var es = require('express-sequelize');
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+app.get('/test', function(req, res){
+    res.send('asdfasdf');
+});
 
 exports.get = function (req, res) {
 
