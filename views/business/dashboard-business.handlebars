@@ -127,46 +127,52 @@
 <!-- import chart.js-->
 <script type="text/javascript" src= "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js"></script>
 <script type="text/javascript" src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
+
 
 
 <!-- generate line chart for checkins vs appointments-->
 <script>
-    var ctx = document.getElementById('retentionChart').getContext('2d');
-    ctx.canvas.height = 450;
+  var chartData;
 
-    var chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
+  $.get(
+    '/test',
+    function(data) {
+        chartData = data;
+        console.log(chartData.labels);
+        
+        var ctx = document.getElementById('retentionChart').getContext('2d');
+        ctx.canvas.height = 450;
 
-        // The data for our dataset
-        data: {
-            labels: ["date 1", "date2", " date 3 ", "date 4", "date 5 ", "date 6", "date7"],
-            datasets: [{
-                label: "check ins",
-                backgroundColor: 'rgb(255, 99, 132)',
-                borderColor: 'rgb(255, 99, 132)',
-                data: [0, 10, 5, 2, 20, 30, 45],
-                fill : false
+        var chart = new Chart(ctx, {
+            // The type of chart we want to create
+            type: 'line',
+
+            // The data for our dataset
+            data: {
+                labels: chartData.labels,
+                datasets: [{
+                    label: "check ins",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: chartData.checkinData,
+                    fill : false
+                },
+                {
+                    label: "appointments",
+                    backgroundColor: 'rgb(0, 99, 132)',
+                    borderColor: 'rgb(0, 99, 132)',
+                    data: chartData.apptData,
+                    fill : false
+                }]
             },
-            {
-                label: "appointments",
-                backgroundColor: 'rgb(0, 99, 132)',
-                borderColor: 'rgb(0, 99, 132)',
-                data: [1, 10, 7, 5, 22, 31, 48],
-                fill : false
-            }]
-        },
 
-        // Configuration options go here
-        options: {
-            maintainAspectRatio: false
-        }
-    });
-
+            // Configuration options go here
+            options: {
+                maintainAspectRatio: false
+            }
+        });
+    }
+  );
 </script>
 
 <!-- set progressbar to correct height-->
@@ -180,14 +186,6 @@
 
 
 <script>
-    var chartData;
-
-  $.get(
-    'http://localhost:4000/test',
-    function(data) {
-      chartData = data;
-      console.log(data);
-    }
-  );
+    
 
 </script>
