@@ -51,7 +51,27 @@ module.exports = { // adapted from: https://git.io/vodU0
       .waitForElementVisible('/html/body')
       .assert.containsText("/html/body/header/div/div/div/form/div[3]/div/button","SIGN IN")
 
-      .end();
-  },
+            .end();
+    },
+
+    'Login no input test' : function(browser) {
+        browser
+            .url('https://nocontext-staging.herokuapp.com/login')
+            .useCss()
+            .waitForElementVisible('body')
+            .useXpath()
+            .click('/html/body/header/div/div/div/form/div[3]/div/button')
+            .assert.urlEquals('https://nocontext-staging.herokuapp.com/login')
+            .end()
+    },
+
+    'No Login Test' : function(browser) {
+        browser
+            .url('https://nocontext-staging.herokuapp.com/dashboard')
+            .useCss()
+            .waitForElementVisible('body')
+            .assert.urlEquals('https://nocontext-staging.herokuapp.com/')
+            .end()
+    },
 
 };

@@ -18,7 +18,7 @@ module.exports = {
   "test_settings": {
     "default": {
       "globals": {
-        "waitForConditionTimeout": 10000 // sometimes internet is slow so wait.
+        "waitForConditionTimeout": 30000 // sometimes internet is slow so wait.
       },
       "desiredCapabilities": { // use Chrome as the default browser for tests
         "browserName": "chrome"
