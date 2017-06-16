@@ -84,7 +84,7 @@ module.exports = {
 
             .useXpath()
             .click('/html/body/div/aside/section/ul/li[4]/a')
-            .assert.urlEquals('http://nocontext-staging.herokuapp.com/forms')
+            .assert.urlEquals('http://nocontext-staging.herokuapp.com/addemployees')
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useCss()

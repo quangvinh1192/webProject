@@ -58,7 +58,7 @@ module.exports = {
             .setValue('//*[@id="inputName"]', "late")
             .setValue('//*[@id="inputPhone"]', "1234567890")
             .click('//*[@id="checkin"]')
-            .assert.containsText("/html/body/div/div/div/div[2]", "Your appointment is on 06/13/2017. Please check in on this date.")
+            .assert.containsText('/html/body/div/div/div/div/div/div[2]', "Your appointment is on 06/13/2017. Please check in on this date.")
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useCss()
@@ -85,7 +85,7 @@ module.exports = {
             .setValue('//*[@id="inputName"]', "bob")
             .setValue('//*[@id="inputPhone"]', "1112223333")
             .click('//*[@id="checkin"]')
-            .assert.containsText('/html/body/div/div/div/div[2]', "You already checked in") //not full string
+            .assert.containsText('/html/body/div/div/div/div/div/div[2]', "You already checked in") //not full string
             //logout
             .url('http://nocontext-staging.herokuapp.com/dashboard')
             .useCss()
