@@ -68,7 +68,7 @@ module.exports = {
             .end()
     },
 
-    'test already checked in' : function(browser) {
+    /*'test already checked in' : function(browser) {
         browser
             //login
             .url('http://nocontext-staging.herokuapp.com/login')
@@ -93,6 +93,6 @@ module.exports = {
             .useXpath()
             .click("/html/body/div/header/nav/a[2]")
             .end()
-    }
+    }*/
 
 };
